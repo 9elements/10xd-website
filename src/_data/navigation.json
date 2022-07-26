@@ -1,0 +1,16 @@
+{
+  "items": [
+    {
+      "text": "Leistungen",
+      "url": "/seistungen/"
+    },
+    {
+      "text": "Standorte",
+      "url": "/standorte/"
+    },
+    {
+      "text": "Kontakt",
+      "url": "/kontakt/"
+    }
+  ]
+}

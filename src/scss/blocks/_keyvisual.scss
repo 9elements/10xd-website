@@ -1,0 +1,66 @@
+.keyvisual {
+  height: min(66vh, 100vw);
+  img,
+  svg {
+    height: min(80%, 41rem);
+    width: auto;
+    aspect-ratio: 1;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .center {
+    display: grid;
+    place-items: center;
+    position: relative;
+    height: 100%;
+  }
+
+  .center > * {
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  path {
+    animation: dashmove 2s linear infinite;
+    stroke: #fff;
+    stroke-width: 2;
+    stroke-dasharray: 8px;
+  }
+
+  @keyframes dashmove {
+    to {
+      stroke-dashoffset: 16px;
+    }
+  }
+}
+
+body[data-background="keyvisual"]:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 120vh;
+  background-image: linear-gradient(
+      0deg,
+      var(--color-violet),
+      #002a 10%,
+      #0020 40%
+    ),
+    radial-gradient(circle farthest-side, #001, #0029 50%, #0020 100%);
+  animation: rainbow 20s ease-in-out infinite;
+}
+
+@keyframes rainbow {
+  0%,
+  100% {
+    background-color: #6a115b;
+  }
+  33.333% {
+    background-color: #32065b;
+  }
+  66.666% {
+    background-color: #079a91;
+  }
+}

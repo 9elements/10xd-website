@@ -1,0 +1,23 @@
+<header class="site-head">
+
+  <div class="wrapper">
+    <nav aria-label="Website">
+      <ul class="cluster uppercase">
+        <li>
+          <a href="#">
+            <span class="sr-only">Zehn X D – Startseite</span>
+            {% include "svg/10xd.svg" %}
+          </a>
+        </li>
+        {% for item in navigation.items %}
+        <li>
+          <a href="{{ item.url }}" {{ helpers.getLinkActiveState(item.url, page.url) | safe }}>
+            {{ item.text }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+
+</header>

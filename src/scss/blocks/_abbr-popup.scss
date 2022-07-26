@@ -1,0 +1,42 @@
+.abbr-popup {
+  position: relative;
+  text-decoration: none;
+  padding-inline: 0.1em;
+  margin-inline: -0.1em;
+
+  &:before {
+    content: attr(title);
+    display: none;
+    text-align: left;
+    position: absolute;
+    background: var(--color-brightTurquoise);
+    color: var(--color-black);
+    @include apply-utility("text", "step-0");
+    @include apply-utility("weight", "regular");
+    line-height: 1.5;
+    text-transform: none;
+    width: 28ch;
+    padding: var(--space-xs);
+    bottom: 5em;
+  }
+
+  &:focus,
+  &:hover {
+    &:before {
+      display: block;
+    }
+  }
+
+  &:focus {
+    outline: none;
+    background: linear-gradient(
+      transparent 10%,
+      0,
+      var(--color-brightTurquoise) 90%,
+      0,
+      transparent
+    );
+
+    color: var(--color-violet);
+  }
+}
