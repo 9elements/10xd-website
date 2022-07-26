@@ -24,6 +24,11 @@ body {
 
 .section-intro {
   background-position: center bottom;
+
+  p {
+    max-width: 64ch;
+    margin-inline: auto;
+  }
 }
 
 .section-services {
