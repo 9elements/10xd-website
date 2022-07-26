@@ -3,6 +3,7 @@
   text-decoration: none;
   padding-inline: 0.1em;
   margin-inline: -0.1em;
+  cursor: help;
 
   &:before {
     content: attr(title);
@@ -17,12 +18,28 @@
     text-transform: none;
     width: 28ch;
     padding: var(--space-xs);
-    bottom: 5em;
+    bottom: 6.25em;
+    left: 0;
+  }
+
+  &:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-width: 2.5rem 0.815rem 0 0.815rem;
+    border-color: var(--color-brightTurquoise) transparent transparent
+      transparent;
+    border-style: solid;
+    position: absolute;
+    bottom: 5.5rem;
+    left: 2rem;
+    display: none;
   }
 
   &:focus,
   &:hover {
-    &:before {
+    &:before,
+    &:after {
       display: block;
     }
   }
