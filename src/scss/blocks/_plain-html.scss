@@ -1,4 +1,12 @@
 .plain-html {
+  h1 {
+    @include apply-utility("text", "step-3");
+    color: var(--color-brightTurquoise);
+  }
+
+  h2 {
+    @include apply-utility("text", "step-1");
+  }
   > * + * {
     margin-top: 0.75em;
   }
