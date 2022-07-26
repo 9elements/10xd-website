@@ -5,6 +5,7 @@
   "main": ".eleventy.js",
   "scripts": {
     "start": "npx gulp && concurrently 'npx gulp watch' 'npx eleventy --serve'",
+    "start-production": "NODE_ENV=production npx gulp && NODE_ENV=production concurrently 'npx gulp watch' 'npx eleventy --serve'",
     "production": "NODE_ENV=production npx gulp production && NODE_ENV=production npx eleventy"
   },
   "keywords": [],

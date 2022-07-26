@@ -30,10 +30,12 @@ const calculateOutput = ({ history }) => {
 // The main Sass method grabs all root Sass files,
 // processes them with postcss, then sends them to the output calculator
 const css = () => {
-  return src("./src/scss/*.scss")
-    .pipe(sassProcessor().on("error", sassProcessor.logError))
-    .pipe(postcss())
-    .pipe(dest(calculateOutput, { sourceMaps: !isProduction }));
+  return (
+    src("./src/scss/*.scss")
+      .pipe(sassProcessor().on("error", sassProcessor.logError))
+      // .pipe(postcss())
+      .pipe(dest(calculateOutput, { sourceMaps: !isProduction }))
+  );
 };
 
 module.exports = css;
