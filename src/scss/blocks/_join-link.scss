@@ -1,0 +1,24 @@
+.join-link {
+  width: 8.4em;
+  min-height: 8.4em;
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+  margin-inline: auto;
+
+  > * {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  > svg {
+    width: 100%;
+  }
+
+  &:hover {
+    svg {
+      fill: var(--color-brightTurquoise);
+    }
+    color: var(--color-violet);
+  }
+}
