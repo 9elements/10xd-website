@@ -1,4 +1,24 @@
 .site-foot {
-  padding-block: var(--space-m);
+  padding-block: var(--space-l);
   margin-block-start: var(--space-3xl);
+
+  a {
+    background: linear-gradient(0deg, #fff 1px, 0, transparent);
+    background-repeat: no-repeat;
+    background-size: 0 100%;
+    transition: 0.2s ease-out;
+    text-decoration: none;
+    transition-property: background-size, text-shadow, outline-offset;
+
+    &:hover {
+      background-size: 100% 100%;
+      color: var(--color-brightTurquoise);
+      text-shadow: 0 0 1rem var(--color-white);
+    }
+
+    &:focus {
+      outline: 1px solid var(--color-brightTurquoise);
+      outline-offset: 5px;
+    }
+  }
 }

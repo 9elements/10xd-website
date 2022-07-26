@@ -1,0 +1,34 @@
+.section-ten-x {
+  img {
+    margin-inline: auto;
+  }
+
+  p {
+    margin-block-start: -0.5em;
+  }
+}
+
+body,
+.section-services,
+.section-intro {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 802 563'%3E%3Cpath stroke='%23fff' stroke-linecap='round' stroke-width='2' opacity='0.2' d='M721 1.3 1 361.3M561 1.3l-80 40m-240 120 80-40m-240 120-80 40M801 41.3 1 441.3M1 521.3l800-400M81 561.3l720-360M241 561.3l80-40m160-80 80-40m160-80 80-40M721 321.3l-400-200M481 121.3l320 160M481 41.3l320 160M561 1.3l240 120M721 1.3l80 40M561 321.3l-320-160M561 401.3l-320-160M481 441.3l-400-200M321 441.3 1 281.3M321 521.3 1 361.3M241 561.3 1 441.3M81 561.3l-80-40M81 242v319M161 282v238M241 242v319M321 122v399M401 162v239M481 122v318M561 2v398M641 41v240M721 2v318M1 521v-79.5M1 361v-79.5M801 41.5v80M801 201.5v80'/%3E%3C/svg%3E");
+  background-size: max(60vw, 50rem) auto;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+body {
+  background-position: left -20vw bottom -18rem;
+}
+
+.section-intro {
+  background-position: left bottom;
+}
+
+.section-services {
+  padding-block: var(--space-2xl);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 802 563'%3E%3Cpath stroke='%23fff' stroke-linecap='round' stroke-width='2' opacity='0.2' d='M721 1.3 1 361.3M561 1.3l-80 40m-240 120 80-40m-240 120-80 40M801 41.3 1 441.3M1 521.3l800-400M81 561.3l720-360M241 561.3l80-40m160-80 80-40m160-80 80-40M721 321.3l-400-200M481 121.3l320 160M481 41.3l320 160M561 1.3l240 120M721 1.3l80 40M561 321.3l-320-160M561 401.3l-320-160M481 441.3l-400-200M321 441.3 1 281.3M321 521.3 1 361.3M241 561.3 1 441.3M81 561.3l-80-40M81 242v319M161 282v238M241 242v319M321 122v399M401 162v239M481 122v318M561 2v398M641 41v240M721 2v318M1 521v-79.5M1 361v-79.5M801 41.5v80M801 201.5v80'/%3E%3C/svg%3E");
+  background-size: max(60vw, 50rem) auto;
+  background-position: right top;
+  background-repeat: no-repeat;
+}

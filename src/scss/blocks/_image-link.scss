@@ -1,5 +1,5 @@
 .image-link {
-  aspect-ratio: 11/9;
+  aspect-ratio: 16/9;
   @include apply-utility("weight", "light");
   display: flex;
   flex-direction: column;
@@ -11,9 +11,15 @@
   padding: var(--space-s);
   transition: outline-offset 0.2s ease-out;
   outline-offset: -2px;
+  max-width: 30rem;
+  margin-inline: auto;
 
   &:focus {
     outline: 4px solid var(--color-brightTurquoise);
     outline-offset: -8px;
+  }
+
+  @include media-query("md") {
+    aspect-ratio: 11/9;
   }
 }
