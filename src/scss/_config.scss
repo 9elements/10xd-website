@@ -98,8 +98,8 @@ $gorko-config: (
     "property": "font-weight",
   ),
   "breakpoints": (
+    /* 368px  */ "sm": "(min-width: 23em)",
     /* 680px  */ "md": "(min-width: 42.5em)",
     /* 1024px */ "lg": "(min-width: 64em)",
-    /* 1440px */ "xl": "(min-width: 90em)",
   ),
 );

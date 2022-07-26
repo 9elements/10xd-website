@@ -17,7 +17,7 @@
     > li a {
       transition: 0.2s ease-out;
       text-decoration: none;
-      transition-property: background-size, text-shadow, outline-offset;
+      transition-property: background-size, outline-offset;
 
       &:focus {
         outline: 1px solid var(--color-brightTurquoise);
@@ -33,7 +33,6 @@
       &:hover {
         background-size: 100% 100%;
         color: var(--color-brightTurquoise);
-        text-shadow: 0 0 1rem var(--color-white);
       }
     }
   }

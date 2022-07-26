@@ -8,17 +8,34 @@
     background-size: 0 100%;
     transition: 0.2s ease-out;
     text-decoration: none;
-    transition-property: background-size, text-shadow, outline-offset;
+    transition-property: background-size, outline-offset;
+    padding-inline: var(--space-2xs);
 
     &:hover {
       background-size: 100% 100%;
       color: var(--color-brightTurquoise);
-      text-shadow: 0 0 1rem var(--color-white);
     }
 
     &:focus {
       outline: 1px solid var(--color-brightTurquoise);
       outline-offset: 5px;
+    }
+  }
+
+  &__links {
+    @include media-query("sm") {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      justify-items: start;
+      gap: var(--space-xs);
+
+      a {
+        padding: 0;
+      }
+
+      > a:first-child {
+        justify-self: end;
+      }
     }
   }
 }
