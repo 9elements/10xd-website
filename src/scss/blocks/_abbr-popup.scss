@@ -1,39 +1,25 @@
 .abbr-popup {
-  position: relative;
   text-decoration: none;
   padding-inline: 0.1em;
   margin-inline: -0.1em;
   cursor: help;
 
   &:before {
+    @include apply-utility("text", "step-0");
     content: attr(title);
     display: none;
     text-align: left;
     position: absolute;
     background: var(--color-brightTurquoise);
     color: var(--color-black);
-    @include apply-utility("text", "step-0");
     @include apply-utility("weight", "regular");
     line-height: 1.5;
     text-transform: none;
-    width: 28ch;
+    width: 80vw;
     padding: var(--space-xs);
-    bottom: 6.25em;
-    left: 0;
-  }
-
-  &:after {
-    content: "";
-    width: 0;
-    height: 0;
-    border-width: 2.5rem 0.815rem 0 0.815rem;
-    border-color: var(--color-brightTurquoise) transparent transparent
-      transparent;
-    border-style: solid;
-    position: absolute;
-    bottom: 5.5rem;
-    left: 2rem;
-    display: none;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, calc(-100% - 1.5em));
   }
 
   &:focus,
@@ -53,7 +39,32 @@
       0,
       transparent
     );
-
     color: var(--color-violet);
+  }
+
+  @include media-query("md") {
+    position: relative;
+
+    &:before {
+      width: 30ch;
+      left: 0;
+      transform: translate(0, calc(-100% - 2.5em));
+    }
+
+    &:after {
+      @include apply-utility("text", "step-0");
+      content: "";
+      display: none;
+      width: 0;
+      height: 0;
+      border-width: 2.5em 0.75em 0 0.75em;
+      border-color: var(--color-brightTurquoise) transparent transparent
+        transparent;
+      border-style: solid;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-100%, -2.75em);
+    }
   }
 }
