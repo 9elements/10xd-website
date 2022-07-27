@@ -1,4 +1,35 @@
 .section-ten-x {
+  position: relative;
+
+  &:before {
+    --grid-size: clamp(6.625rem, 5vw, 9rem);
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 20%;
+    right: 0;
+    height: calc(var(--grid-size) * 7 + 2px);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 320 320'%3E%3Cpath fill='%23110733' d='M159 80 79 0H2v2H0v77l80 80h79V80Z'/%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 400 240'%3E%3Cpath fill='%23110733' d='m239 160-80-80H82v2h-2v77l80 80h79v-79Z'/%3E%3C/svg%3E"),
+      linear-gradient(#fff 2px, 0, transparent 100%),
+      linear-gradient(90deg, #fff 2px, 0, transparent 100%),
+      linear-gradient(
+        45deg,
+        transparent calc(50% - 1px),
+        0,
+        #fff calc(50% + 1px),
+        0,
+        transparent 100%
+      );
+    background-size: calc(var(--grid-size) * 4) calc(var(--grid-size) * 4),
+      calc(var(--grid-size) * 5) calc(var(--grid-size) * 3),
+      var(--grid-size) var(--grid-size), var(--grid-size) var(--grid-size),
+      var(--grid-size) var(--grid-size);
+    background-position: left top;
+    opacity: 0.2;
+    transform: skewY(-26.5deg);
+    animation: gridmove calc(8s * 4) linear infinite;
+  }
   img {
     margin-inline: auto;
     height: auto;
@@ -6,6 +37,12 @@
 
   p {
     margin-block-start: -0.5em;
+  }
+}
+
+@keyframes gridmove {
+  to {
+    background-position: calc(var(--grid-size) * -20) 0px;
   }
 }
 
