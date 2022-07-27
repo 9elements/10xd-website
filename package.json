@@ -4,9 +4,10 @@
   "description": "Boilerplate for basic 11ty page",
   "main": ".eleventy.js",
   "scripts": {
-    "start": "npx gulp && concurrently 'npx gulp watch' 'npx eleventy --serve'",
-    "start-production": "NODE_ENV=production npx gulp && NODE_ENV=production concurrently 'npx gulp watch' 'npx eleventy --serve'",
-    "production": "NODE_ENV=production npx gulp production && NODE_ENV=production npx eleventy"
+    "start": "node contentful.js && npx gulp && concurrently 'npx gulp watch' 'npx eleventy --serve'",
+    "start-production": "node contentful.js && NODE_ENV=production npx gulp && NODE_ENV=production concurrently 'npx gulp watch' 'npx eleventy --serve'",
+    "production": "NODE_ENV=production npx gulp production && NODE_ENV=production npx eleventy",
+    "write": "node contentful.js"
   },
   "keywords": [],
   "author": "",
@@ -27,6 +28,10 @@
     "@11ty/eleventy": "^1.0.0",
     "clean-css": "^5.2.4",
     "concurrently": "^6.1.0",
+    "contentful": "^9.1.33",
+    "@contentful/rich-text-html-renderer": "^15.13.1",
+    "@contentful/rich-text-plain-text-renderer": "^15.12.1",
+    "@contentful/rich-text-types": "^15.12.1",
     "dotenv": "^10.0.0",
     "get-google-fonts": "^1.2.2",
     "gorko": "^0.9.0",
