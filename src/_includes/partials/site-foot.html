@@ -1,7 +1,9 @@
 <footer class="site-foot">
   <div class="wrapper center-text text-step-1 uppercase">
     <div class="site-foot__links">
-      <a href="/impressum/">Impressum</a>|<a href="/datenschutz/">Datenschutz</a>
+      <a href="/impressum/" {{ helpers.getLinkActiveState("/impressum/", page.url) | safe }}>Impressum</a>
+      |
+      <a href="/datenschutz/" {{ helpers.getLinkActiveState("/datenschutz/", page.url) | safe }}>Datenschutz</a>
     </div>
   </div>
 </footer>

@@ -7,8 +7,7 @@ async function pictureShortcode(picture) {
   let imgOptions = picture.imgOptions ? picture.imgOptions : "";
   let imgClass = picture.class ? picture.class : "";
   let formats = picture.formats ? picture.formats : ["avif", "jpg"];
-
-  console.log(formats);
+  let loading = picture.loading ? picture.loading : "lazy";
 
   if (src.startsWith("//")) {
     src = "https:" + src;
@@ -45,7 +44,7 @@ async function pictureShortcode(picture) {
     class: imgClass,
     alt,
     sizes,
-    loading: "lazy",
+    loading: loading,
     decoding: "async",
   };
 
