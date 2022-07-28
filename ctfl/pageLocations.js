@@ -2,9 +2,9 @@
 const client = require("../src/utils/contentfulClient.js");
 
 module.exports = async () => {
-  const services = await client
+  const pageLocations = await client
     .getEntries({
-      content_type: "service",
+      content_type: "pageLocations",
     })
     .then(function (response) {
       const items = response.items.map(function (item) {
@@ -14,5 +14,5 @@ module.exports = async () => {
     })
     .catch(console.error);
 
-  return services;
+  return pageLocations[0].fields;
 };

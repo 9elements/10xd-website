@@ -1,13 +1,13 @@
 const fs = require("fs");
 
 const ctflPageServices = require("./ctfl/pageServices.js");
-const ctflServices = require("./ctfl/services.js");
+const ctflPageLocations = require("./ctfl/pageLocations.js");
 
 // Create an Object to write the json files
 // Object key will be the filename and the value will be the file's content
 const ctflData = {
-  services: ctflServices,
   pageServices: ctflPageServices,
+  pageLocations: ctflPageLocations,
 };
 
 // directory path
