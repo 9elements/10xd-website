@@ -1,11 +1,12 @@
 const Image = require("@11ty/eleventy-img");
-async function pictureShortcode(
-  src,
-  alt,
-  widths = [300, 600],
-  sizes = "100vw",
-  imgOptions
-) {
+async function pictureShortcode(picture) {
+  let src = picture.src;
+  let alt = picture.alt;
+  let widths = picture.widths ? picture.widths : [300, 600];
+  let sizes = picture.sizes ? picture.sizes : "100vw";
+  let imgOptions = picture.imgOptions ? picture.imgOptions : "";
+  let imgClass = picture.class ? picture.class : "";
+
   if (src.startsWith("//")) {
     src = "https:" + src;
   }
@@ -38,6 +39,7 @@ async function pictureShortcode(
   });
 
   let imageAttributes = {
+    class: imgClass,
     alt,
     sizes,
     loading: "lazy",

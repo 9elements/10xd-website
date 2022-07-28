@@ -13,8 +13,16 @@ permalink: /leistungen/
   ">
     {% for service in ctfl.pageServices.services %}
       {% set imgUrl = service.fields.image.fields.file.url%}
+      {% set imgAlt = service.fields.image.fields.title %}
       <article class="stack-2xs">
-        {% picture imgUrl, "Party People", [200, 400, 800], "(min-width: 50em) 34.75rem, 100vw", ['fit=fill','w=1200','h=500'] %}
+        {% picture
+          src = imgUrl,
+          alt = imgAlt,
+          widths = [300, 600],
+          sizes = "(min-width: 50em) 34.75rem, 100vw",
+          imgOptions = ['fit=fill','w=800','h=400'],
+          class="service__image"
+        %}
         <h2 class="text-step-1 uppercase my-stack-space-s">{{ service.fields.title }}</h2>
         <p>{{ service.fields.description | markdownFilter | safe }} buh</p>
       </article>
