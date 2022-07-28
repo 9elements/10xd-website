@@ -1,23 +1,23 @@
 ---
-title: "Impressum"
+title: "Leistungen"
 layout: "layouts/home.njk"
 permalink: /leistungen/
 ---
 
-<div class="wrapper plain-html" style="--wrapper-max-width: 65rem; padding-block-start: var(--space-3xl);">
-  <h1>Leistungen</h1>
-
-  <ul class="grid-switcher | text-step-2 weight-light uppercase" style="
-  --gs-columns-lg: 2;
-  --gs-gap: var(--space-2xl);
-  --gs-bp-md: 45rem;
-">
-    <li><a class="image-link" href="#">Events</a></li>
-    <li><a class="image-link" href="#">Networking</a></li>
-    <li><a class="image-link" href="#">Digitale Transformation </a></li>
-    <li><a class="image-link" href="#">Startups</a></li>
-    <li><a class="image-link" href="#">Marketing</a></li>
-    <li><a class="image-link" href="#">Politikberatung</a></li>
-    <li><a class="image-link" href="#">People branding</a></li>
-  </ul>
+<div class="wrapper stack-2xl" style="padding-block-start: var(--space-3xl);">
+  <h1 class="color-brightTurquoise text-step-4">Leistungen</h1>
+  <div class="grid-switcher" style="
+    --gs-columns-lg: 2;
+    --gs-gap: var(--space-2xl);
+    --gs-bp-md: 45rem;
+  ">
+    {% for service in ctfl.pageServices.services %}
+      {% set imgUrl = service.fields.image.fields.file.url%}
+      <article class="stack-2xs">
+        {% picture imgUrl, "Party People", [200, 400, 800], "(min-width: 50em) 34.75rem, 100vw", ['fit=fill','w=1200','h=500'] %}
+        <h2 class="text-step-1 uppercase my-stack-space-s">{{ service.fields.title }}</h2>
+        <p>{{ service.fields.description | markdownFilter | safe }} buh</p>
+      </article>
+    {% endfor %}
+  </div>
 </div>

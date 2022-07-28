@@ -1,3 +1,5 @@
+const Image = require("@11ty/eleventy-img");
+
 // Filters
 const readableDate = require("./src/filters/readableDate.js");
 const w3DateFilter = require("./src/filters/w3-date-filter.js");
@@ -25,6 +27,10 @@ module.exports = (config) => {
 
   // Add Shortcodes
   config.addShortcode("icon", require("./src/shortcodes/icon.js"));
+  config.addNunjucksAsyncShortcode(
+    "picture",
+    require("./src/shortcodes/picture.js")
+  );
 
   // Only minify HTML if we are in production because it slows builds _right_ down
   if (isProduction) {
