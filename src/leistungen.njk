@@ -4,28 +4,30 @@ layout: "layouts/home.njk"
 permalink: /leistungen/
 ---
 
-<div class="wrapper stack-2xl" style="padding-block-start: var(--space-3xl);">
-  <h1 class="color-brightTurquoise text-step-4">Leistungen</h1>
-  <div class="grid-switcher" style="
-    --gs-columns-lg: 2;
-    --gs-gap: var(--space-2xl);
-    --gs-bp-md: 45rem;
-  ">
-    {% for service in ctfl.pageServices.services %}
-      {% set imgUrl = service.fields.image.fields.file.url%}
-      {% set imgAlt = service.fields.image.fields.title %}
-      <article class="stack-2xs">
-        {% picture
-          src = imgUrl,
-          alt = imgAlt,
-          widths = [300, 600],
-          sizes = "(min-width: 50em) 34.75rem, 100vw",
-          imgOptions = ['fit=fill','w=800','h=400'],
-          class="service__image"
-        %}
-        <h2 class="text-step-1 uppercase my-stack-space-s">{{ service.fields.title }}</h2>
-        <p>{{ service.fields.description | markdownFilter | safe }} buh</p>
-      </article>
-    {% endfor %}
+<div class="grid-background">
+  <div class="wrapper stack-2xl" style="padding-block-start: var(--space-3xl);">
+    <h1 class="color-brightTurquoise text-step-4">Leistungen</h1>
+    <div class="grid-switcher" style="
+      --gs-columns-lg: 2;
+      --gs-gap: var(--space-2xl);
+      --gs-bp-md: 45rem;
+    ">
+      {% for service in ctfl.pageServices.services %}
+        {% set imgUrl = service.fields.image.fields.file.url%}
+        {% set imgAlt = service.fields.image.fields.title %}
+        <article class="stack-2xs">
+          {% picture
+            src = imgUrl,
+            alt = imgAlt,
+            widths = [300, 556],
+            sizes = "(min-width: 50em) 34.75rem, 100vw",
+            imgOptions = ['fit=fill','w=800','h=400'],
+            class="service__image"
+          %}
+          <h2 class="text-step-1 uppercase my-stack-space-s">{{ service.fields.title }}</h2>
+          <p>{{ service.fields.description | markdownFilter | safe }} buh</p>
+        </article>
+      {% endfor %}
+    </div>
   </div>
 </div>

@@ -6,6 +6,9 @@ async function pictureShortcode(picture) {
   let sizes = picture.sizes ? picture.sizes : "100vw";
   let imgOptions = picture.imgOptions ? picture.imgOptions : "";
   let imgClass = picture.class ? picture.class : "";
+  let formats = picture.formats ? picture.formats : ["avif", "jpg"];
+
+  console.log(formats);
 
   if (src.startsWith("//")) {
     src = "https:" + src;
@@ -26,7 +29,7 @@ async function pictureShortcode(picture) {
 
   let metadata = await Image(src, {
     widths: widths,
-    formats: ["avif", "jpeg"],
+    formats: formats,
     outputDir: "./dist/images/ctfl/",
     urlPath: "/images/ctfl/",
     cacheOptions: {

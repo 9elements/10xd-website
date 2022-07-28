@@ -2,13 +2,14 @@
   padding-block: var(--space-m-l);
 
   .logo {
-    max-width: 40%;
+    max-width: 45%;
     height: auto;
     margin-inline: auto;
   }
   .cluster {
     --cluster-justification: center;
-    --cluster-gap: var(--space-s-m);
+    --cluster-gap: var(--space-xs-s);
+    --cluster-gap-vertical: var(--space-m);
 
     > li:first-child {
       width: 100%;

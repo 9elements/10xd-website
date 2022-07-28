@@ -32,8 +32,11 @@ body {
 }
 
 .section-services {
-  position: relative;
   padding-block: var(--space-2xl);
+}
+
+.grid-background {
+  position: relative;
 
   &:before {
     --grid-height: clamp(40rem, 50vw, 54rem);
@@ -44,7 +47,7 @@ body {
     top: 20%;
     right: 0;
     height: var(--grid-height);
-    background-image: url("./images/bg-grid.svg");
+    background-image: url("/images/bg-grid.svg");
     background-position: left top;
     background-size: auto 100%;
 

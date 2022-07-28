@@ -26,7 +26,6 @@ h4 {
 
   // We set this as an RGBA because that’s how you get a solid color, by using 0.99
   // alpha value. Browsers are wild.
-  background: rgba(get-color("persianRose"), 0.99);
   background: rgba(get-color("brightTurquoise"), 0.99);
 }
 

@@ -9,6 +9,10 @@
       "url": "/standorte/"
     },
     {
+      "text": "Events",
+      "url": "/events/"
+    },
+    {
       "text": "Kontakt",
       "url": "/kontakt/"
     }

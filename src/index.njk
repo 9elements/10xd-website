@@ -7,11 +7,14 @@ keyvisual: "true"
 
 <div class="keyvisual">
   <div class="center">
-    <img class="bubble" src="/images/bubble.webp" alt="" width="643" height="643">
-    <img class="bubble bubble--glitch" src="/images/bubble.webp" alt="" width="643" height="643">
-    <img class="bubble bubble--glitch2" src="/images/bubble.webp" alt="" width="643" height="643">
-    <span class="glow"></span>
-    <div class="glow glow--cyan"></div>
+    {% picture
+      src = "./src/images/bubble.webp",
+      alt = "",
+      widths = [300, 400, 643],
+      sizes = "(min-width: 40em) 40.1875rem, 100vw",
+      formats = ["webp", "png"],
+      class = "bubble"
+    %}
 
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 802 802">
       <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m601 1 200 100-200 100M601 183.3V1l-92.3 46.3M601 401V201l200 100-200 100ZM601 401V201L401 301M601 401l200 100-200 100M401 501l200 100M601 801V601l200 100-200 100ZM401 701l200 100V601M401 501V301M201 401l200 100V301M401 701V501L201 601M201 92.4V1l93.6 46.9M220.4 191 201 201M201 1 1 101l200 100"/>
@@ -54,14 +57,20 @@ keyvisual: "true"
 
   <div class="section-ten-x">
     <div class="wrapper" style="--wrapper-max-width: 88rem;">
-      <img src="images/rocket.webp" alt="" width="960" height="640">
+      {% picture
+        src = "./src/images/rocket.webp",
+        alt = "",
+        widths = [300, 500, 960],
+        sizes = "(min-width: 60em) 60rem, 100vw",
+        formats = ["avif", "webp", "jpg"]
+      %}
       <p style="position: relative;" class="text-step-3 uppercase center-text leading-flat weight-bold">
         Bring <abbr tabindex="0" class="abbr-popup | color-brightTurquoise" title="10 x kommt aus der Raumfahrt und bedeutet, etwas mindestens 10 x besser zu machen (statt inkrementell) und hat sich als Sinnbild für exponentielle Technologien etabliert.">10x</abbr> foreward Digital Health and Next Generation Healthcare
       </p>
     </div>
   </div>
 
-  <div class="section-services">
+  <div class="section-services grid-background">
     <div class="wrapper">
       <h2 class="sr-only">10xd Leistungen</h2>
       <ul class="grid-switcher | text-step-2 weight-light uppercase" style="
