@@ -61,7 +61,7 @@
         transform: translateX(-50%);
       }
 
-      > li:last-child {
+      > li:nth-last-child(2) {
         margin-inline-start: auto;
       }
     }

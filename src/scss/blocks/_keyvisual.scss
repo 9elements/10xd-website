@@ -64,3 +64,58 @@ body[data-background="keyvisual"]:before {
     background-color: #079a91;
   }
 }
+
+.chrome-hidden {
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: hidden;
+
+  main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-block: 5vh;
+    justify-content: space-between;
+    gap: 9vh;
+  }
+
+  .keyvisual {
+    flex-grow: 1;
+    height: 50vh;
+    max-height: 90vw;
+    position: relative;
+
+    picture,
+    svg {
+      height: 100%;
+
+      > img {
+        width: 100%;
+      }
+    }
+  }
+
+  .center-logo {
+    position: absolute;
+    z-index: 20;
+    width: min(89vh, 90vw);
+    left: 50%;
+    top: 50%;
+    transform: translate(-49.8%, -50%);
+
+    > svg {
+      display: block;
+      width: 100%;
+
+      path {
+        stroke: none;
+      }
+    }
+  }
+  h1 {
+    position: relative;
+    margin-inline: auto;
+    max-width: 26ch;
+    font-size: 7vmin;
+  }
+}

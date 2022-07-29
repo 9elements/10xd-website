@@ -1,0 +1,45 @@
+---
+title: "Leistungen"
+layout: "layouts/home.njk"
+permalink: /formate/
+---
+
+<div class="grid-background">
+  <div class="wrapper stack-2xl" style="--wrapper-max-width: 80rem; padding-block-start: var(--space-2xl);">
+    <h1 class="color-brightTurquoise text-step-4">Formate</h1>
+
+    {% for format in ctfl.formats %}
+      {% set imgUrl = format.fields.image.fields.file.url%}
+      {% set imgAlt = format.fields.image.fields.title %}
+      <article class="sidebar-left"
+        style="
+          --sidebar-width: 50rem;
+          --sidebar-gap: var(--space-l);
+          --sidebar-gap-vertical: var(--space-s);
+          --sidebar-threshold: 20rem;
+          flex-direction: row-reverse;"
+      >
+        <div>
+          {% picture
+                src = imgUrl,
+                alt = imgAlt,
+                widths = [300, 500, 1024],
+                sizes = "(min-width: 50em) 34.75rem, 100vw",
+                imgOptions = ['fit=fill','w=1024','h=341'],
+                class="format__image"
+              %}
+        </div>
+        <div class="stack-2xs">
+          <h2 class="text-step-1 uppercase">{{ format.fields.title }}</h2>
+          <p>
+            {{ format.fields.location }}, {{ format.fields.startDate | readableDate({ month: "long", day: "numeric", year: "numeric" }) }}<br>
+            Tickets: {{ format.fields.ticketCount}} | {{ format.fields.ticketStatus }}
+          </p>
+          {% if format.fields.link %}
+            <a href="{{ format.fields.link }}" target="_blank">Link</a>
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</div>
