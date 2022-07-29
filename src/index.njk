@@ -6,7 +6,7 @@ keyvisual: "true"
 ---
 
 <div class="keyvisual">
-  <div class="center">
+  <div class="center" aria-hidden="true">
     {% picture
       src = "./src/images/bubble.webp",
       alt = "",
@@ -28,7 +28,7 @@ keyvisual: "true"
 <div class="stack-3xl">
   <div class="section-intro stack-2xl">
     <div class="wrapper | stack-xs center-text" style="--wrapper-max-width: 53rem;">
-      <h1 class="color-brightTurquoise text-step-4">10x digital health</h1>
+      <h1 class="color-brightTurquoise text-step-4" lang="en">10x digital health</h1>
       <p class="letterspace">10 x D steht für innovative und exklusive Formate  im Gesundheitswesen.</p>
       <p class="letterspace">Unser Anspruch ist höchste verfügbare Qualität. Das fängt mit Design an und endet mit den Technologien und Partnern mit denen wir arbeiten. Im Team greifen wir auf rund 100 Jahre Expertise auf C-Level im Gesundheitswesen und Multi-Founding von erfolgreichen Branchenstartups zurück.</p>
     </div>
@@ -36,7 +36,7 @@ keyvisual: "true"
     <hr class="highlight-divider">
 
     <div class="wrapper | stack-xs center-text" style="--wrapper-max-width: 53rem;">
-      <h2 class="text-step-4">Next Level Healthcare</h2>
+      <h2 class="text-step-4" lang="en">Next Level Healthcare</h2>
       <p class="letterspace">Ein Ökosystem für das digitale Gesundheitswesen, für Startups und etablierte Akteure. Ein Think Tank – auch für andere Branchen. Eine People und Company Branding Company. Ein Networking Club. Ein Format. Und vieles mehr.</p>
       <p class="letterspace">Wir entwickeln und verbessern ständig unsere digitalen und analogen Formate. Das Unternehmen ist Transformation.</p>
     </div>
@@ -93,7 +93,7 @@ keyvisual: "true"
       <div class="grid-switcher" style="
         --gs-columns-lg: 2;
         --gs-gap: var(--space-2xl);
-        --gs-bp-md: 45rem;
+        --gs-bp-md: 50rem;
       ">
         <details-utils close-esc animate>
           <details class="partner-list">
@@ -150,3 +150,23 @@ keyvisual: "true"
     </figure>
   </div>
 </div>
+<script src="/js/gsap.min.js"></script>
+<script src="/js/ScrollTrigger.min.js"></script>
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.fromTo("html", {
+    "--grid-offset": "0"
+  },{
+    scrollTrigger: {
+      toggleAction: "restart pause reverse pause",
+      trigger: ".grid-background",
+      scrub: true
+    },
+    "--grid-offset": "-2",
+    duration: 4
+  });
+
+
+
+</script>

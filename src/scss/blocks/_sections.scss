@@ -53,7 +53,8 @@ body {
 
     opacity: 0.2;
     transform: skewY(-26.5deg);
-    animation: gridmove calc(8s * 4) linear infinite;
+    //animation: gridmove calc(8s * 4) linear infinite;
+    background-position: calc(var(--grid-width) * var(--grid-offset));
   }
 }
 
