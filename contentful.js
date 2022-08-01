@@ -4,6 +4,7 @@ const ctflFormats = require("./ctfl/formats.js");
 
 const ctflPageServices = require("./ctfl/pageServices.js");
 const ctflPageLocations = require("./ctfl/pageLocations.js");
+const ctflTextPages = require("./ctfl/textPages.js");
 
 // Create an Object to write the json files
 // Object key will be the filename and the value will be the file's content
@@ -11,6 +12,7 @@ const ctflData = {
   formats: ctflFormats,
   pageServices: ctflPageServices,
   pageLocations: ctflPageLocations,
+  textPages: ctflTextPages,
 };
 
 // directory path
