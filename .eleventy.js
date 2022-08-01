@@ -19,14 +19,7 @@ module.exports = (config) => {
   config.addPlugin(EleventyServerlessBundlerPlugin, {
     name: "serverless", // The serverless function name from your permalink object
     functionsDir: "./netlify/functions/",
-    copy: [
-      { from: ".cache", to: "cache" },
-      "src/transforms",
-      "src/filters",
-      "src/shortcodes",
-      "src/js",
-      "src/images",
-    ],
+    copy: ["src/transforms", "src/filters", "src/shortcodes", "src/js"],
   });
 
   // Set directories to pass through to the dist folder
