@@ -14,15 +14,15 @@ hideChrome: "true"
     {% include "svg/10xd.svg" %}
   </div>
   <div class="center" aria-hidden="true">
-    {% picture
-      src = "./src/images/bubble.webp",
-      alt = "",
-      widths = [300, 400, 643],
-      sizes = "(min-width: 40em) 40.1875rem, 100vw",
-      formats = ["webp", "png"],
-      class = "bubble",
-      loading = "eager"
-    %}
+    <picture>
+      <source type="image/webp"
+        srcset="/images/bubble.webp"
+        >
+      <source type="image/png"
+        src="images/bubble.png"
+        >
+      <img class="bubble" alt="" loading="eager" decoding="async"
+        src="/images/bubble.png" width="643" height="643"></picture>
 
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 802 802">
       <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m601 1 200 100-200 100M601 183.3V1l-92.3 46.3M601 401V201l200 100-200 100ZM601 401V201L401 301M601 401l200 100-200 100M401 501l200 100M601 801V601l200 100-200 100ZM401 701l200 100V601M401 501V301M201 401l200 100V301M401 701V501L201 601M201 92.4V1l93.6 46.9M220.4 191 201 201M201 1 1 101l200 100"/>
