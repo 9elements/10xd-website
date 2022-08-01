@@ -1,4 +1,4 @@
-const Image = require("@11ty/eleventy-img");
+const { EleventyServerlessBundlerPlugin } = require("@11ty/eleventy");
 
 // Filters
 const readableDate = require("./src/filters/readableDate.js");
@@ -13,6 +13,13 @@ const purgeCSS = require("./src/transforms/css-purge-inline.js");
 const isProduction = process.env.NODE_ENV === "production";
 
 module.exports = (config) => {
+  // 11ty Serverless
+  config.addPlugin(EleventyServerlessBundlerPlugin, {
+    name: "serverless", // The serverless function name from your permalink object
+    functionsDir: "./netlify/functions/",
+    copy: ["src/transforms", "src/filters", "src/shortcodes", "utils"],
+  });
+
   // Set directories to pass through to the dist folder
   config.addPassthroughCopy("./src/images/");
   config.addPassthroughCopy("./src/js/");

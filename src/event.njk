@@ -1,7 +1,8 @@
 ---
-title: "Home"
+title: "Event"
 layout: "layouts/home.njk"
-permalink: /event/
+permalink:
+  serverless: /event/
 keyvisual: "true"
 hideChrome: "true"
 ---
@@ -29,4 +30,4 @@ hideChrome: "true"
     </svg>
   </div>
 </div>
-<h1 class="text-step-4 center-text">Innovative Formate im Gesundheitswesen</h1>
+<h1 class="text-step-4 center-text">{{ eleventy.serverless.query.eventText }}</h1>
