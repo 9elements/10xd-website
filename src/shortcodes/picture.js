@@ -32,6 +32,14 @@ async function pictureShortcode(picture) {
   cacheOptions.directory = ".cache";
   cacheOptions.removeUrlQueryParams = false;
 
+  if (process.env.ELEVENTY_SERVERLESS) {
+    // Infinite duration (until the next build)
+    cacheOptions.duration = "*";
+    // Instead of ".cache" default because files/directories
+    // that start with a dot are not bundled by default
+    cacheOptions.directory = "cache";
+  }
+
   let metadata = await Image(src, {
     widths: widths,
     formats: formats,

@@ -20,6 +20,7 @@ module.exports = (config) => {
     name: "serverless", // The serverless function name from your permalink object
     functionsDir: "./netlify/functions/",
     copy: [
+      { from: ".cache", to: "cache" },
       "src/transforms",
       "src/filters",
       "src/shortcodes",
