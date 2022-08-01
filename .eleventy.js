@@ -19,7 +19,7 @@ module.exports = (config) => {
   config.addPlugin(EleventyServerlessBundlerPlugin, {
     name: "serverless", // The serverless function name from your permalink object
     functionsDir: "./netlify/functions/",
-    copy: ["src/transforms", "src/filters", "src/shortcodes", "utils"],
+    copy: ["src/transforms", "src/filters", "src/shortcodes", "src/js"],
   });
 
   // Set directories to pass through to the dist folder
@@ -33,8 +33,8 @@ module.exports = (config) => {
     return arr.slice(0, limit);
   });
   config.addFilter("markdownFilter", markdownFilter);
-  // config.addFilter("renderRichTextAsHtml", renderRichTextAsHtml);
-  // config.addFilter("renderRichTextAsString", renderRichTextAsString);
+  config.addFilter("renderRichTextAsHtml", renderRichTextAsHtml);
+  config.addFilter("renderRichTextAsString", renderRichTextAsString);
 
   // Add Shortcodes
   config.addShortcode("icon", require("./src/shortcodes/icon.js"));
