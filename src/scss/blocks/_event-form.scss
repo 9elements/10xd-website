@@ -1,25 +1,31 @@
 .event-form {
   display: flex;
   gap: var(--space-xs);
-  max-width: 50rem;
+  max-width: 54rem;
   margin-inline: auto;
-  align-items: end;
 
   &__inputgroup {
     display: flex;
-    flex-direction: column;
     flex-grow: 1;
-    gap: var(--space-3xs);
-    align-items: start;
+    background: var(--color-white);
+    border: 1px solid var(--color-brightTurquoise);
+  }
+
+  label {
+    padding: var(--space-2xs) var(--space-xs);
+    border: none;
+    color: var(--color-violet);
+    background: rgba(get-color("violet"), 0.2);
+    cursor: pointer;
   }
 
   input[type="text"] {
     border-radius: 0;
     padding: var(--space-2xs);
-    width: 100%;
+    flex-grow: 1;
     border: none;
     transition: outline-offset 0.2s ease-out;
-    border: 1px solid var(--color-brightTurquoise);
+    color: var(--color-violet);
 
     &:focus {
       outline: 1px solid var(--color-brightTurquoise);
