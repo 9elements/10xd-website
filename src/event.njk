@@ -30,4 +30,6 @@ hideChrome: "true"
     </svg>
   </div>
 </div>
-<h1 class="text-step-4 center-text">{{ eleventy.serverless.query.eventText if eleventy.serverless.query.eventText else "Etwas Text" }}</h1>
+{% if eleventy.serverless.query.eventText %}
+  <h1 class="text-step-4 center-text">{{ eleventy.serverless.query.eventText}}</h1>
+{% endif %}

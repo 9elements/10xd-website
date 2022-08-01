@@ -82,7 +82,8 @@ body[data-background="keyvisual"]:before {
   .keyvisual {
     flex-grow: 1;
     height: 50vh;
-    max-height: 90vw;
+    max-height: 70vh;
+    margin-block: auto;
     position: relative;
 
     picture,
