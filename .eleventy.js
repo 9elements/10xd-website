@@ -28,7 +28,7 @@ const shortcodes = {
         outputDir: "dist/images/built/",
         dryRun: true,
       };
-      stats = eleventyImage.statsByDimensionsSync(filepath, 400, 400, options);
+      stats = eleventyImage.statsByDimensionsSync(filepath, 250, 250, options);
     } else {
       options = {
         formats: ["avif", "webp", "png"],
