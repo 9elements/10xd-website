@@ -2,6 +2,7 @@ const Image = require("@11ty/eleventy-img");
 let options = {
   widths: [300, 500],
   formats: ["jpeg"],
+  urlPath: "/images/ctfl/",
 };
 
 module.exports = (src) => {
