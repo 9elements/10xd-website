@@ -7,3 +7,12 @@ permalink:
 
 <h1>Test</h1>
 {% test "./src/images/bubble.png" %}
+    {% picture
+      src = "./src/images/bubble.webp",
+      alt = "",
+      widths = [300, 400, 643],
+      sizes = "(min-width: 40em) 40.1875rem, 100vw",
+      formats = ["webp", "png"],
+      class = "bubble",
+      loading = "eager"
+    %}
