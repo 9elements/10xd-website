@@ -14,7 +14,6 @@ async function pictureShortcode(picture) {
   }
 
   let options = "";
-
   if (imgOptions) {
     imgOptions.forEach((option, index) => {
       if (index == 0) {
@@ -32,13 +31,24 @@ async function pictureShortcode(picture) {
   cacheOptions.directory = ".cache";
   cacheOptions.removeUrlQueryParams = false;
 
-  let metadata = await Image(src, {
-    widths: widths,
-    formats: formats,
-    outputDir: "./dist/images/ctfl/",
-    urlPath: "/images/ctfl/",
-    cacheOptions: cacheOptions,
-  });
+  let metadata;
+  if (process.env.ELEVENTY_SERVERLESS) {
+    metadata = Image.statsSync(src, {
+      widths: widths,
+      formats: formats,
+      outputDir: "./dist/images/ctfl/",
+      urlPath: "/images/ctfl/",
+      //cacheOptions: cacheOptions,
+    });
+  } else {
+    metadata = await Image(src, {
+      widths: widths,
+      formats: formats,
+      outputDir: "./dist/images/ctfl/",
+      urlPath: "/images/ctfl/",
+      //cacheOptions: cacheOptions,
+    });
+  }
 
   let imageAttributes = {
     class: imgClass,

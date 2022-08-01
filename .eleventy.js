@@ -1,3 +1,4 @@
+const eleventyImage = require("@11ty/eleventy-img");
 const { EleventyServerlessBundlerPlugin } = require("@11ty/eleventy");
 
 // Filters
@@ -13,6 +14,32 @@ const purgeCSS = require("./src/transforms/css-purge-inline.js");
 
 // Create a helpful production flag
 const isProduction = process.env.NODE_ENV === "production";
+
+const shortcodes = {
+  image: async function (filepath, alt, widths, classes, sizes) {
+    let options = {
+      formats: ["avif", "webp", "png"],
+      widths: widths || [null],
+      urlPath: "/images/built/",
+      outputDir: "dist/images/built/",
+    };
+
+    let stats;
+    if (process.env.ELEVENTY_SERVERLESS) {
+      stats = eleventyImage.statsSync(filepath, options);
+    } else {
+      stats = await eleventyImage(filepath, options);
+    }
+
+    return eleventyImage.generateHTML(stats, {
+      alt,
+      loading: "lazy",
+      decoding: "async",
+      sizes: sizes || "(min-width: 22em) 30vw, 100vw",
+      class: classes,
+    });
+  },
+};
 
 module.exports = (config) => {
   // 11ty Serverless
@@ -49,6 +76,7 @@ module.exports = (config) => {
     "picture",
     require("./src/shortcodes/picture.js")
   );
+  config.addNunjucksAsyncShortcode("image", shortcodes.image);
 
   // Only minify HTML if we are in production because it slows builds _right_ down
   if (isProduction) {
