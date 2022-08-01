@@ -33,8 +33,8 @@ module.exports = (config) => {
     return arr.slice(0, limit);
   });
   config.addFilter("markdownFilter", markdownFilter);
-  config.addFilter("renderRichTextAsHtml", renderRichTextAsHtml);
-  config.addFilter("renderRichTextAsString", renderRichTextAsString);
+  // config.addFilter("renderRichTextAsHtml", renderRichTextAsHtml);
+  // config.addFilter("renderRichTextAsString", renderRichTextAsString);
 
   // Add Shortcodes
   config.addShortcode("icon", require("./src/shortcodes/icon.js"));
