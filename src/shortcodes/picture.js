@@ -26,18 +26,26 @@ async function pictureShortcode(picture) {
   }
   src = src + options;
 
+  let cacheOptions = {};
+
+  cacheOptions.duration = "1d";
+  cacheOptions.directory = ".cache";
+  cacheOptions.removeUrlQueryParams = false;
+
+  if (process.env.ELEVENTY_SERVERLESS) {
+    // Infinite duration (until the next build)
+    cacheOptions.duration = "*";
+    // Instead of ".cache" default because files/directories
+    // that start with a dot are not bundled by default
+    options.directory = "cache";
+  }
+
   let metadata = await Image(src, {
     widths: widths,
     formats: formats,
     outputDir: "./dist/images/ctfl/",
     urlPath: "/images/ctfl/",
-    cacheOptions: {
-      // if a remote image URL, this is the amount of time before it fetches a fresh copy
-      duration: "1d",
-      // project-relative path to the cache directory
-      directory: ".cache",
-      removeUrlQueryParams: false,
-    },
+    cacheOptions: cacheOptions,
   });
 
   let imageAttributes = {
