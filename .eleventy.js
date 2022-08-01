@@ -17,17 +17,25 @@ const isProduction = process.env.NODE_ENV === "production";
 
 const shortcodes = {
   image: async function (filepath, alt, widths, classes, sizes) {
-    let options = {
-      formats: ["avif", "webp", "png"],
-      widths: widths || [null],
-      urlPath: "/images/built/",
-      outputDir: "dist/images/built/",
-    };
+    let options;
 
     let stats;
     if (process.env.ELEVENTY_SERVERLESS) {
-      stats = eleventyImage.statsSync(filepath, options);
+      options = {
+        formats: ["avif", "webp", "png"],
+        widths: widths || [null],
+        urlPath: "/images/built/",
+        outputDir: "dist/images/built/",
+        dryRun: true,
+      };
+      stats = eleventyImage.statsByDimensionsSync(filepath, 400, 400, options);
     } else {
+      options = {
+        formats: ["avif", "webp", "png"],
+        widths: widths || [null],
+        urlPath: "/images/built/",
+        outputDir: "dist/images/built/",
+      };
       stats = await eleventyImage(filepath, options);
     }
 

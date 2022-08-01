@@ -18,5 +18,6 @@ permalink:
   loading = "eager"
 %} #}
 
-{% set imgUrl = "https:" + ctfl.pageServices.services[0].fields.image.fields.file.url %}
+{% set imgUrl = "https:" + ctfl.pageServices.services[0].fields.image.fields.file.url + "?fit=fill&w=400&h=400" %}
 {% image "./src/images/bubble.webp", "ne buble", [250], "bubble" %}
+{% image imgUrl, "ne buble", [250], "bubble" %}
