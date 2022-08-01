@@ -1,15 +1,25 @@
 .event-form {
   display: flex;
-  gap: var(--space-s);
+  gap: var(--space-xs);
   max-width: 50rem;
   margin-inline: auto;
+  align-items: end;
+
+  &__inputgroup {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: var(--space-3xs);
+    align-items: start;
+  }
 
   input[type="text"] {
     border-radius: 0;
     padding: var(--space-2xs);
-    flex-grow: 1;
+    width: 100%;
     border: none;
     transition: outline-offset 0.2s ease-out;
+    border: 1px solid var(--color-brightTurquoise);
 
     &:focus {
       outline: 1px solid var(--color-brightTurquoise);
