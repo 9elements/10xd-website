@@ -5,6 +5,7 @@ const { EleventyServerless } = require("@11ty/eleventy");
 require("./eleventy-bundler-modules.js");
 
 async function handler(event) {
+  console.log(event.rawUrl);
   let elev = new EleventyServerless("serverless", {
     path: event.path,
     query: event.queryStringParameters,
