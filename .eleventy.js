@@ -38,6 +38,7 @@ module.exports = (config) => {
 
   // Add Shortcodes
   config.addShortcode("icon", require("./src/shortcodes/icon.js"));
+  config.addShortcode("test", require("./src/shortcodes/test.js"));
   config.addNunjucksAsyncShortcode(
     "picture",
     require("./src/shortcodes/picture.js")
