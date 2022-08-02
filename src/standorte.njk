@@ -9,20 +9,19 @@ permalink: /standorte/
     <h1 class="color-brightTurquoise text-step-4">{{ ctfl.pageLocations.title }}</h1>
 
     {% for location in ctfl.pageLocations.locations %}
-    {% set imgUrl = location.fields.image.fields.file.url%}
-    {% set imgAlt = location.fields.image.fields.title %}
-    <article class="stack-2xs">
-      {% picture
-            src = imgUrl,
-            alt = imgAlt,
-            widths = [300, 500, 1024],
-            sizes = "(min-width: 50em) 34.75rem, 100vw",
-            imgOptions = ['fit=fill','w=1024','h=341'],
-            class="location__image"
-          %}
-      <h2 class="text-step-1 uppercase my-stack-space-s">{{ location.fields.title }}</h2>
-      <p>{{ location.fields.address | markdownFilter | safe }} buh</p>
-    </article>
+      <article class="stack-2xs">
+        {% ctflPicture
+          imgObj = location.fields.image,
+          imgWidth="1024",
+          imgHeight="340",
+          fit="fill",
+          widths=[300, 500, 1024],
+          sizes = "(min-width: 50em) 34.75rem, 100vw",
+          classes = "location__image"
+        %}
+        <h2 class="text-step-1 uppercase my-stack-space-s">{{ location.fields.title }}</h2>
+        <p>{{ location.fields.address | markdownFilter | safe }} buh</p>
+      </article>
     {% endfor %}
   </div>
 </div>

@@ -6,7 +6,6 @@ permalink:
 ---
 
 <h1>Test</h1>
-{% test "./src/images/bubble.png" %}
 
 {# {% picture
   src = imgUrl,
@@ -18,6 +17,35 @@ permalink:
   loading = "eager"
 %} #}
 
-{% set imgUrl = "https:" + ctfl.pageServices.services[0].fields.image.fields.file.url + "?fit=fill&w=400&h=400" %}
-{% image "./src/images/bubble.webp", "ne buble", [250], "bubble" %}
-{% image imgUrl, "ne buble", [250], "bubble" %}
+    {% for format in ctfl.formats %}
+      <article class="sidebar-left"
+        style="
+          --sidebar-width: 50rem;
+          --sidebar-gap: var(--space-l);
+          --sidebar-gap-vertical: var(--space-s);
+          --sidebar-threshold: 20rem;
+          flex-direction: row-reverse;"
+      >
+        <div>
+          {% ctflPicture
+            imgObj = format.fields.image,
+            imgWidth="1024",
+            imgHeight="341",
+            fit="fill",
+            widths = [300, 500, 800, 1024],
+            sizes = "(min-width: 72.5em) 800px, 100vw",
+            classes = "format__image"
+          %}
+        </div>
+        <div class="stack-2xs">
+          <h2 class="text-step-1 uppercase">{{ format.fields.title }}</h2>
+          <p>
+            {{ format.fields.location }}, {{ format.fields.startDate | readableDate({ month: "long", day: "numeric", year: "numeric" }) }}<br>
+            Tickets: {{ format.fields.ticketCount}} | {{ format.fields.ticketStatus }}
+          </p>
+          {% if format.fields.link %}
+            <a href="{{ format.fields.link }}" target="_blank">Link</a>
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}

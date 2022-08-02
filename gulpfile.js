@@ -15,7 +15,7 @@ const watcher = () => {
 };
 
 // The default (if someone just runs `gulp`) is to run each task in parrallel
-exports.default = parallel(svgicons, sass);
+exports.default = parallel(fonts, svgicons, sass);
 
 // Include image minifier only for pruduction, because it is quite slow
 exports.production = parallel(fonts, svgicons, sass);
