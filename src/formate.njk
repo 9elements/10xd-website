@@ -21,9 +21,9 @@ permalink: /formate/
           <div>
             {% ctflPicture
               imgObj = format.fields.image,
-              imgWidth="1024",
-              imgHeight="341",
               fit="fill",
+              imgWidth="1024",
+              imgHeight="340",
               widths = [300, 500, 800, 1024],
               sizes = "(min-width: 72.5em) 800px, 100vw",
               classes = "format__image"
@@ -52,18 +52,9 @@ permalink: /formate/
     <div class="slider">
       <div class="slider__row">
         {% for image in ctfl.pageFormats.impressions %}
-          {% set dimensions = image.fields.file.details.image %}
-          {% if dimensions.width > dimensions.height %}
-            {% set width = "600" %}
-            {% set height = "450" %}
-          {% else %}
-            {% set width = "336" %}
-            {% set height = "450" %}
-          {% endif %}
           {% ctflPicture
               imgObj = image,
-              imgWidth = width,
-              imgHeight = height,
+              imgHeight = 450,
               fit="fill",
               widths=[none],
               sizes = width + "px"
