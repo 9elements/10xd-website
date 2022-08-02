@@ -1,0 +1,40 @@
+.format {
+  position: relative;
+  z-index: 1;
+
+  &__link {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+
+    &::before {
+      content: "";
+      background-image: linear-gradient(
+          var(--color-violet),
+          var(--color-violet)
+        ),
+        linear-gradient(
+          var(--color-brightTurquoise),
+          var(--color-brightTurquoise)
+        );
+      background-clip: padding-box, border-box;
+      background-origin: padding-box, border-box;
+      background-size: 0 100%;
+      background-repeat: no-repeat, no-repeat;
+      transition: background-size 0.5s ease-out;
+      border: 1px solid transparent;
+      position: absolute;
+      inset: calc(var(--space-xs) * -1);
+      z-index: -1;
+    }
+
+    &:hover::before {
+      background-size: 100% 100%, 180% 100%;
+    }
+
+    &:focus-visible {
+      outline: 1px solid var(--color-brightTurquoise);
+      outline-offset: var(--space-xs);
+    }
+  }
+}

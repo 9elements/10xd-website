@@ -1,45 +1,79 @@
 ---
-title: "Leistungen"
+title: "Formate"
 layout: "layouts/home.njk"
 permalink: /formate/
 ---
 
-<div class="grid-background">
+<div class="grid-background stack-2xl">
   <div class="wrapper stack-2xl" style="--wrapper-max-width: 80rem; padding-block-start: var(--space-2xl);">
-    <h1 class="color-brightTurquoise text-step-4">Formate</h1>
+    <h1 class="color-brightTurquoise text-step-4">{{ ctfl.pageFormats.title }}</h1>
 
-    {% for format in ctfl.formats %}
-      <article class="sidebar-left"
-        style="
-          --sidebar-width: 50rem;
-          --sidebar-gap: var(--space-l);
-          --sidebar-gap-vertical: var(--space-s);
-          --sidebar-threshold: 20rem;
-          flex-direction: row-reverse;"
-      >
-        <div>
-          {% ctflPicture
-            imgObj = format.fields.image,
-            imgWidth="1024",
-            imgHeight="341",
-            fit="fill",
-            widths = [300, 500, 800, 1024],
-            sizes = "(min-width: 72.5em) 800px, 100vw",
-            classes = "format__image"
-          %}
-        </div>
-        <div class="stack-2xs">
-          <h2 class="text-step-1 uppercase">{{ format.fields.title }}</h2>
-          <p>
-            {{ format.fields.location }}, {{ format.fields.startDate | readableDate({ month: "long", day: "numeric", year: "numeric" }) }}<br>
-            Tickets: {{ format.fields.ticketCount}} | {{ format.fields.ticketStatus }}
-          </p>
-          {% if format.fields.link %}
-            <a href="{{ format.fields.link }}" target="_blank">Link</a>
+    <div class="stack-xl-2xl">
+      {% for format in ctfl.formats %}
+        <article class="format | sidebar-left"
+          style="
+            --sidebar-width: clamp(40rem, 60vw, 50rem);
+            --sidebar-gap: var(--space-l);
+            --sidebar-gap-vertical: var(--space-s);
+            --sidebar-threshold: 20rem;
+            flex-direction: row-reverse;"
+        >
+          <div>
+            {% ctflPicture
+              imgObj = format.fields.image,
+              imgWidth="1024",
+              imgHeight="341",
+              fit="fill",
+              widths = [300, 500, 800, 1024],
+              sizes = "(min-width: 72.5em) 800px, 100vw",
+              classes = "format__image"
+            %}
+          </div>
+          <div class="stack-2xs">
+            <h2 class="text-step-1 uppercase">{{ format.fields.title }}</h2>
+            <p>
+              {{ format.fields.location }}, {{ format.fields.startDate | readableDate({ month: "long", day: "numeric", year: "numeric" }) }}<br>
+              Tickets: {{ format.fields.ticketCount}} | {{ format.fields.ticketStatus }}
+            </p>
+            {% if format.fields.link %}
+              <a href="{{ format.fields.link }}" class="format__link" target="_blank"><span class="sr-only">Zum Format: {{ format.fields.title }}</span></a>
+            {% endif %}
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+
+    <hr class="highlight-divider">
+
+  </div>
+
+  <div class="center-text stack-l">
+    <h2 class="text-step-4">Impressionen</h2>
+    <div class="slider">
+      <div class="slider__row">
+        {% for image in ctfl.pageFormats.impressions %}
+          {% set dimensions = image.fields.file.details.image %}
+          {% if dimensions.width > dimensions.height %}
+            {% set width = "600" %}
+            {% set height = "450" %}
+          {% else %}
+            {% set width = "336" %}
+            {% set height = "450" %}
           {% endif %}
-        </div>
-      </article>
-    {% endfor %}
+          {% ctflPicture
+              imgObj = image,
+              imgWidth = width,
+              imgHeight = height,
+              fit="fill",
+              widths=[none],
+              sizes = width + "px"
+            %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="wrapper stack-2xl" style="--wrapper-max-width: 80rem;">
 
     <hr class="highlight-divider">
 

@@ -2,6 +2,7 @@ const fs = require("fs");
 
 const ctflFormats = require("./ctfl/formats.js");
 
+const ctflPageFormats = require("./ctfl/pageFormats.js");
 const ctflPageServices = require("./ctfl/pageServices.js");
 const ctflPageLocations = require("./ctfl/pageLocations.js");
 const ctflTextPages = require("./ctfl/textPages.js");
@@ -10,6 +11,7 @@ const ctflTextPages = require("./ctfl/textPages.js");
 // Object key will be the filename and the value will be the file's content
 const ctflData = {
   formats: ctflFormats,
+  pageFormats: ctflPageFormats,
   pageServices: ctflPageServices,
   pageLocations: ctflPageLocations,
   textPages: ctflTextPages,

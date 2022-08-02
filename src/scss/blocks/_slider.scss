@@ -1,0 +1,28 @@
+.slider {
+  max-width: 100%;
+  overflow: scroll;
+
+  &:focus-visible {
+    outline: 1px solid var(--color-brightTurquoise);
+    outline-offset: var(--space-xs);
+  }
+
+  &__row {
+    display: flex;
+    gap: var(--gap, var(--space-m));
+    align-items: flex-start;
+    height: min(28.125rem, 120vw);
+    padding-bottom: 1rem;
+    width: max-content;
+
+    picture {
+      height: 100%;
+      width: auto;
+
+      img {
+        height: 100%;
+        width: auto;
+      }
+    }
+  }
+}
