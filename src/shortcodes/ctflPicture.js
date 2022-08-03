@@ -38,15 +38,31 @@ Thumbnail example:
 const eleventyImage = require("@11ty/eleventy-img");
 
 async function ctflPictureShortcode(ctflImage) {
-  let imgObj = ctflImage.imgObj;
+  if (!ctflImage.imgObj) {
+    return "Contentful image-object must be provided";
+  }
+
+  if (
+    ctflImage.imgObj.fields == undefined ||
+    ctflImage.imgObj.fields.file == undefined ||
+    ctflImage.imgObj.fields.file.contentType == undefined ||
+    ctflImage.imgObj.fields.file.contentType.startsWith("image") == false
+  ) {
+    return "imgObj must be a valid contentful image object";
+  }
+
+  const { imgObj } = ctflImage;
   let imgUrl = imgObj.fields.file.url;
-  let imgId = imgObj.sys.id;
-  let alt = ctflImage.alt || imgObj.fields.title;
-  let formats = ctflImage.formats;
-  let widths = ctflImage.widths || [300, 600];
-  let sizes = ctflImage.sizes;
-  let classes = ctflImage.classes;
-  let fit = ctflImage.fit ? ctflImage.fit : "fill";
+  const imgId = imgObj.sys.id;
+  const originSizes = imgObj.fields.file.details.image;
+  const ratio = originSizes.width / originSizes.height;
+
+  const alt = ctflImage.alt || imgObj.fields.title;
+  const formats = ctflImage.formats || ["avif", "webp", "jpg"];
+  const widths = ctflImage.widths || [300, 600];
+  const sizes = ctflImage.sizes || "(min-width: 22em) 30vw, 100vw";
+  const classes = ctflImage.classes || "";
+  const fit = ctflImage.fit ? ctflImage.fit : "fill";
 
   let imgWidth = 800;
   let imgHeight = 600;
@@ -55,9 +71,6 @@ async function ctflPictureShortcode(ctflImage) {
     imgWidth = ctflImage.imgWidth;
     imgHeight = ctflImage.imgHeight;
   }
-
-  let originSizes = imgObj.fields.file.details.image;
-  let ratio = originSizes.width / originSizes.height;
 
   if (ctflImage.imgWidth && !ctflImage.imgHeight) {
     let calculatedHeight = Math.floor(ctflImage.imgWidth / ratio);
@@ -80,7 +93,7 @@ async function ctflPictureShortcode(ctflImage) {
   let options;
 
   options = {
-    formats: formats || ["avif", "webp", "jpg"],
+    formats: formats,
     widths: widths,
     urlPath: "/images/ctfl",
     outputDir: "dist/images/ctfl",
@@ -105,8 +118,8 @@ async function ctflPictureShortcode(ctflImage) {
     alt,
     loading: "lazy",
     decoding: "async",
-    sizes: sizes || "(min-width: 22em) 30vw, 100vw",
-    class: classes || "",
+    sizes: sizes,
+    class: classes,
   });
 }
 
