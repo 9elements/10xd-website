@@ -1,4 +1,4 @@
-/*
+/* ==========================================================
 This shortcode can be used for images loaded from Contentful.
 It generates a <picture> with all the formats and widths defined in the shortcode.
 
@@ -17,7 +17,7 @@ Optional properties:
   - widths -> all the widths for the picture elements. Works with [none]. Defaults to [300, 600]
   - sizes -> defines the sizes for the picture. Defaults to "(min-width: 22em) 30vw, 100vw"
   - classes -> add some classes
-  - fit -> if you reisze the image this defines how it should be resized. Defaults to "fill"
+  - fit -> if you resize the image this defines how it should be resized. Defaults to "fill"
 
 Basic usage:
 {% ctflPicture imgObj = myImage, alt="ctfl image", imgWidth="800", imgHeight="600" %}
@@ -32,8 +32,7 @@ Thumbnail example:
   widths=[32],
   sizes="2rem"
 %}
-
-*/
+========================================================== */
 
 const eleventyImage = require("@11ty/eleventy-img");
 
