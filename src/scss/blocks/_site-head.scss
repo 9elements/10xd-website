@@ -98,16 +98,18 @@
     margin-right: 0.8490566%;
   }
 
-  &:hover {
-    .logo__gt,
-    .logo__lt {
-      rotate: 180deg;
-      translate: 105% 0;
-      color: var(--color-brightTurquoise);
-    }
+  @media (any-pointer: fine) and (any-hover: hover) {
+    &:hover {
+      .logo__gt,
+      .logo__lt {
+        rotate: 180deg;
+        translate: 105% 0;
+        color: var(--color-brightTurquoise);
+      }
 
-    .logo__lt {
-      translate: -105% 0;
+      .logo__lt {
+        translate: -105% 0;
+      }
     }
   }
 
