@@ -29,10 +29,12 @@
       transition: opacity 0.2s ease-out, background-size 0.1s 0.3s ease-out;
     }
 
-    &:hover::before {
-      transition: background-size 0.5s ease-out;
-      background-size: 100% 100%, 180% 100%;
-      opacity: 1;
+    @media (any-pointer: fine) and (any-hover: hover) {
+      &:hover::before {
+        transition: background-size 0.5s ease-out;
+        background-size: 100% 100%, 180% 100%;
+        opacity: 1;
+      }
     }
 
     &:focus-visible {
