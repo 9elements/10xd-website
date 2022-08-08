@@ -1,0 +1,28 @@
+---
+pagination:
+  data: ctfl.boards
+  size: 1
+  alias: board
+title: "Board"
+layout: "layouts/home.njk"
+permalink: /{{ board.fields.title | slug }}/
+---
+
+<div class="grid-background stack-2xl">
+  <div class="wrapper stack-2xl" style="padding-block-start: var(--space-2xl);">
+    <h1 class="color-brightTurquoise text-step-4">{{ board.fields.title }}</h1>
+
+    <hr class="highlight-divider">
+
+    <div class="stack-m center-text">
+      <h2 class="text-step-4" >Event-Slide</h2>
+      <form class="event-form" action="/event/" target="_blank">
+        <div class="event-form__inputgroup">
+          <label for="eventText">Slide Text:</label>
+          <input type="text" id="eventText" name="eventText" value="Innovative Formate im Gesundheitswesen">
+        </div>
+        <input type="submit" value="Slide anzeigen" class="uppercase weight-bold">
+      </form>
+    </div>
+  </div>
+</div>

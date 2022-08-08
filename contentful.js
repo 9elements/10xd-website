@@ -1,5 +1,6 @@
 const fs = require("fs");
 
+const ctflBoards = require("./ctfl/boards.js");
 const ctflFormats = require("./ctfl/formats.js");
 
 const ctflPageFormats = require("./ctfl/pageFormats.js");
@@ -10,6 +11,7 @@ const ctflTextPages = require("./ctfl/textPages.js");
 // Create an Object to write the json files
 // Object key will be the filename and the value will be the file's content
 const ctflData = {
+  boards: ctflBoards,
   formats: ctflFormats,
   pageFormats: ctflPageFormats,
   pageServices: ctflPageServices,

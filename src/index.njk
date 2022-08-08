@@ -69,15 +69,18 @@ keyvisual: "true"
   <div class="section-services grid-background">
     <div class="wrapper">
       <h2 class="sr-only">10xd Leistungen</h2>
-      <ul class="grid-switcher | text-step-2 weight-light uppercase" style="
+
+
+      <ul class="grid-switcher | text-step-2" style="
         --gs-columns-lg: 2;
         --gs-gap: var(--space-2xl);
         --gs-bp-md: 45rem;
       ">
-        <li><a class="image-link" href="#"><span aria-hidden="true" class="weight-bold">10xD</span> Management</a></li>
-        <li><a class="image-link" href="#"><span aria-hidden="true" class="weight-bold">10xD</span> Management Board</a></li>
-        <li><a class="image-link" href="#"><span aria-hidden="true" class="weight-bold">10xD</span> Scientific Board</a></li>
-        <li><a class="image-link" href="#"><span aria-hidden="true" class="weight-bold">10xD</span> Management Board</a></li>
+      {% for board in ctfl.boards %}
+        <li>
+        {% board board %}
+        </li>
+      {% endfor %}
       </ul>
     </div>
   </div>
