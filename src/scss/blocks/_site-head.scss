@@ -65,8 +65,50 @@
   margin-inline: auto;
   display: block;
 
-  svg {
+  &__stage {
+    aspect-ratio: 53/10;
+    width: 16.25rem;
+    max-width: 100%;
+    display: flex;
+    perspective: 800px;
     margin-inline: auto;
+  }
+
+  &__10,
+  &__d {
+    width: 28.962264%;
+  }
+
+  &__10 {
+    margin-right: 3.30188679%;
+  }
+
+  &__d {
+    margin-left: 3.30188679%;
+  }
+
+  &__gt,
+  &__lt {
+    width: 17.31132075%;
+    transition: rotate 0.5s ease-in-out, translate 0.8s 0.3s ease-out,
+      color 0.4s 0.6s ease-out;
+  }
+
+  &__gt {
+    margin-right: 0.8490566%;
+  }
+
+  &:hover {
+    .logo__gt,
+    .logo__lt {
+      rotate: 180deg;
+      translate: 105% 0;
+      color: var(--color-brightTurquoise);
+    }
+
+    .logo__lt {
+      translate: -105% 0;
+    }
   }
 
   @include media-query("lg") {
