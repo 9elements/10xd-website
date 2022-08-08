@@ -21,8 +21,10 @@
     grid-column: 1;
   }
 
+  &:hover path {
+    animation: dashmove 2s linear infinite;
+  }
   path {
-    //animation: dashmove 2s linear infinite;
     stroke: #fff;
     stroke-width: 2;
     stroke-dasharray: 8px;
