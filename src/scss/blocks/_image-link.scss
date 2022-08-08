@@ -10,7 +10,7 @@
   padding: var(--space-s);
   transition: outline-offset 0.2s ease-out;
   outline-offset: -2px;
-  max-width: 30rem;
+  max-width: 34rem;
   margin-inline: auto;
   position: relative;
 
@@ -60,6 +60,6 @@
   }
 
   @include media-query("md") {
-    aspect-ratio: 11/9;
+    aspect-ratio: 13/9;
   }
 }
