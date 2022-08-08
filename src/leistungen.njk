@@ -13,7 +13,7 @@ permalink: /leistungen/
       --gs-bp-md: 45rem;
     ">
       {% for service in ctfl.pageServices.services %}
-        <article class="stack-2xs" id="{{ service.fields.title | slug }}" style="scroll-margin-top: var(--space-l);">
+        <article aria-label="{{ service.fields.title }}" class="stack-2xs" id="{{ service.fields.title | slug }}" style="scroll-margin-top: var(--space-l);">
           {% ctflPicture
             imgObj = service.fields.image,
             alt = "",
