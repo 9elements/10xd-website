@@ -1,11 +1,6 @@
 .site-head {
   padding-block: var(--space-m-l);
 
-  .logo {
-    max-width: 45%;
-    height: auto;
-    margin-inline: auto;
-  }
   .cluster {
     --cluster-justification: center;
     --cluster-gap: var(--space-xs-s);
@@ -40,10 +35,6 @@
   }
 
   @include media-query("lg") {
-    .logo {
-      max-width: none;
-    }
-
     .cluster {
       --cluster-justification: start;
 
@@ -65,5 +56,22 @@
         margin-inline-start: auto;
       }
     }
+  }
+}
+
+.logo {
+  max-width: 45%;
+  height: auto;
+  margin-inline: auto;
+  display: block;
+
+  svg {
+    margin-inline: auto;
+  }
+
+  @include media-query("lg") {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }

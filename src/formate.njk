@@ -10,7 +10,7 @@ permalink: /formate/
 
     <div class="stack-xl-2xl">
       {% for format in ctfl.formats %}
-        <article class="format | sidebar-left"
+        <article aria-label="{{ format.fields.title }}" class="format | sidebar-left"
           style="
             --sidebar-width: clamp(40rem, 60vw, 50rem);
             --sidebar-gap: var(--space-l);
@@ -21,9 +21,10 @@ permalink: /formate/
           <div>
             {% ctflPicture
               imgObj = format.fields.image,
-              fit="fill",
-              imgWidth="1024",
-              imgHeight="340",
+              fit = "fill",
+              imgWidth = "1024",
+              imgHeight = "340",
+              alt = "",
               widths = [300, 500, 800, 1024],
               sizes = "(min-width: 72.5em) 800px, 100vw",
               classes = "format__image"
@@ -53,12 +54,12 @@ permalink: /formate/
       <div class="slider__row">
         {% for image in ctfl.pageFormats.impressions %}
           {% ctflPicture
-              imgObj = image,
-              imgHeight = 500,
-              fit="fill",
-              widths=[none],
-              sizes = width + "px"
-            %}
+            imgObj = image,
+            imgHeight = 500,
+            fit = "fill",
+            widths=[none],
+            sizes = width + "px"
+          %}
         {% endfor %}
       </div>
     </div>

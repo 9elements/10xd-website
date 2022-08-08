@@ -1,13 +1,13 @@
 <header class="site-head">
 
   <div class="wrapper">
-    <nav aria-label="Website">
+    <a href="/" class="logo">
+      <span class="sr-only">Zehn X D – Startseite</span>
+      {% include "svg/10xd.svg" %}
+    </a>
+    <nav aria-label="Webseite">
       <ul class="cluster uppercase">
         <li>
-          <a href="/">
-            <span class="sr-only">Zehn X D – Startseite</span>
-            {% include "svg/10xd.svg" %}
-          </a>
         </li>
         {% for item in navigation.items %}
         <li>
