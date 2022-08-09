@@ -12,7 +12,38 @@
       document.documentElement.classList.add("js-active");
     </script>
 
-    <link rel="stylesheet" media="all" href="/fonts/fonts.css?{{ assetHash }}" />
+    <script>
+      /* Font loading: Critical FOFT with preload, see: https://www.zachleat.com/web/comprehensive-webfonts/#critical-foft-with-preload */
+      (function() {
+        if( "fonts" in document ) {
+
+          {% if env.nodeenv === 'production' %}
+            // Optimization for Repeat Views
+            if( sessionStorage.fontsLoadedCriticalFoftPreload ) {
+              document.documentElement.className += " fonts-loaded-2";
+              return;
+            }
+          {% endif %}
+
+          document.fonts.load("1em 'IBM Plex Sans Subset'").then(function () {
+            document.documentElement.className += " fonts-loaded-1";
+
+            Promise.all([
+              document.fonts.load("300 1em 'IBM Plex Sans'"),
+              document.fonts.load("400 1em 'IBM Plex Sans'"),
+              document.fonts.load("700 1em 'IBM Plex Sans'"),
+            ]).then(function () {
+              document.documentElement.className += " fonts-loaded-2";
+
+              // Optimization for Repeat Views
+              sessionStorage.fontsLoadedCriticalFoftPreload = true;
+            });
+          });
+        }
+      })();
+    </script>
+
+    {# <link rel="stylesheet" media="all" href="/fonts/fonts.css?{{ assetHash }}" /> #}
 
     {% if env.nodeenv !== 'production' %}
       <!-- We're not in production mode -->
