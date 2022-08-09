@@ -12,6 +12,11 @@
       document.documentElement.classList.add("js-active");
     </script>
 
+    <link rel="preload" href="/fonts/IBMPlexSans-Text-subset.woff2" as="font" type="font/woff2" crossorigin>
+    <style>
+      {% include "css/fonts.css" %}
+    </style>
+
     <script>
       /* Font loading: Critical FOFT with preload, see: https://www.zachleat.com/web/comprehensive-webfonts/#critical-foft-with-preload */
       (function() {
@@ -42,8 +47,6 @@
         }
       })();
     </script>
-
-    {# <link rel="stylesheet" media="all" href="/fonts/fonts.css?{{ assetHash }}" /> #}
 
     {% if env.nodeenv !== 'production' %}
       <!-- We're not in production mode -->

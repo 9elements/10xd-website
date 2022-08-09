@@ -42,7 +42,7 @@ body:before {
   position: absolute;
   left: 0;
   top: 0;
-  width: 100vw;
+  right: 0;
   height: 100vh;
   background-image: radial-gradient(
     ellipse farthest-side at 0% 0%,
@@ -52,11 +52,6 @@ body:before {
 }
 
 body[data-background="keyvisual"]:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100vw;
   height: 120vh;
   background-image: linear-gradient(
       0deg,
