@@ -1,0 +1,24 @@
+.service {
+  position: relative;
+
+  &:after {
+    content: "";
+    display: block;
+    width: min(8.125rem, 50%);
+    height: 2px;
+    background: var(--color-persianRose);
+    margin-top: var(--space-s);
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    aspect-ratio: 2/1;
+    background: var(--color-purple);
+    mix-blend-mode: color;
+    opacity: 0.3;
+  }
+}

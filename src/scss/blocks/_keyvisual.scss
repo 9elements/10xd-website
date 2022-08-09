@@ -45,15 +45,10 @@ body:before {
   width: 100vw;
   height: 100vh;
   background-image: radial-gradient(
-      ellipse farthest-side at -10% -20%,
-      #6a115b,
-      #6a115b00
-    ),
-    radial-gradient(
-      ellipse farthest-side at 110% -10%,
-      #32065b,
-      var(--color-violet)
-    );
+    ellipse farthest-side at 0% 0%,
+    #3d065f,
+    #6a115b00
+  );
 }
 
 body[data-background="keyvisual"]:before {

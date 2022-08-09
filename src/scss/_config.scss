@@ -1,15 +1,8 @@
-/**
-  * SIZE SCALE
-  * This is a Perfect Fourth scale that powers all the utilities that
-  * it is relevant for (font-size, margin, padding). All items are
-  * calcuated off the base size, so change that and cascade across
-  * your whole project.
-  */
-
-/* https://utopia.fyi/type/calculator?c=320,16,1.2,1140,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
+/* https://min-max-calculator.9elements.com/ */
+/* Interpolation between 320px and 1200px */
 $gorko-size-scale: (
   "step-0": clamp(0.938rem, 0.824rem + 0.57vw, 1.25rem),
-  "step-1": clamp(1.25rem, 1.023rem + 1.14vw, 1.875rem),
+  "step-1": clamp(1.375rem, 1.08rem + 1.48vw, 2.188rem),
   "step-2": clamp(1.875rem, 1.42rem + 2.27vw, 3.125rem),
   "step-3": clamp(2.25rem, 1.477rem + 3.86vw, 4.375rem),
   "step-4": clamp(2.5rem, 1.591rem + 4.55vw, 5rem),
@@ -45,7 +38,8 @@ $space-size-scale: (
   */
 $gorko-colors: (
   "black": #000,
-  "violet": #110733,
+  // "violet": #110733,
+  "violet": #000025,
   "purple": #4104b7,
   "brightTurquoise": #00ffd1,
   "persianRose": #ff209e,

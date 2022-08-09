@@ -5,7 +5,7 @@ permalink: /leistungen/
 ---
 
 <div class="grid-background">
-  <div class="wrapper stack-2xl" style="padding-block-start: var(--space-2xl);">
+  <div class="wrapper stack-xl" style="padding-block-start: var(--space-2xl);">
     <h1 class="color-brightTurquoise text-step-4">Leistungen</h1>
     <div class="grid-switcher" style="
       --gs-columns-lg: 2;
@@ -13,7 +13,7 @@ permalink: /leistungen/
       --gs-bp-md: 45rem;
     ">
       {% for service in ctfl.pageServices.services %}
-        <article aria-label="{{ service.fields.title }}" class="stack-2xs" id="{{ service.fields.title | slug }}" style="scroll-margin-top: var(--space-l);">
+        <article aria-label="{{ service.fields.title }}" class="service stack-xs" id="{{ service.fields.title | slug }}" style="scroll-margin-top: var(--space-l);">
           {% ctflPicture
             imgObj = service.fields.image,
             alt = "",
@@ -23,7 +23,7 @@ permalink: /leistungen/
             widths=[300, 556, 800],
             sizes = "(min-width: 50em) 34.75rem, 100vw"
           %}
-          <h2 class="text-step-1 uppercase my-stack-space-s">{{ service.fields.title }}</h2>
+          <h2 class="text-step-1 weight-light color-persianRose my-stack-space-m">{{ service.fields.title }}</h2>
           <p class="letterspace">{{ service.fields.description | markdownFilter | safe }}</p>
         </article>
       {% endfor %}
