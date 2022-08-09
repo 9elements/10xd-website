@@ -37,6 +37,25 @@
   }
 }
 
+body:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: radial-gradient(
+      ellipse farthest-side at -10% -20%,
+      #6a115b,
+      #6a115b00
+    ),
+    radial-gradient(
+      ellipse farthest-side at 110% -10%,
+      #32065b,
+      var(--color-violet)
+    );
+}
+
 body[data-background="keyvisual"]:before {
   content: "";
   position: absolute;

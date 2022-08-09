@@ -32,7 +32,7 @@ permalink: /formate/
           </div>
           <div class="stack-2xs">
             <h2 class="text-step-1 uppercase">{{ format.fields.title }}</h2>
-            <p>
+            <p class="letterspace">
               {{ format.fields.location }}, {{ format.fields.startDate | readableDate({ month: "long", day: "numeric", year: "numeric" }) }}<br>
               Tickets: {{ format.fields.ticketCount}} | {{ format.fields.ticketStatus }}
             </p>

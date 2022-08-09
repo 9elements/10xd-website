@@ -9,16 +9,17 @@ eleventyComputed:
   title: "{{ board.fields.title }}"
 ---
 
-<div class="grid-background stack-2xl">
+<div class="stack-3xl">
   <div class="wrapper stack-2xl" style="padding-block-start: var(--space-2xl);">
-    <h1 class="color-brightTurquoise text-step-4">{{ board.fields.title }}</h1>
+    <hr class="highlight-divider" aria-hidden="true">
+    <h1 class="text-step-2 weight-light center-text">{{ board.fields.title }}</h1>
 
     {% if board.fields.members %}
-      <div class="auto-grid" style="--auto-grid-min-size: 22rem; --auto-grid-gap: var(--space-xl);">
+      <div class="auto-grid" style="--auto-grid-min-size: 20rem; --auto-grid-gap: var(--space-xl);">
         {% for member in board.fields.members %}
           {% set photo = member.fields.photo %}
 
-          <div class="person | stack-2xs">
+          <div class="person">
             {% ctflPicture
               imgObj = photo,
               fit = "fill",
@@ -29,9 +30,11 @@ eleventyComputed:
               sizes = "(min-width: 72.5em) 800px, 100vw",
               classes = "person__image"
             %}
-            <p class="text-step-1 weight-bold leading-tight">{{ member.fields.name }}</p>
-            <p>{{ member.fields.position }}</p>
-            <div class="cluster">
+            <div class="bg-purple" style="padding: var(--space-xs);">
+              <p class="leading-tight">{{ member.fields.name }}</p>
+              <p>{{ member.fields.position }}</p>
+            </div>
+            <div class="cluster | person__links" style="--cluster-gap: 0;">
               {% if member.fields.linkedIn %}
                 <a class="person__social-link" href="{{ member.fields.linkedIn }}" target="_blank">
                   <span class="sr-only">{{ member.fields.name }} auf linkedIn</span>
@@ -49,5 +52,10 @@ eleventyComputed:
         {% endfor %}
       </div>
     {% endif %}
+
+  </div>
+  <div class="wrapper | center-text stack-l my-stack-space-3xl" style="--wrapper-max-width: 64ch;">
+    <h2 class="text-step-4 color-brightTurquoise">Was zeichnet uns aus</h2>
+    <p class="letterspace">Das Scientific Board berät das 10xD Management in wissenschaftlichen Fragestellungen und repräsentiert das Unternehmen insbesondere in der wissenschaftlichen Community und Praxis.</p>
   </div>
 </div>

@@ -30,7 +30,7 @@ permalink: /standorte/
         </div>
         <div class="stack-2xs">
           <h2 class="text-step-1 uppercase my-stack-space-s">{{ location.fields.title }}</h2>
-          <p>{{ location.fields.address | markdownFilter | safe }}</p>
+          <p class="letterspace">{{ location.fields.address | markdownFilter | safe }}</p>
         </div>
       </article>
     {% endfor %}

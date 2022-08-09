@@ -24,7 +24,7 @@ permalink: /leistungen/
             sizes = "(min-width: 50em) 34.75rem, 100vw"
           %}
           <h2 class="text-step-1 uppercase my-stack-space-s">{{ service.fields.title }}</h2>
-          <p>{{ service.fields.description | markdownFilter | safe }}</p>
+          <p class="letterspace">{{ service.fields.description | markdownFilter | safe }}</p>
         </article>
       {% endfor %}
     </div>
