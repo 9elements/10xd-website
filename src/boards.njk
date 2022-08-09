@@ -3,26 +3,51 @@ pagination:
   data: ctfl.boards
   size: 1
   alias: board
-title: "Board"
 layout: "layouts/home.njk"
 permalink: /{{ board.fields.title | slug }}/
+eleventyComputed:
+  title: "{{ board.fields.title }}"
 ---
 
 <div class="grid-background stack-2xl">
   <div class="wrapper stack-2xl" style="padding-block-start: var(--space-2xl);">
     <h1 class="color-brightTurquoise text-step-4">{{ board.fields.title }}</h1>
 
-    <hr class="highlight-divider">
+    {% if board.fields.members %}
+      <div class="auto-grid" style="--auto-grid-min-size: 22rem; --auto-grid-gap: var(--space-xl);">
+        {% for member in board.fields.members %}
+          {% set photo = member.fields.photo %}
 
-    <div class="stack-m center-text">
-      <h2 class="text-step-4" >Event-Slide</h2>
-      <form class="event-form" action="/event/" target="_blank">
-        <div class="event-form__inputgroup">
-          <label for="eventText">Slide Text:</label>
-          <input type="text" id="eventText" name="eventText" value="Innovative Formate im Gesundheitswesen">
-        </div>
-        <input type="submit" value="Slide anzeigen" class="uppercase weight-bold">
-      </form>
-    </div>
+          <div class="person | stack-2xs">
+            {% ctflPicture
+              imgObj = photo,
+              fit = "fill",
+              imgWidth = "600",
+              imgHeight = "600",
+              alt = "",
+              widths = [300, 600],
+              sizes = "(min-width: 72.5em) 800px, 100vw",
+              classes = "person__image"
+            %}
+            <p class="text-step-1 weight-bold leading-tight">{{ member.fields.name }}</p>
+            <p>{{ member.fields.position }}</p>
+            <div class="cluster">
+              {% if member.fields.linkedIn %}
+                <a class="person__social-link" href="{{ member.fields.linkedIn }}" target="_blank">
+                  <span class="sr-only">{{ member.fields.name }} auf linkedIn</span>
+                  {% icon icon = "linkedin" %}
+                </a>
+              {% endif %}
+              {% if member.fields.eMail %}
+                <a class="person__social-link" href="mailto:{{ member.fields.eMail }}" >
+                  <span class="sr-only">E-Mail an {{ member.fields.name }}</span>
+                  {% icon icon = "mail" %}
+                </a>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
   </div>
 </div>

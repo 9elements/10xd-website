@@ -36,6 +36,7 @@ h4 {
 @import "utilities/uppercase";
 
 //Layout
+@import "layout/auto-grid";
 @import "layout/cluster";
 @import "layout/grid-switcher";
 @import "layout/sidebar";
@@ -52,6 +53,7 @@ h4 {
 @import "blocks/keyword-nav";
 @import "blocks/keyvisual";
 @import "blocks/partner-list";
+@import "blocks/person";
 @import "blocks/plain-html";
 @import "blocks/site-foot";
 @import "blocks/site-head";

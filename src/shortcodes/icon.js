@@ -1,4 +1,3 @@
-// pass in collections.all | eleventyNavigation, (current) page, and maximum depth level
 module.exports = (icon) => {
   let style = "";
   let srText = "aria-hidden='true' focusable='false'";

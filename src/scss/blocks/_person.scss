@@ -1,0 +1,13 @@
+.person {
+  max-width: 37.5rem;
+
+  &__social-link {
+    &:hover {
+      color: var(--color-brightTurquoise);
+    }
+  }
+  .icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
