@@ -54,11 +54,13 @@ eleventyComputed:
     {% endif %}
 
   </div>
+  {% if (board.fields.aboutText) and (board.fields.aboutText) %}
+
   <div class="wrapper | center-text stack-l my-stack-space-3xl" style="--wrapper-max-width: 64ch;">
-    <h2 class="text-step-4 color-brightTurquoise">Was zeichnet uns aus</h2>
+    <h2 class="text-step-4 color-brightTurquoise">{{ board.fields.aboutHeadline }}</h2>
     <p class="letterspace">
-      Das Economic Board leitet die Scientific und Economic Boards und ist für die strategische Ausrichtung zuständig.<br>
-      *(angefragt)
+      {{ board.fields.aboutText | markdownFilter | safe }}
     </p>
   </div>
+  {% endif %}
 </div>

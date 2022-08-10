@@ -4,6 +4,7 @@ const ctflBoards = require("./ctfl/boards.js");
 const ctflFormats = require("./ctfl/formats.js");
 
 const ctflPageFormats = require("./ctfl/pageFormats.js");
+const ctflPageHome = require("./ctfl/pageHome.js");
 const ctflPageServices = require("./ctfl/pageServices.js");
 const ctflPageLocations = require("./ctfl/pageLocations.js");
 const ctflTextPages = require("./ctfl/textPages.js");
@@ -14,6 +15,7 @@ const ctflData = {
   boards: ctflBoards,
   formats: ctflFormats,
   pageFormats: ctflPageFormats,
+  pageHome: ctflPageHome,
   pageServices: ctflPageServices,
   pageLocations: ctflPageLocations,
   textPages: ctflTextPages,

@@ -9,7 +9,7 @@ permalink: /standorte/
     <h1 class="color-brightTurquoise text-step-4 sr-only">{{ ctfl.pageLocations.title }}</h1>
 
     {% for location in ctfl.pageLocations.locations %}
-      <article class="format | sidebar-left"
+      <article class="location | sidebar-left"
         style="
           --sidebar-width: clamp(40rem, 60vw, 50rem);
           --sidebar-gap: var(--space-l);
@@ -17,15 +17,14 @@ permalink: /standorte/
           --sidebar-threshold: 20rem;
           flex-direction: row-reverse;"
       >
-        <div>
+        <div class="location__image">
           {% ctflPicture
             imgObj = location.fields.image,
             imgWidth="1024",
             imgHeight="340",
             fit="fill",
             widths=[300, 500, 1024],
-            sizes = "(min-width: 50em) 34.75rem, 100vw",
-            classes = "format__image"
+            sizes = "(min-width: 50em) 34.75rem, 100vw"
           %}
         </div>
         <div class="stack-2xs">

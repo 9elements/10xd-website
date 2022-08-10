@@ -1,0 +1,25 @@
+.location {
+  &__image {
+    position: relative;
+
+    img {
+      filter: brightness(105%) contrast(110%) grayscale(1);
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      top: 90%;
+      bottom: 5%;
+      background: linear-gradient(
+        0deg,
+        var(--color-brightTurquoise) 50%,
+        0,
+        var(--color-persianRose)
+      );
+      mix-blend-mode: color;
+      opacity: 1;
+    }
+  }
+}
