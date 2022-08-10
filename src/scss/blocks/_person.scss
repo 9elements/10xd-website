@@ -2,6 +2,10 @@
   max-width: 37.5rem;
   position: relative;
 
+  &__image {
+    filter: grayscale(1);
+  }
+
   &__links {
     position: absolute;
     right: var(--space-2xs);
@@ -39,17 +43,19 @@
     position: absolute;
     left: 0;
     top: 0;
+    margin-top: 85%;
     width: 100%;
-    aspect-ratio: 1;
+    aspect-ratio: 10/1;
     z-index: 2;
     background: var(--color-purple);
     background-image: linear-gradient(
-      70deg,
-      var(--color-purple),
-      var(--color-persianRose)
+      0deg,
+      var(--color-purple) 50%,
+      0,
+      var(--color-brightTurquoise)
     );
     mix-blend-mode: color;
-    opacity: 0.3;
+    opacity: 0.6;
   }
 
   &:after {

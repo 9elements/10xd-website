@@ -22,12 +22,12 @@
   }
 
   &:hover path {
-    animation: dashmove 2s linear infinite;
+    //animation: dashmove 2s linear infinite;
   }
   path {
     stroke: #fff;
-    stroke-width: 2;
-    stroke-dasharray: 8px;
+    stroke-width: 4;
+    //stroke-dasharray: 8px;
   }
 
   @keyframes dashmove {
