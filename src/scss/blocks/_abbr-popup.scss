@@ -21,6 +21,7 @@
     top: 0;
     left: 50%;
     transform: translate(-50%, calc(-100% - 1.5em));
+    box-shadow: 0.5rem 0.5rem 0.125rem #000;
   }
 
   &:focus,
@@ -66,6 +67,7 @@
       top: 0;
       left: 50%;
       transform: translate(-100%, -2.75em);
+      filter: drop-shadow(0.5rem 0.5rem 0.125rem #000);
     }
   }
 }
