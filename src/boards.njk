@@ -19,7 +19,7 @@ eleventyComputed:
         {% for member in board.fields.members %}
           {% set photo = member.fields.photo %}
 
-          <div class="person">
+          <div class="person stack-xs">
             {% ctflPicture
               imgObj = photo,
               fit = "fill",
@@ -30,8 +30,8 @@ eleventyComputed:
               sizes = "(min-width: 72.5em) 800px, 100vw",
               classes = "person__image"
             %}
-            <div class="bg-purple" style="padding: var(--space-xs);">
-              <p class="leading-tight">{{ member.fields.name }}</p>
+            <div>
+              <p class="leading-tight weight-light uppercase color-persianRose">{{ member.fields.name }}</p>
               <p>{{ member.fields.position }}</p>
             </div>
             <div class="cluster | person__links" style="--cluster-gap: 0;">
