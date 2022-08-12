@@ -4,11 +4,60 @@ layout: "layouts/home.njk"
 permalink: /presse/
 ---
 
-<div class="grid-background stack-2xl">
+<div class="stack-2xl" style="position: relative;">
   <div class="wrapper stack-2xl" style="padding-block-start: var(--space-2xl);">
-    <h1 class="color-brightTurquoise text-step-4">Presse</h1>
+    <h1 class="color-brightTurquoise text-step-4 sr-only">Presse</h1>
+    <h2 class="sr-only">Downloads</h2>
+    <div class="auto-grid" style="
+      --auto-grid-min-size: 23rem;
+      --auto-grid-gap: var(--space-xl);
+      --auto-grid-gap-vertical: var(--space-l);"
+      >
+      <div class="download-item stack-s">
+        {% picture
+          src = "./src/images/logo-download.png",
+          alt = "",
+          widths = [300, 500, 800],
+          sizes = "(min-width: 60em) 60rem, 100vw",
+          formats = ["avif", "webp", "jpg"]
+        %}
+        <h3 class="font-step-2 weight-light color-persianRose">Logo</h3>
+        <p class="letterspace my-stack-space-3xs">Innovative Events und Happenings von Closed-Shop-Events bis hin zu Kongressen im Gesundheitswesen.</p>
+        <a href="#" class="button">Download <span class="sr-only">Logodaten</span></a>
+      </div>
+      <div class="download-item stack-s">
+        {% picture
+          src = "./src/images/photo-download.png",
+          alt = "",
+          widths = [300, 500, 800],
+          sizes = "(min-width: 60em) 60rem, 100vw",
+          formats = ["avif", "webp", "jpg"]
+        %}
+        <h3 class="font-step-2 weight-light color-persianRose">Pressebilder</h3>
+        <p class="letterspace my-stack-space-3xs">Innovative Events und Happenings von Closed-Shop-Events bis hin zu Kongressen im Gesundheitswesen.</p>
+        <a href="#" class="button">Download <span class="sr-only">Pressebilder</span></a>
+      </div>
+    </div>
 
-    <a href="/downloads/10xD.vcf">Kontakt runterladen</a>
+    <hr class="highlight-divider">
+
+    <div class="center-text wrapper stack-m" style="--wrapper-max-width: 64ch;">
+      <h2 class="color-brightTurquoise text-step-4">Über uns</h2>
+      <p class="letterspace">
+        10xD steht für innovative und exklusive Formate im Gesundheitswesen.
+Unser Anspruch ist höchste verfügbare Qualität. Das fängt mit Design an und endet mit den Technologien und Partnern mit denen wir arbeiten. Im Team greifen wir auf rund 100 Jahre Expertise auf C-Level im Gesundheitswesen und Multi-Founding von erfolgreichen Branchenstartups zurück. Wir schaffen starke Netzwerke und transformieren so das Gesundheitswesen.
+      </p>
+      <a href="/downloads/10xD.vcf" class="button">Kontakt speichern</a>
+    </div>
+
+    <hr class="highlight-divider">
+
+    <a href="#" class="join-link | color-brightTurquoise uppercase text-step-2 leading-flat weight-bold">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-2 -2 425 425" aria-hidden="true">
+        <path stroke-width="2" stroke="currentColor" d="M421 52.6 315.7 0 210.6 52.6 105.2 0 0 52.6V158l105.3 52.6L0 263.1v105.3L105.3 421l105.2-52.6L315.8 421 421 368.4V263l-105.3-52.6L421 157.9V52.6Z"/>
+      </svg>
+      <span>Join<br>10XD</span>
+    </a>
   </div>
 
 

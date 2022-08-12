@@ -1,0 +1,42 @@
+.button {
+  display: inline-block;
+  color: var(--color-brightTurquoise);
+  border: 1px solid currentColor;
+  text-decoration: none;
+  padding: var(--space-2xs) var(--space-xs);
+  text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+
+  &::before {
+    content: "";
+    background-image: linear-gradient(
+        var(--color-brightTurquoise),
+        var(--color-brightTurquoise)
+      ),
+      linear-gradient(var(--color-persianRose), var(--color-persianRose));
+    background-size: 0 100%;
+    background-repeat: no-repeat, no-repeat;
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.2s ease-out, background-size 0s 0.2s ease-out;
+  }
+
+  @media (any-pointer: fine) and (any-hover: hover) {
+    &:hover {
+      color: var(--color-violet);
+    }
+    &:hover::before {
+      transition: background-size 0.3s ease-out;
+      background-size: 100% 100%, 180% 100%;
+      opacity: 1;
+    }
+  }
+
+  &:focus-visible {
+    outline: 1px solid var(--color-brightTurquoise);
+    outline-offset: var(--space-3xs);
+  }
+}
