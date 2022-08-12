@@ -54,12 +54,15 @@ keyvisual: "true"
   <div class="section-ten-x">
     <div class="wrapper" style="--wrapper-max-width: 88rem;">
       {% picture
-        src = "./src/images/lights.jpg",
+        src = "./src/images/lights.png",
         alt = "",
         widths = [300, 500, 960],
         sizes = "(min-width: 60em) 60rem, 100vw",
         formats = ["avif", "webp", "jpg"]
       %}
+      {# <video src="./videos/1059201062-preview.mp4" autoplay loop muted style="
+        width: min(60rem, 100%); margin-inline: auto;
+      "></video> #}
       <p style="position: relative;" class="text-step-3 uppercase center-text leading-flat weight-bold">
         Bring <abbr tabindex="0" class="abbr-popup | color-brightTurquoise" title="10 x kommt aus der Raumfahrt und bedeutet, etwas mindestens 10 x besser zu machen (statt inkrementell) und hat sich als Sinnbild für exponentielle Technologien etabliert.">10x</abbr> foreward Digital Health and Next Generation Healthcare
       </p>
@@ -71,17 +74,11 @@ keyvisual: "true"
       <h2 class="sr-only" lang="en">10xd Boards</h2>
 
 
-      <ul class="grid-switcher | text-step-2" style="
-        --gs-columns-lg: 2;
-        --gs-gap: var(--space-2xl);
-        --gs-bp-md: 45rem;
-      ">
+      <div class="board-grid">
       {% for board in ctfl.pageHome.boards %}
-        <li>
         {% board board %}
-        </li>
       {% endfor %}
-      </ul>
+      </div>
     </div>
   </div>
 

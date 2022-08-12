@@ -3,7 +3,7 @@
   position: relative;
 
   &__image {
-    filter: grayscale(1);
+    filter: grayscale(1) contrast(1.2);
   }
 
   &__links {
@@ -43,17 +43,18 @@
     position: absolute;
     left: 0;
     top: 0;
-    margin-top: 85%;
     width: 100%;
-    aspect-ratio: 10/1;
+    aspect-ratio: 1/1;
     z-index: 2;
-    background: var(--color-purple);
     background-image: linear-gradient(
-      0deg,
-      var(--color-purple) 50%,
-      0,
+      45deg,
+      var(--color-persianRose),
+      white 15%,
+      white 80%,
       var(--color-brightTurquoise)
     );
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
     mix-blend-mode: color;
     opacity: 0.6;
   }
