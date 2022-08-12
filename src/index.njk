@@ -74,11 +74,11 @@ keyvisual: "true"
       <h2 class="sr-only" lang="en">10xd Boards</h2>
 
 
-      <div class="board-grid">
+      <ul class="board-grid">
       {% for board in ctfl.pageHome.boards %}
-        {% board board %}
+        <li>{% board board %}</li>
       {% endfor %}
-      </div>
+      </ul>
     </div>
   </div>
 
