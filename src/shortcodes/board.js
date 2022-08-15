@@ -17,7 +17,7 @@ async function boardShortcode(board) {
   let data = metadata.webp[metadata.webp.length - 1];
 
   return `<a class="image-link | text-step-2 uppercase leading-tight weight-light" href="/${slug}" style="background-image: url(${data.url});">
-    <span aria-hidden="true" class="weight-bold">10xD</span><span>${title}</span>
+    <span class="image-link__overlay"></span></span><span aria-hidden="true" class="weight-bold">10xD</span><span>${title}</span>
   </a>`;
 }
 
