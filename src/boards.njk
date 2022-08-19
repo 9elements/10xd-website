@@ -17,19 +17,29 @@ eleventyComputed:
     {% if board.fields.members %}
       <div class="auto-grid" style="--auto-grid-min-size: 20rem; --auto-grid-gap: var(--space-xl);">
         {% for member in board.fields.members %}
-          {% set photo = member.fields.photo %}
-
           <div class="person stack-xs">
-            {% ctflPicture
-              imgObj = photo,
-              fit = "fill",
-              imgWidth = "600",
-              imgHeight = "600",
-              alt = "",
-              widths = [300, 600],
-              sizes = "(min-width: 72.5em) 800px, 100vw",
-              classes = "person__image"
-            %}
+            {% if member.fields.photo %}
+              {% set photo = member.fields.photo %}
+              {% ctflPicture
+                imgObj = photo,
+                fit = "fill",
+                imgWidth = "600",
+                imgHeight = "600",
+                alt = "",
+                widths = [300, 600],
+                sizes = "(min-width: 72.5em) 800px, 100vw",
+                classes = "person__image"
+              %}
+            {% else %}
+              {% picture
+                src = "./src/images/poartrait-placeholder.png",
+                alt = "",
+                widths = [300, 600],
+                sizes = "(min-width: 72.5em) 800px, 100vw",
+                formats = ["avif", "webp", "png"],
+                classes = "person__image"
+              %}
+            {% endif %}
             <div>
               <p class="leading-tight weight-light uppercase color-persianRose">{{ member.fields.name }}</p>
               <p>{{ member.fields.position }}</p>

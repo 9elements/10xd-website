@@ -11,7 +11,7 @@ const svgicons = require("./gulp-tasks/svg-store.js");
 // will run when a file changes.
 const watcher = () => {
   watch("./src/scss/**/*.scss", { ignoreInitial: true }, sass);
-  watch("./src/icons/**/*.svg", { ignoreInitial: true }, svgicons);
+  // watch("./src/icons/**/*.svg", { ignoreInitial: true }, svgicons);
 };
 
 // The default (if someone just runs `gulp`) is to run each task in parrallel
