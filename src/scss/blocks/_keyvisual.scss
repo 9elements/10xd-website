@@ -21,18 +21,22 @@
     grid-column: 1;
   }
 
-  &:hover path {
-    //animation: dashmove 2s linear infinite;
+  path {
+    animation: dashmove 20s ease-out;
+    animation-fill-mode: both;
+    stroke-dashoffset: 100;
   }
   path {
-    stroke: #fff;
     stroke-width: 4;
-    //stroke-dasharray: 8px;
+    stroke-dasharray: 100;
   }
 
   @keyframes dashmove {
+    from {
+      stroke-dashoffset: 100;
+    }
     to {
-      stroke-dashoffset: 16px;
+      stroke-dashoffset: 0;
     }
   }
 }
