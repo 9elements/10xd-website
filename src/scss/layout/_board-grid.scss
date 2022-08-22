@@ -14,4 +14,8 @@
   > *:first-child {
     grid-column: 1 / -1;
   }
+
+  &--no-highlight > *:first-child {
+    grid-column: 1 / 2;
+  }
 }

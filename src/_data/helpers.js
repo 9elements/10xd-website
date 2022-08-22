@@ -71,4 +71,13 @@ module.exports = {
   filterCollectionByKeys(collection, keys) {
     return collection.filter((x) => keys.includes(x.data.key));
   },
+
+  /**
+   * Take a collection and filter the current item
+   */
+  filterCurrent(collection, title) {
+    return collection.filter((x) => {
+      return x.fields.title != title;
+    });
+  },
 };

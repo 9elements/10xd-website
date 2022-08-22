@@ -73,4 +73,16 @@ eleventyComputed:
     </p>
   </div>
   {% endif %}
+  <hr class="highlight-divider">
+
+  <div class="wrapper">
+    <h2 class="sr-only" lang="en">Andere Boards</h2>
+
+    <ul class="board-grid board-grid--no-highlight">
+      {% set otherBoards = helpers.filterCurrent(ctfl.pageHome.boards, board.fields.title) %}
+      {% for board in otherBoards %}
+        <li>{% board board %}</li>
+      {% endfor %}
+    </ul>
+  </div>
 </div>
