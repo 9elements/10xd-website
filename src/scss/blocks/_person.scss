@@ -38,20 +38,25 @@
     padding: var(--space-2xs);
   }
 
-  &:before {
+  picture {
+    position: relative;
+  }
+
+  picture:before {
     content: "";
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
-    aspect-ratio: 1/1;
     z-index: 2;
-    background-image: linear-gradient(
-      45deg,
-      var(--color-persianRose),
-      white 15%,
-      white 80%,
-      var(--color-brightTurquoise)
+    inset: 0;
+    top: 95%;
+    bottom: 2.5%;
+    background: linear-gradient(
+      0deg,
+      var(--color-brightTurquoise) 50%,
+      0,
+      var(--color-persianRose)
     );
     background-size: 100% 100%;
     background-repeat: no-repeat;
