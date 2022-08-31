@@ -106,9 +106,9 @@ body[data-background="keyvisual"]:before {
 
     path {
       stroke-dasharray: 100;
-      animation: dashmove 15s ease-out infinite alternate;
+      animation: dashmove-two 15s ease-out infinite alternate;
 
-      @keyframes dashmove {
+      @keyframes dashmove-two {
         0%,
         10% {
           stroke-dashoffset: 100;
