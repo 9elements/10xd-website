@@ -104,6 +104,21 @@ body[data-background="keyvisual"]:before {
     margin-block: auto;
     position: relative;
 
+    path {
+      stroke-dasharray: 100;
+      animation: dashmove 15s ease-out infinite alternate;
+
+      @keyframes dashmove {
+        0%,
+        10% {
+          stroke-dashoffset: 100;
+        }
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+    }
+
     picture,
     svg {
       height: 100%;
