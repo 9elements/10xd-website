@@ -2,11 +2,13 @@
   from = "https://10xd.store/*"
   to = "https://10xd.de/:splat"
   status = 301
+  force = true
 
 [[redirects]]
   from = "https://www.10xd.store/*"
   to = "https://10xd.de/:splat"
   status = 301
+  force = true
 
 [[redirects]]
 from = "/test/"
