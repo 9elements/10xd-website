@@ -1,5 +1,5 @@
 @font-face {
-  font-family: "Work Sans Subset";
+  font-family: "IBM Plex Sans Subset";
   font-style: normal;
   font-weight: 400;
   src: url("/fonts/IBMPlexSans-Text-subset.woff2") format("woff2");
@@ -7,7 +7,7 @@
 
 /*
 To get the font subset use this command (in the project root that is where the ttf file is located):
-glyphhanger https://10xd-test.netlify.app --subset=IBMPlexSans-Text.ttf --formats=woff2;
+glyphhanger https://10xd.de --subset=IBMPlexSans-Text.ttf --formats=woff2;
 
 It needs python, with pip and some other stuff.
 Information on this can be found here:

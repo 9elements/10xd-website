@@ -50,6 +50,7 @@
 
     {% if env.nodeenv !== 'production' %}
       <!-- We're not in production mode -->
+      {{ "No in Production!!" | log }}
       <style>
         {% include "css/critical.css" %}
       </style>
