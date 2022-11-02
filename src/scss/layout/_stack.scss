@@ -20,6 +20,6 @@
 
 @each $key, $value in $space-size-scale {
   #{".my-stack-space-" + $key} {
-    --stack-space: #{$value};
+    --stack-space: var(--space-#{$key});
   }
 }

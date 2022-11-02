@@ -9,7 +9,7 @@ permalink: /formate/
     <h1 class="color-brightTurquoise text-step-4 sr-only">{{ ctfl.pageFormats.title }}</h1>
 
     <div class="stack-xl-2xl">
-      {% for format in ctfl.formats %}
+      {% for format in ctfl.formats | reverse %}
         <article aria-label="{{ format.fields.title }}" class="format | sidebar-left"
           style="
             --sidebar-width: clamp(40rem, 60vw, 50rem);
