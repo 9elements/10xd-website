@@ -15,7 +15,7 @@ Not required, but recommended:
 Optional properties:
   - formats -> The image formats generated for the picture. Defaults to ["avif", "webp", "jpg"]
   - widths -> all the widths for the picture elements. Works with [none]. Defaults to [300, 600]
-  - sizes -> defines the sizes for the picture. Defaults to "(min-width: 22em) 30vw, 100vw"
+  - sizes -> defines the sizes for the picture. Works with [none]. Defaults to "(min-width: 22em) 30vw, 100vw"
   - classes -> add some classes
   - fit -> if you resize the image this defines how it should be resized. Defaults to "fill"
 
@@ -92,6 +92,8 @@ async function ctflPictureShortcode(ctflImage) {
   }
 
   imgUrl = imgUrl + "?fit=" + fit + "&w=" + imgWidth + "&h=" + imgHeight;
+
+  console.log(imgUrl);
 
   let options;
 
