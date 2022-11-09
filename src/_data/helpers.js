@@ -21,6 +21,13 @@ module.exports = {
     return response;
   },
 
+  sameDay(dayOne, dayTwo) {
+    dateDayOne = new Date(dayOne);
+    dateDayTwo = new Date(dayTwo);
+    return dateDayOne.getDate() === dateDayTwo.getDate();
+  },
+
+
   /**
    * Filters out the passed item from the passed collection
    * and randomises and limits them based on flags

@@ -10,6 +10,7 @@ permalink: /formate/
 
     <div class="stack-xl-2xl">
       {% for format in ctfl.formats | reverse %}
+          {% set url = "/formate/" + format.fields.title | slugify %}
         <article aria-label="{{ format.fields.title }}" class="format | sidebar-left"
           style="
             --sidebar-width: clamp(40rem, 60vw, 50rem);
@@ -33,10 +34,13 @@ permalink: /formate/
           <div class="stack-2xs">
             <h2 class="text-step-1 uppercase">{{ format.fields.title }}</h2>
             <p class="letterspace">
-              {{ format.fields.location }}, {{ format.fields.startDate | readableDate({ month: "long", day: "numeric", year: "numeric" }) }}<br>
+              {{ format.fields.location }}, {{ format.fields.startDate | dateFormat("dd. MMMM yyyy") }}<br>
               Tickets: {{ format.fields.ticketCount}}<br>{{ format.fields.ticketStatus }}
             </p>
-            {% if format.fields.link %}
+            
+            {% if format.fields.singlePage %}
+              <a href="{{ url }}" class="format__link"><span class="sr-only">Zum Format: {{ format.fields.title }}</span></a>
+            {% elif not format.fields.singlePage and format.fields.link %}
               <a href="{{ format.fields.link }}" class="format__link" target="_blank"><span class="sr-only">Zum Format: {{ format.fields.title }}</span></a>
             {% endif %}
           </div>

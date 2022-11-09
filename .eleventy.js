@@ -1,6 +1,7 @@
 const { EleventyServerlessBundlerPlugin } = require("@11ty/eleventy");
 
 // Filters
+const dateFormat = require("./src/filters/dateFormat.js");
 const readableDate = require("./src/filters/readableDate.js");
 const w3DateFilter = require("./src/filters/w3-date-filter.js");
 const markdownFilter = require("./src/filters/markdown-filter.js");
@@ -30,6 +31,7 @@ module.exports = (config) => {
 
   // Add filters
   config.addFilter("readableDate", readableDate);
+  config.addFilter("dateFormat", dateFormat);
   config.addFilter("w3DateFilter", w3DateFilter);
   config.addFilter("limit", function (arr, limit) {
     return arr.slice(0, limit);
