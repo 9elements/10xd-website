@@ -48,7 +48,7 @@ permalink: "formate/{{ format.fields.title | slugify }}/index.html"
                 <dl class="details">
                     <dt class="weight-bold color-persianRose uppercase text-step--1">Zeit</dt>
                     <dd>
-                        <span class="weight-bold" style="display: block;">{{ format.fields.startDate | dateFormat("dd. MMMM yyyy") }}</span>
+                        <span class="weight-bold" style="display: block;">{{ format.fields.startDateTime | dateFormat("dd. MMMM yyyy") }}</span>
                         <span>
                         {{ format.fields.startDateTime | dateFormat("HH:mm") }} Uhr -
                         {% if sameDay %}

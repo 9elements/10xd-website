@@ -87,4 +87,13 @@ module.exports = {
       return x.fields.title != title;
     });
   },
-};
+  getFutureFormats(collection) {
+    const futureFormats = collection.filter((entry) => {
+      return !entry.fields.isOver;
+    });
+  
+    return futureFormats;
+  
+  }
+  };
+
