@@ -10,7 +10,8 @@ permalink: /formate/
 
     <div class="stack-xl-2xl">
       {% set futureFormats = helpers.getFutureFormats(ctfl.formats) %}
-      {% for format in futureFormats | reverse %}
+      {# {% for format in futureFormats | reverse %} #}
+      {% for format in ctfl.formats | reverse %}
           {% set url = "/formate/" + format.fields.title | slugify %}
         <article aria-label="{{ format.fields.title }}" class="format | sidebar-left"
           style="
@@ -38,7 +39,7 @@ permalink: /formate/
               {{ format.fields.location }}, {{ format.fields.startDateTime | dateFormat("dd. MMMM yyyy") }}<br>
               Tickets: {{ format.fields.ticketCount}}<br>{{ format.fields.ticketStatus }}
             </p>
-            
+
             {% if format.fields.singlePage %}
               <a href="{{ url }}" class="format__link"><span class="sr-only">Zum Format: {{ format.fields.title }}</span></a>
             {% elif not format.fields.singlePage and format.fields.link %}
