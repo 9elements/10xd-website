@@ -17,6 +17,7 @@ const ctflData = {
   formats: ctflFormats,
   pageFormats: ctflPageFormats,
   pageHome: ctflPageHome,
+  pageLocations: ctflPageLocations,
   pageServices: ctflPageServices,
   pagePress: ctflPagePress,
   textPages: ctflTextPages,
