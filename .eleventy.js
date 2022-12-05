@@ -54,6 +54,10 @@ module.exports = (config) => {
     "board",
     require("./src/shortcodes/board.js")
   );
+  config.addPairedNunjucksAsyncShortcode(
+    'ctflDownload',
+    require('./src/shortcodes/ctflDownload.js')
+  );
 
   // Only minify HTML if we are in production because it slows builds _right_ down
   if (isProduction) {

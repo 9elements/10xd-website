@@ -72,6 +72,14 @@ nav > ol {
   padding: 0;
 }
 
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul:where([role="list"]),
+ul:where([role="tablist"]),
+ol:where([role="list"]) {
+  list-style-type: none;
+  padding: 0;
+}
+
 /* Remove all animations and transitions for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   *,

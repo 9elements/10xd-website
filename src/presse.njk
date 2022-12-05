@@ -25,18 +25,24 @@ permalink: /presse/
         <p class="letterspace my-stack-space-3xs">Innovative Events und Happenings von Closed-Shop-Events bis hin zu Kongressen im Gesundheitswesen.</p>
         <a href="/downloads/10xD_Logodaten.zip" class="button">Download <span class="sr-only">Logodaten</span></a>
       </div>
-      {# <div class="download-item stack-s">
-        {% picture
-          src = "./src/images/photo-download.png",
-          alt = "",
-          widths = [300, 500, 800],
-          sizes = "(min-width: 60em) 60rem, 100vw",
-          formats = ["avif", "webp", "jpg"]
-        %}
-        <h3 class="font-step-2 weight-light color-persianRose">Pressebilder</h3>
-        <p class="letterspace my-stack-space-3xs">Innovative Events und Happenings von Closed-Shop-Events bis hin zu Kongressen im Gesundheitswesen.</p>
-        <a href="#" class="button">Download <span class="sr-only">Pressebilder</span></a>
-      </div> #}
+
+      {{ ctfl.pagePress | log }}
+      {% if ctfl.pagePress.pressRelease.length > 0 %}
+        <div class="download-item stack-s">
+          <h3 class="font-step-2 weight-light color-persianRose">Pressemitteilungen</h3>
+          <ul class="press-list | text-step-0" role="list">
+            {% for download in ctfl.pagePress.pressRelease %}
+              <li>
+                <span class="press-list__date">{{ download.fields.date | readableDate({month: "numeric", day: "numeric", year: "numeric"}) }}</span>
+                {% set downloadTitle = download.fields.date | readableDate({month: "numeric", day: "numeric", year: "numeric"}) + "-10xD-Pressemitteilung" %}
+                {% ctflDownload downloadObj = download.fields.file, title = downloadTitle | slugify %}
+                  {{ download.fields.title }}
+                {% endctflDownload %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
     </div>
 
     <hr class="highlight-divider">

@@ -7,6 +7,7 @@ const ctflPageFormats = require("./ctfl/pageFormats.js");
 const ctflPageHome = require("./ctfl/pageHome.js");
 const ctflPageServices = require("./ctfl/pageServices.js");
 const ctflPageLocations = require("./ctfl/pageLocations.js");
+const ctflPagePress = require("./ctfl/pagePress.js");
 const ctflTextPages = require("./ctfl/textPages.js");
 
 // Create an Object to write the json files
@@ -17,7 +18,7 @@ const ctflData = {
   pageFormats: ctflPageFormats,
   pageHome: ctflPageHome,
   pageServices: ctflPageServices,
-  pageLocations: ctflPageLocations,
+  pagePress: ctflPagePress,
   textPages: ctflTextPages,
 };
 
