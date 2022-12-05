@@ -4,7 +4,7 @@
   .cluster {
     --cluster-justification: center;
     --cluster-gap: var(--space-xs-s);
-    --cluster-gap-vertical: var(--space-m);
+    --cluster-gap-vertical: var(--space-s);
 
     > li:first-child {
       width: 100%;
@@ -37,29 +37,10 @@
         color: var(--color-brightTurquoise);
       }
     }
-  }
 
-  @include media-query("lg") {
-    .cluster {
-      --cluster-justification: start;
-
-      > li {
-        min-height: 3.125rem;
-        display: flex;
-        align-items: center;
-      }
-
-      > li:first-child {
-        position: absolute;
-        left: 50%;
-        width: auto;
-        top: 0;
-        transform: translateX(-50%);
-      }
-
-      > li:nth-last-child(2) {
-        margin-inline-start: auto;
-      }
+    @include media-query("lg") {
+      --cluster-gap: var(--space-s-m);
+      --cluster-gap-vertical: var(--space-m);
     }
   }
 }
@@ -120,11 +101,5 @@
         translate: -104% 0;
       }
     }
-  }
-
-  @include media-query("lg") {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
   }
 }

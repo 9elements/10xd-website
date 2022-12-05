@@ -1,0 +1,47 @@
+---
+title: "Members"
+layout: "layouts/home.njk"
+permalink: /members/
+---
+
+<div class="grid-background">
+  <div class="wrapper stack-xl" style="padding-block-start: var(--space-2xl);">
+    <h1 class="color-brightTurquoise text-step-4">{{ ctfl.pageMembers.title }}</h1>
+
+      <div class="grid-switcher" style="
+      --gs-columns-lg: 5;
+      --gs-columns-md: 4;
+      --gs-columns-sm: 2;
+      --gs-gap: var(--space-2xl);
+      --gs-bp-md: 45rem;
+    ">
+      {% for member in ctfl.pageMembers.members %}
+        {% set logo = member.fields.logo %}
+        {% if member.fields.link %}
+          <a href="{{ member.fields.link }}" target="_blank">
+        {% else %}
+          <span>
+        {% endif %}
+        {% ctflPicture
+          imgObj = logo,
+          fit = "fill",
+          imgWidth = "1200",
+          imgHeight = "1200",
+          formats = ["png", "svg"],
+          alt = member.fields.name,
+          widths = [300, 600],
+          sizes = "(min-width: 72.5em) 800px, 100vw",
+          classes = ""
+        %}
+        {% if member.fields.link %}
+          </a>
+        {% else %}
+          </span>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+
+
+</div>
