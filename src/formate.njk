@@ -11,7 +11,7 @@ permalink: /formate/
     <div class="stack-xl-2xl">
       {% set futureFormats = helpers.getFutureFormats(ctfl.formats) %}
       {# {% for format in futureFormats | reverse %} #}
-      {% for format in ctfl.formats | reverse %}
+      {% for format in ctfl.formats %}
           {% set url = "/formate/" + format.fields.title | slugify %}
         <article aria-label="{{ format.fields.title }}" class="format | sidebar-left"
           style="

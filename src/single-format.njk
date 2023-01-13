@@ -57,12 +57,12 @@ permalink: "formate/{{ format.fields.title | slugify }}/index.html"
                         </span>
                         {% if not sameDay %}
                         <br>
-                        <span class="weight-bold" style="display: block;">{{ format.fields.endDateTime | dateFormat("dd. MMMM yyyy") }}</span> 
+                        <span class="weight-bold" style="display: block;">{{ format.fields.endDateTime | dateFormat("dd. MMMM yyyy") }}</span>
                         <span>{{ format.fields.endDateTime | dateFormat("HH:mm") }} Uhr</span>
                         {% endif %}
                     </dd>
                 </dl>
-                <dl class="details"> 
+                <dl class="details">
                     <dt class="weight-bold color-persianRose uppercase text-step--1">Tickets</dt>
                     <dd>
                         <span>{{format.fields.ticketCount}}</span>
