@@ -14,7 +14,7 @@ module.exports = async () => {
   const formats = await client
     .getEntries({
       content_type: "format",
-      order: "fields.startDateTime",
+      order: "fields.startDate",
     })
     .then(function (response) {
       const items = response.items.map(function (item) {
@@ -24,15 +24,15 @@ module.exports = async () => {
     })
     .catch(console.error);
 
-    formats.forEach((format) => {
-      //check if Event is aleady over or not
-      const formatDate = new Date(format.fields.startDateTime);
-      if (dateInPast(formatDate, currentDate)) {
-        format.fields.isOver = true;
-      } else {
-        format.fields.isOver = false;
-      }
-    });
+  formats.forEach((format) => {
+    //check if Event is aleady over or not
+    const formatDate = new Date(format.fields.startDateTime);
+    if (dateInPast(formatDate, currentDate)) {
+      format.fields.isOver = true;
+    } else {
+      format.fields.isOver = false;
+    }
+  });
 
   return formats;
 };
