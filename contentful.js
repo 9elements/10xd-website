@@ -9,6 +9,7 @@ const ctflPageServices = require("./ctfl/pageServices.js");
 const ctflPageLocations = require("./ctfl/pageLocations.js");
 const ctflPageMembers = require("./ctfl/pageMembers.js");
 const ctflTextPages = require("./ctfl/textPages.js");
+const ctflPagePress = require("./ctfl/pagePress.js");
 
 // Create an Object to write the json files
 // Object key will be the filename and the value will be the file's content
@@ -21,6 +22,7 @@ const ctflData = {
   pageMembers: ctflPageMembers,
   pageServices: ctflPageServices,
   textPages: ctflTextPages,
+  pagePress: ctflPagePress,
 };
 
 // directory path
