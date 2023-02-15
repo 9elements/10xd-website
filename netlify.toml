@@ -24,6 +24,11 @@ to = "https://10xd.de/:splat"
 status = 301
 force = true
 
+[[redirects]]
+from = "/*"
+to = "/404.html"
+status = 404
+
 [[plugins]]
 package = "netlify-plugin-cache"
 
