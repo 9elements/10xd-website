@@ -1,0 +1,82 @@
+---
+title: "10xD Magazin"
+layout: "layouts/home.njk"
+permalink: /magazin/
+---
+
+<div class="grid-background stack-2xl | magazine">
+  <div class="wrapper stack-xl" style="padding-block-start: var(--space-2xl);">
+    <h1 class="color-brightTurquoise text-step-4 sr-only">10xD Magazin</h1>
+
+    <div class="stack-xl-2xl">
+      {% for magazine in ctfl.magazines %}
+        <article id="{{ magazine.fields.focus | slugify }}" class="format | sidebar-left"
+          style="
+            --sidebar-width: clamp(40rem, 60vw, 50rem);
+            --sidebar-gap: var(--space-l);
+            --sidebar-gap-vertical: var(--space-s);
+            --sidebar-threshold: 20rem;
+            flex-direction: row-reverse;"
+        >
+          <div>
+            {% ctflPicture
+              imgObj = magazine.fields.magazinCover,
+              fit = "fill",
+              imgWidth = "1024",
+              imgHeight = "500",
+              alt = "",
+              widths = [300, 500, 800, 1024],
+              sizes = "(min-width: 72.5em) 1290px, 100vw",
+              classes = "magazine__image"
+            %}
+          </div>
+          <div class="adjust | stack-m">
+            <div class="stack-m">
+              <div class="stack-2xs">
+                <h2 class="text-step-1 uppercase" style="hyphens: auto;">Ausgabe {{loop.revindex}}</h2>
+                <p class="letterspace">
+                  {{ magazine.fields.publicationDate | dateFormat("MMMM yyyy") }}
+                  <span style="margin-left: 2rem">{{ magazine.fields.articles | length}} Artikel</span>
+                </p>
+              </div>
+              <div>
+                <p class="letterspace">
+                  <span class="color-brightTurquoise">Schwerpunkt:</span>
+                  <br>{{ magazine.fields.focus}}
+                </p>
+              </div>
+            </div>
+            <a class="button" style="pointer-events: none">Zum Online-Magazin</a>
+
+            <a target="blank" href="{{ magazine.fields.linkToOnlineMagazine }}" class="format__link">
+              <span class="sr-only">Zum Magazin: {{ magazine.fields.focus }}</span></a>
+          </div>
+        </article>
+        <div class="magazine__articles | grid-switcher" style="
+                    --gs-columns-sm: 1;
+                    --gs-bp-mg: 83em;
+                    --gs-columns-md: 3;
+                    --gs-bp-lg: 90em;
+                    --gs-columns-lg: 2;
+                    --gs-gap: var(--space-xl);
+                    --gs-gap-vertical: var(--space-xl);
+                    ">
+          {% for article in magazine.fields.articles %}
+
+            <article class="magazine__article | stack-xl" aria-label="{{ article.fields.headline }}">
+              <div class="stack-s">
+                <p class="number">{{ "0" if loop.index < 10 }}{{ loop.index }}</p>
+                <h2 class="text-step-1 weight-light color-persianRose my-stack-space-m">{{ article.fields.headline }}</h2>
+                <p>{{article.fields.author.fields.name}}</p>
+              </div>
+              <div class="divider"></div>
+              {% set url = "/magazin/" + article.fields.headline | slugify %}
+              <a href="{{ url }}" class="article__link">
+                <span class="sr-only">Zum Artikel: {{ article.fields.headline }}</span></a>
+            </article>
+          {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

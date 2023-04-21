@@ -4,25 +4,25 @@ layout: "layouts/home.njk"
 permalink: /members/
 ---
 
-<div class="">
-  <div class="wrapper stack-xl" style="padding-block-start: var(--space-2xl);">
-    <h1 class="color-brightTurquoise text-step-4">{{ ctfl.pageMembers.title }}</h1>
+<div class="stack-2xl">
+  <div class="wrapper stack-2xl" style="padding-block-start: var(--space-3xl);">
+    <h1 class="color-brightTurquoise text-step-4 center-text">{{ ctfl.pageMembers.title }}</h1>
 
-      <div class="grid-switcher" style="
-      --gs-columns-lg: 4;
+    <div class="grid-switcher" style="
+      --gs-columns-lg: 3;
       --gs-columns-md: 3;
       --gs-columns-sm: 2;
       --gs-gap: var(--space-2xl);
       --gs-bp-md: 45rem;
-    ">
+      ">
       {% for member in ctfl.pageMembers.members %}
         {% set logo = member.fields.logo %}
         {% if member.fields.link %}
           <a href="{{ member.fields.link }}" target="_blank">
-        {% else %}
-          <span>
-        {% endif %}
-        {% ctflPicture
+          {% else %}
+            <span>
+            {% endif %}
+            {% ctflPicture
           imgObj = logo,
           fit = "fill",
           imgWidth = "1200",
@@ -32,15 +32,55 @@ permalink: /members/
           sizes = "(min-width: 72.5em) 800px, 100vw",
           classes = "member"
         %}
-        {% if member.fields.link %}
-          </a>
-        {% else %}
+            {% if member.fields.link %}
+            </a>
+          {% else %}
           </span>
         {% endif %}
       {% endfor %}
     </div>
+
+    <hr class="highlight-divider">
+
+    <div class="wrapper | stack-xs center-text" style="--wrapper-max-width: 53rem;">
+      <h2 class="text-step-4" lang="en" aria-label="Next Level Healthcare">
+        <span aria-hidden="true">Memberships</span></h2>
+    </div>
+    <div class="memberships | wrapper | grid-switcher" style="
+          --gs-gap: 4rem;
+          --gs-gap-vertical: 4rem;">
+      <div class="stack-s | center-text">
+        <div class="icon icon--white"></div>
+        <div>
+          <p class="uppercase text-step-1">White</p>
+          <p class="text-step-0">Startups, Scaleups Verbände</p>
+        </div>
+      </div>
+
+      <div class="stack-s | center-text">
+        <div class="icon icon--black"></div>
+        <div>
+          <p class="uppercase text-step-1">Black</p>
+          <p class="text-step-0">etablierte Leistungserbringer</p>
+        </div>
+      </div>
+
+      <div class="stack-s | center-text">
+        <div class="icon icon--platin"></div>
+        <div>
+          <p class="uppercase text-step-1">Platin</p>
+          <p class="text-step-0">Pharma, Medtech, Consulting</p>
+        </div>
+      </div>
+
+      <div class="stack-s | center-text">
+        <div class="icon icon--individual"></div>
+        <div>
+          <p class="uppercase text-step-1">Individual</p>
+          <p class="text-step-0">> Platin</p>
+        </div>
+      </div>
+    </div>
   </div>
-
-
 
 </div>

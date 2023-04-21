@@ -13,10 +13,9 @@ permalink: "formate/{{ format.fields.title | slugify }}/index.html"
     {% set sameDay = helpers.sameDay(format.fields.startDateTime, format.fields.endDateTime) %}
 {% endif %}
 
-
 <div class="wrapper single-format stack-xl" style="padding-block-start: var(--space-3xl);">
-    <div class="single-format__header">
-    {% ctflPicture
+    <div class="single-format__header show-glitch">
+        {% ctflPicture
         imgObj = format.fields.image,
         fit = "fill",
         imgWidth = "1193",
@@ -28,14 +27,14 @@ permalink: "formate/{{ format.fields.title | slugify }}/index.html"
     %}
     </div>
 
-    <div class="format-details stack-l-xl">
-        <h1 class="format-details__headline">{{ format.fields.title }}</h1>
-        <div class="format-details__body stack-m">
+    <div class="details format-details stack-l-xl">
+        <h1 class="details__headline">{{ format.fields.title }}</h1>
+        <div class="details__body stack-m">
             {{ format.fields.description | renderRichTextAsHtml | safe  }}
         </div>
-        <div class="format-details__sidebar stack-l">
+        <div class="details__sidebar stack-l">
             <div class="stack-m" style="border-top: 1px solid var(--color-persianRose); border-bottom: 1px solid var(--color-persianRose); padding-block: var(--space-m)">
-                <dl class="details">
+                <dl class="info">
                     <dt class="weight-bold color-persianRose uppercase text-step--1">Ort</dt>
                     <dd>
                         <address>
@@ -45,24 +44,24 @@ permalink: "formate/{{ format.fields.title | slugify }}/index.html"
                         </address>
                     </dd>
                 </dl>
-                <dl class="details">
+                <dl class="info">
                     <dt class="weight-bold color-persianRose uppercase text-step--1">Zeit</dt>
                     <dd>
                         <span class="weight-bold" style="display: block;">{{ format.fields.startDateTime | dateFormat("dd. MMMM yyyy") }}</span>
                         <span>
-                        {{ format.fields.startDateTime | dateFormat("HH:mm") }} Uhr -
+                            {{ format.fields.startDateTime | dateFormat("HH:mm") }} Uhr -
                         {% if sameDay %}
-                            {{ format.fields.endDateTime | dateFormat("HH:mm") }} Uhr
+                                {{ format.fields.endDateTime | dateFormat("HH:mm") }} Uhr
                         {% endif %}
                         </span>
                         {% if not sameDay %}
-                        <br>
-                        <span class="weight-bold" style="display: block;">{{ format.fields.endDateTime | dateFormat("dd. MMMM yyyy") }}</span>
-                        <span>{{ format.fields.endDateTime | dateFormat("HH:mm") }} Uhr</span>
+                            <br>
+                            <span class="weight-bold" style="display: block;">{{ format.fields.endDateTime | dateFormat("dd. MMMM yyyy") }}</span>
+                            <span>{{ format.fields.endDateTime | dateFormat("HH:mm") }} Uhr</span>
                         {% endif %}
                     </dd>
                 </dl>
-                <dl class="details">
+                <dl class="info">
                     <dt class="weight-bold color-persianRose uppercase text-step--1">Tickets</dt>
                     <dd>
                         <span>{{format.fields.ticketCount}}</span>
@@ -71,9 +70,9 @@ permalink: "formate/{{ format.fields.title | slugify }}/index.html"
                 </dl>
             </div>
             {% if format.fields.registrationLink %}
-            <a href="{{format.fields.registrationLink}}" target="_blank" class="button button--full-width">Anmelden</a>
+                <a href="{{format.fields.registrationLink}}" target="_blank" class="button button--full-width">Anmelden</a>
             {% elif format.fields.registrationEmail%}
-            <a href="mailto:{{format.fields.registrationEmail}}" class="button button--full-width">Anmelden</a>
+                <a href="mailto:{{format.fields.registrationEmail}}" class="button button--full-width">Anmelden</a>
             {% endif %}
         </div>
     </div>

@@ -1,4 +1,4 @@
-const { BLOCKS, MARKS } = require("@contentful/rich-text-types");
+const { BLOCKS, MARKS, INLINES } = require("@contentful/rich-text-types");
 const { documentToHtmlString } = require("@contentful/rich-text-html-renderer");
 
 // Props is an object
@@ -20,7 +20,7 @@ const renderAvatar = (url, title) => {
       src: `https:${url}?fm=webp&fit=fill&w=200&h=200&f=face`,
       width: 200,
       height: 200,
-      alt: title
+      alt: title,
     })}
   `;
 };
@@ -32,7 +32,7 @@ const renderTextImage = (bodycopy, imgUrl, imgAlt, position) => {
       <div>
         ${renderImage({
           src: `${imgUrl}?fm=webp&fit=fill&w=400&h=400&f=face&q=80"`,
-          alt: imgAlt
+          alt: imgAlt,
         })}
       </div>
     </div>
@@ -61,7 +61,7 @@ const renderGallery = (images) => {
       return renderImage({
         src: `https:${file.url}?fm=webp&fit=fill&w=600&f=face&q=80`,
         alt: image.fields.title,
-        class: `gallery__image gallery__image--${format}`
+        class: `gallery__image gallery__image--${format}`,
       });
     })
     .join("");
@@ -73,7 +73,7 @@ const renderGallery = (images) => {
 
 const richTextHtmlRendererOptions = {
   renderMark: {
-    [MARKS.BOLD]: (node) => `<strong>${node}</strong>`
+    [MARKS.BOLD]: (node) => `<strong>${node}</strong>`,
   },
   renderNode: {
     [BLOCKS.PARAGRAPH]: (node, next) =>
@@ -155,8 +155,17 @@ const richTextHtmlRendererOptions = {
         }
         return renderYoutube(videoTitle, videoId, posterImage);
       }
-    }
-  }
+    },
+
+    [INLINES.EMBEDDED_ENTRY]: (node) => {
+      const entry = node.data.target;
+      const entryId = entry.sys.contentType.sys.id;
+
+      if (entryId === "shy") {
+        return `&shy;`;
+      }
+    },
+  },
 };
 
 module.exports = (value) =>

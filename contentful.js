@@ -2,11 +2,14 @@ const fs = require("fs");
 
 const ctflBoards = require("./ctfl/boards.js");
 const ctflFormats = require("./ctfl/formats.js");
+const ctflMagazines = require("./ctfl/magazines.js");
+const ctflArticles = require("./ctfl/articles.js")
 
 const ctflPageFormats = require("./ctfl/pageFormats.js");
 const ctflPageHome = require("./ctfl/pageHome.js");
 const ctflPageServices = require("./ctfl/pageServices.js");
 const ctflPageLocations = require("./ctfl/pageLocations.js");
+const ctflPageMedia = require("./ctfl/pageMedia.js");
 const ctflPageMembers = require("./ctfl/pageMembers.js");
 const ctflTextPages = require("./ctfl/textPages.js");
 const ctflPagePress = require("./ctfl/pagePress.js");
@@ -19,10 +22,13 @@ const ctflData = {
   pageFormats: ctflPageFormats,
   pageHome: ctflPageHome,
   pageLocations: ctflPageLocations,
+  pageMedia: ctflPageMedia,
   pageMembers: ctflPageMembers,
   pageServices: ctflPageServices,
   textPages: ctflTextPages,
   pagePress: ctflPagePress,
+  magazines: ctflMagazines,
+  articles: ctflArticles,
 };
 
 // directory path
