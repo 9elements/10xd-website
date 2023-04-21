@@ -2,7 +2,7 @@
   &__header {
     position: relative;
 
-    &:after {
+    &.show-glitch:after {
       content: "";
       position: absolute;
       inset: 0;
@@ -24,7 +24,7 @@
     // filter: brightness(105%) contrast(110%) grayscale(1);
   }
 
-  .format-details {
+  .details {
     max-width: 68rem;
     margin-inline: auto;
     display: grid;
@@ -65,7 +65,7 @@
       }
     }
 
-    .details {
+    .info {
       display: grid;
       grid-template-columns: minmax(10ch, 1fr) 2fr;
       gap: 0.5rem;

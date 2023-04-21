@@ -1,0 +1,49 @@
+---
+pagination:
+  data: ctfl.articles
+  size: 1
+  alias: article
+eleventyComputed:
+  title: "{{ article.fields.headline }}"
+layout: "layouts/home.njk"
+permalink: "magazin/{{ article.fields.headline | slugify }}/index.html"
+---
+
+<div class="article single-format | wrapper stack-xl" style="padding-block-start: var(--space-3xl);">
+    <div class="single-format__header">
+        {% ctflPicture
+        imgObj = article.fields.author.fields.portrait,
+        fit = "fill",
+        focus = "face",
+        imgWidth = "1193",
+        imgHeight = "492",
+        alt = "",
+        widths = [300, 500, 800, 1193],
+        sizes = "(min-width: 72.5em) 1500px, 100vw",
+        classes = "single-format__image"
+        %}
+    </div>
+
+    <div class="details article-details | stack-l-xl">
+        <h1 class="details__headline | color-brightTurquoise">{{ article.fields.headline  }}</h1>
+        <div class="details__body stack-m">
+            {{ article.fields.text | renderRichTextAsHtml | safe  }}
+            {% set url = "/magazin#" + ctfl.magazines.fields.focus | slugify %}
+            <a href="{{ url }}" class="button">Zurück zur Übersicht</a>
+        </div>
+
+        <div class="details__sidebar stack-l">
+            <blockquote class="text-step-1">
+                <span class="color-persianRose">>> </span>{{ article.fields.quote }}
+                <span class="color-persianRose">
+                    <<</span></blockquote>
+                <address class="stack-xs">
+                    <div class="weight-bold color-persianRose">{{article.fields.author.fields.name}}</div>
+                    <div>
+                            {{article.fields.author.fields.position}}
+                    </div>
+                </address>
+        </div>
+    </div>
+
+</div>

@@ -4,26 +4,3 @@ to = "/.netlify/functions/serverless"
 status = 200
 force = true
 _generated_by_eleventy_serverless = "serverless"
-
-[[redirects]]
-from = "https://10xd.store/*"
-to = "https://10xd.de/:splat"
-status = 301
-force = true
-
-[[redirects]]
-from = "https://www.10xd.store/*"
-to = "https://10xd.de/:splat"
-status = 301
-force = true
-
-[[redirects]]
-from = "/*"
-to = "/404.html"
-status = 404
-
-[[plugins]]
-package = "netlify-plugin-cache"
-
-  [plugins.inputs]
-  paths = [ ".cache" ]

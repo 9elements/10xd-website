@@ -44,4 +44,32 @@
     width: 100%;
     text-align: center;
   }
+
+  &[role="tab"] {
+    color: var(--color-persianRose);
+
+    &::before {
+      content: "";
+      background-image: linear-gradient(
+          var(--color-persianRose),
+          var(--color-persianRose)
+        ),
+        linear-gradient(
+          var(--color-brightTurquoise),
+          var(--color-brightTurquoise)
+        );
+    }
+
+    @media (any-pointer: fine) and (any-hover: hover) {
+      &:hover {
+        color: var(--color-black);
+      }
+    }
+
+    &[aria-selected] {
+      background-color: var(--color-persianRose);
+      color: var(--color-black);
+      border: 1px solid var(--color-persianRose);
+    }
+  }
 }
