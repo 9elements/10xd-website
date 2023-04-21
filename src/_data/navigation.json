@@ -17,6 +17,14 @@
       "url": "/members/"
     },
     {
+      "text": "Magazin",
+      "url": "/magazin/"
+    },
+    {
+      "text": "Medien",
+      "url": "/medien/"
+    },
+    {
       "text": "Kontakt",
       "url": "/kontakt/"
     }

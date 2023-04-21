@@ -25,6 +25,9 @@ permalink: /leistungen/
           %}
           <h2 class="text-step-1 weight-light color-persianRose my-stack-space-m">{{ service.fields.title }}</h2>
           <p class="letterspace">{{ service.fields.description | markdownFilter | safe }}</p>
+          {% if service.fields.link %}
+            <a href="/{{ service.fields.link }}/" class="format__link"></a>
+          {% endif %}
         </article>
       {% endfor %}
     </div>
