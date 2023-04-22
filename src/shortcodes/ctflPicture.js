@@ -18,6 +18,7 @@ Optional properties:
   - sizes -> defines the sizes for the picture. Works with [none]. Defaults to "(min-width: 22em) 30vw, 100vw"
   - classes -> add some classes
   - fit -> if you resize the image this defines how it should be resized. Defaults to "fill"
+  - focus -> when the image is resized define where the focus is set (face, faces, top-left etc.). Defaults to "center"
 
 Basic usage:
 {% ctflPicture imgObj = myImage, alt="ctfl image", imgWidth="800", imgHeight="600" %}
@@ -29,6 +30,7 @@ Thumbnail example:
   imgWidth="32",
   imgHeight="32",
   fit="thumb",
+  focus="face",
   widths=[32],
   sizes="2rem"
 %}
@@ -53,22 +55,24 @@ async function ctflPictureShortcode(ctflImage) {
   const { imgObj } = ctflImage;
   let imgUrl = imgObj.fields.file.url;
   const imgId = imgObj.sys.id;
-  const originSizes = imgObj.fields.file.details.image;
-  const ratio = originSizes.width / originSizes.height;
+  const originSize = imgObj.fields.file.details.image;
+  const ratio = originSize.width / originSize.height;
   let alt = "";
   if (ctflImage.alt == undefined) {
     alt = imgObj.fields.title;
   } else {
     alt = ctflImage.alt;
   }
-  const formats = ctflImage.formats || ["avif", "webp", "jpg"];
-  const widths = ctflImage.widths || [300, 600];
+  alt = alt.replaceAll('"', "&quot;");
+  const formats = ctflImage.formats || ["avif", "webp", "png", "svg"];
+  const widths = ctflImage.widths || [400, 800];
   const sizes = ctflImage.sizes || "(min-width: 22em) 30vw, 100vw";
   const classes = ctflImage.classes || "";
-  const fit = ctflImage.fit ? ctflImage.fit : "fill";
+  const fit = ctflImage.fit || "fill";
+  const focus = ctflImage.focus || "center";
 
-  let imgWidth = 800;
-  let imgHeight = 600;
+  let imgWidth = originSize.width;
+  let imgHeight = originSize.height;
 
   if (ctflImage.imgWidth && ctflImage.imgHeight) {
     imgWidth = ctflImage.imgWidth;
@@ -87,13 +91,22 @@ async function ctflPictureShortcode(ctflImage) {
     imgWidth = calculatedWidth;
   }
 
-  if (imgUrl.startsWith("//")) {
+  if (imgUrl && imgUrl.startsWith("//")) {
     imgUrl = "https:" + imgUrl;
   }
 
-  imgUrl = imgUrl + "?fit=" + fit + "&w=" + imgWidth + "&h=" + imgHeight;
+  imgUrl =
+    imgUrl +
+    "?f=" +
+    focus +
+    "&fit=" +
+    fit +
+    "&w=" +
+    imgWidth +
+    "&h=" +
+    imgHeight;
 
-  console.log(imgUrl);
+  //console.log(imgUrl);
 
   let options;
 
@@ -103,7 +116,11 @@ async function ctflPictureShortcode(ctflImage) {
     urlPath: "/images/ctfl",
     outputDir: "dist/images/ctfl",
     filenameFormat: function (id, src, width, format, options) {
-      return `${imgId}-${imgWidth}x${imgHeight}-${width}w-${fit}.${format}`;
+      // Log files saved to dist
+      // console.log(
+      //   `${imgId}-${imgWidth}x${imgHeight}-${width}w-${fit}-${focus}.${format}`
+      // );
+      return `${imgId}-${imgWidth}x${imgHeight}-${width}w-${fit}-${focus}.${format}`;
     },
   };
 
