@@ -14,7 +14,7 @@ const heroImage = async (data) => {
       url = data.article.fields.author.fields.portrait.fields.file.url;
       // This uses contentful's image modification to get a png
       // with an aspect ratio of 2:1
-      url = "https:" + url + "?fm=png&fit=fill&w=1193&h=492";
+      url = "https:" + url + "?fm=png&fit=fill&f=face&w=1193&h=492";;
       stats = await eleventyImage(url, options);
     }
   }
