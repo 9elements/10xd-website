@@ -1,4 +1,8 @@
-{% set pageTitle = title + ' - ' + site.name %}
+{% if magazine == true %}
+  {% set pageTitle = title + ' | 10xD - Magazin' %}
+{% else %}
+  {% set pageTitle = title + ' - ' + site.name %}
+{% endif %}
 
 {# We don't want any duplication. This is likely for the home page. #}
 {% if site.name === title %}
@@ -18,14 +22,13 @@
   {% set metaDesc = site.metaDesc %}
 {% endif %}
 
-
 <title>{{ pageTitle }}</title>
-<link rel="canonical" href="{{ currentUrl }}" />
+<link rel="canonical" href="{{ currentUrl }}"/>
 
-<meta property="og:site_name" content="{{ siteTitle }}" />
-<meta property="og:title" content="{{ pageTitle }}" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="{{ currentUrl }}" />
+<meta property="og:site_name" content="{{ siteTitle }}"/>
+<meta property="og:title" content="{{ pageTitle }}"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="{{ currentUrl }}"/>
 
 {% if not heroImageUrl == false %}
   {% set socialImage = site.url + heroImageUrl %}
@@ -35,16 +38,16 @@
   {% set socialImage = site.url + '/images/meta/social-share.png' %}
 {% endif %}
 
-<meta name="twitter:card" content="summary_large_image" />
-<meta property="og:image" content="{{ socialImage }}" />
-<meta name="twitter:image" content="{{ socialImage }}" />
-<meta property="og:image:alt" content="Page image for {{ site.name }}" />
-<meta name="twitter:image:alt" content="Page image for {{ site.name }}" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta property="og:image" content="{{ socialImage }}"/>
+<meta name="twitter:image" content="{{ socialImage }}"/>
+<meta property="og:image:alt" content="Page image for {{ site.name }}"/>
+<meta name="twitter:image:alt" content="Page image for {{ site.name }}"/>
 
 {% if metaDesc %}
-  <meta name="description" content="{{ metaDesc }}" />
-  <meta name="twitter:description" content="{{ metaDesc }}" />
-  <meta property="og:description" content="{{ metaDesc }}" />
+  <meta name="description" content="{{ metaDesc }}"/>
+  <meta name="twitter:description" content="{{ metaDesc }}"/>
+  <meta property="og:description" content="{{ metaDesc }}"/>
 {% endif %}
 
-<link rel="icon" href="/images/meta/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/images/meta/favicon.svg" type="image/svg+xml"/>
