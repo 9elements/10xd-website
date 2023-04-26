@@ -38,15 +38,13 @@ Thumbnail example:
 
 const eleventyImage = require("@11ty/eleventy-img");
 
-async function ctflPictureShortcode(ctflImage) {
+module.exports = (ctflImage) => {
   if (!ctflImage.imgObj) {
     return "Contentful image-object must be provided";
   }
 
   if (
-    ctflImage.imgObj.fields == undefined ||
-    ctflImage.imgObj.fields.file == undefined ||
-    ctflImage.imgObj.fields.file.contentType == undefined ||
+    ctflImage.imgObj?.fields?.file?.contentType == undefined ||
     ctflImage.imgObj.fields.file.contentType.startsWith("image") == false
   ) {
     return "imgObj must be a valid contentful image object";
@@ -125,24 +123,33 @@ async function ctflPictureShortcode(ctflImage) {
   };
 
   let stats;
-  if (process.env.ELEVENTY_SERVERLESS) {
+  let imageAttributes;
+  if (!process.env.ELEVENTY_SERVERLESS) {
+    // generate images, while this is async we don’t wait
+    eleventyImage(imgUrl, options);
+
     stats = eleventyImage.statsByDimensionsSync(
       imgUrl,
       imgWidth,
       imgHeight,
       options
     );
-  } else {
-    stats = await eleventyImage(imgUrl, options);
+
+    imageAttributes = {
+      alt: alt,
+      loading: "lazy",
+      decoding: "async",
+      sizes: sizes,
+      class: classes,
+    };
   }
 
-  return eleventyImage.generateHTML(stats, {
-    alt,
-    loading: "lazy",
-    decoding: "async",
-    sizes: sizes,
-    class: classes,
-  });
-}
+  let generatedPicture;
 
-module.exports = ctflPictureShortcode;
+  if (process.env.ELEVENTY_SERVERLESS) {
+    generatedPicture = `<picture><img src="${imgUrl}" class="${classes}" alt=""></picture>`;
+  } else {
+    generatedPicture = eleventyImage.generateHTML(stats, imageAttributes);
+  }
+  return generatedPicture;
+};
