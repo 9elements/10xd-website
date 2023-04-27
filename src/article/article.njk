@@ -30,7 +30,15 @@ permalink: "magazin/{{ article.fields.headline | slugify }}/index.html"
         <div class="details__body stack-m">
             {{ article.fields.text | renderRichTextAsHtml | safe  }}
             {% set url = "/magazin#" + ctfl.magazines.fields.focus | slugify %}
-            <a href="{{ url }}" class="button">Zurück zur Übersicht</a>
+
+            {% if paginationButtons.previousButton %}
+                <a href="/magazin/{{ paginationButtons.previousButton | slugify }}" class="button">Vorheriger Artikel</a>
+            {% endif %}
+
+            {% if paginationButtons.nextButton %}
+                <a href="/magazin/{{ paginationButtons.nextButton | slugify }}" class="button">Nächster Artikel</a>
+            {% endif %}
+
         </div>
 
         <div class="details__sidebar stack-l">

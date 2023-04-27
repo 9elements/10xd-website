@@ -1,4 +1,5 @@
 const eleventyImage = require("@11ty/eleventy-img");
+const client = require("../utils/contentfulClient");
 
 const heroImage = async (data) => {
   let url;
@@ -14,7 +15,7 @@ const heroImage = async (data) => {
       url = data.article.fields.author.fields.portrait.fields.file.url;
       // This uses contentful's image modification to get a png
       // with an aspect ratio of 2:1
-      url = "https:" + url + "?fm=png&fit=fill&f=face&w=1193&h=492";;
+      url = "https:" + url + "?fm=png&fit=fill&f=face&w=1193&h=492";
       stats = await eleventyImage(url, options);
     }
   }
@@ -26,10 +27,54 @@ const heroImage = async (data) => {
   }
 };
 
+const paginationButtons = async (data) => {
+  const buttons = { previousButton: "", nextButton: "" };
+  const magazines = await client
+    .getEntries({
+      content_type: "magazine",
+      include: 10,
+      order: "-fields.publicationDate",
+    })
+    .then(function (response) {
+      // console.log(response.items);
+      return response.items;
+    })
+    .catch(console.error);
+
+  magazines.forEach((magazine) => {
+    if (
+      magazine.fields.articles.some(
+        (article) => article.sys.id === data.article.sys.id
+      )
+    ) {
+      const currentArticleIndex = magazine.fields.articles.findIndex(
+        (article) => article.sys.id === data.article.sys.id
+      );
+      const previousArticleIndex = Number(currentArticleIndex - 1);
+      const nextArticleIndex = Number(currentArticleIndex + 1);
+
+      if (previousArticleIndex >= 0) {
+        buttons.previousButton =
+          magazine.fields.articles[previousArticleIndex].fields.headline;
+      }
+
+      if (nextArticleIndex <= magazine.fields.articles.length - 1) {
+        buttons.nextButton =
+          magazine.fields.articles[nextArticleIndex].fields.headline;
+      }
+    }
+  });
+
+  return buttons;
+};
+
 module.exports = {
   eleventyComputed: {
     heroImageUrl: (data) => {
       return heroImage(data);
+    },
+    paginationButtons: (data) => {
+      return paginationButtons(data);
     },
   },
 };
