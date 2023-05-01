@@ -8,5 +8,5 @@ module.exports = (icon) => {
   if (icon.alt) {
     srText = "aria-label='" + icon.alt + "'";
   }
-  return `<svg style="${style}" class="icon" ${srText}><use xlink:href="/icons/icons.svg#${icon.icon}"/></svg>`;
+  return `<svg style="${style}" class="icon" ${srText}><use xlink:href="/icons/icons.svg#svg-${icon.icon}"/></svg>`;
 };
