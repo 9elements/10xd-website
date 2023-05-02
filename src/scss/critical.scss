@@ -5,6 +5,10 @@
 @import "reset";
 // @import "fonts";
 
+html {
+  font-size: clamp(100%, 35.7% + 0.71vw, 125%);
+}
+
 body {
   font-family: "IBM Plex Sans", sans-serif;
   background: var(--color-violet);
