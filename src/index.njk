@@ -93,15 +93,9 @@ keyvisual: "true"
           <details class="partner-list">
             <summary class="text-step-2 weight-light uppercase">Kooperations-Partner</summary>
             <ul>
-              <li>AOK Bundesverband </li>
-              <li>BARMER</li>
-              <li>Die Techniker</li>
-              <li>Google Cloud</li>
-              <li>HMM Deutschland</li>
-              <li>Janssen-Cilag / Johnson&Johnson</li>
-              <li>JORZIG Rechtsanwälte</li>
-              <li>Microsoft</li>
-              <li>Siemens Healthineers</li>
+              {% for partner in ctfl.cooperationPartner %}
+                <li>{{ partner.fields.companyName }}</li>
+              {% endfor %}
             </ul>
           </details>
         </details-utils>
@@ -109,14 +103,9 @@ keyvisual: "true"
           <details class="partner-list">
             <summary class="text-step-2 weight-light uppercase">Medienpartner</summary>
             <ul>
-              <li>Handelsblatt Digital Health</li>
-              <li>Health & Care Management (HCM Magazin)</li>
-              <li>KU Gesundheitsmanagement</li>
-              <li>Medhochzwei Verlag</li>
-              <li>Medizinisch Wissenschaftliche Verlagsgesellschaft (MWV)</li>
-              <li>Rheinische Post</li>
-              <li>Springer Gabler</li>
-              <li>Thieme Verlag</li>
+              {% for partner in ctfl.mediaPartner %}
+                <li>{{ partner.fields.companyName }}</li>
+              {% endfor %}
             </ul>
           </details>
         </details-utils>

@@ -56,3 +56,27 @@ permalink: "magazin/{{ article.fields.headline | slugify }}/index.html"
     </div>
 
 </div>
+
+<script>
+    if ({{article.fields.premiumArticle}}) {
+        let isAuthenticated = localStorage.getItem("isAuthenticated");
+
+        function checkPassword(event) {
+
+            var enteredPassword = prompt("Premium Code eingeben:");
+
+            if (enteredPassword === "10xD8UfhLwX") {
+                // Store flag in localStorage
+                localStorage.setItem("isAuthenticated", "true");
+
+            } else {
+                alert("Falscher Code – erneut eingeben oder Premium Abo kaufen.");
+                window.location.href = "/magazin"
+            }
+        }
+
+        if (isAuthenticated !== "true") {
+            checkPassword();
+        }
+    }
+</script>
