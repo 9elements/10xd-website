@@ -3,7 +3,7 @@ const fs = require("fs");
 const ctflBoards = require("./ctfl/boards.js");
 const ctflFormats = require("./ctfl/formats.js");
 const ctflMagazines = require("./ctfl/magazines.js");
-const ctflArticles = require("./ctfl/articles.js")
+const ctflArticles = require("./ctfl/articles.js");
 
 const ctflPageFormats = require("./ctfl/pageFormats.js");
 const ctflPageHome = require("./ctfl/pageHome.js");
@@ -13,6 +13,8 @@ const ctflPageMedia = require("./ctfl/pageMedia.js");
 const ctflPageMembers = require("./ctfl/pageMembers.js");
 const ctflTextPages = require("./ctfl/textPages.js");
 const ctflPagePress = require("./ctfl/pagePress.js");
+const ctflMediaPartner = require("./ctfl/mediaPartner.js");
+const ctflCooperationPartner = require("./ctfl/cooperationPartner.js");
 
 // Create an Object to write the json files
 // Object key will be the filename and the value will be the file's content
@@ -29,6 +31,8 @@ const ctflData = {
   pagePress: ctflPagePress,
   magazines: ctflMagazines,
   articles: ctflArticles,
+  mediaPartner: ctflMediaPartner,
+  cooperationPartner: ctflCooperationPartner,
 };
 
 // directory path
