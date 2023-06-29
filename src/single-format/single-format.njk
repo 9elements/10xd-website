@@ -65,9 +65,16 @@ permalink: "formate/{{ format.fields.title | slugify }}/index.html"
                     <dt class="weight-bold color-persianRose uppercase text-step--1">Tickets</dt>
                     <dd>
                         <span>{{format.fields.ticketCount}}</span>
-                        <span>{{format.fields.ticketPrice}}</span>
                     </dd>
                 </dl>
+                {% if format.fields.ticketPrice %}
+                    <dl class="info">
+                        <dt class="weight-bold color-persianRose uppercase text-step--1">Preis</dt>
+                        <dd>
+                            <span>{{format.fields.ticketPrice}}</span>
+                        </dd>
+                    </dl>
+                {% endif %}
             </div>
             {% if format.fields.registrationLink %}
                 <a href="{{format.fields.registrationLink}}" target="_blank" class="button button--full-width">Anmelden</a>

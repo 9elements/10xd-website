@@ -4,6 +4,7 @@ const ctflBoards = require("./ctfl/boards.js");
 const ctflFormats = require("./ctfl/formats.js");
 const ctflMagazines = require("./ctfl/magazines.js");
 const ctflArticles = require("./ctfl/articles.js");
+const ctflMagazinePremiumAbo = require("./ctfl/magazinePremiumAbo.js");
 
 const ctflPageFormats = require("./ctfl/pageFormats.js");
 const ctflPageHome = require("./ctfl/pageHome.js");
@@ -30,6 +31,7 @@ const ctflData = {
   textPages: ctflTextPages,
   pagePress: ctflPagePress,
   magazines: ctflMagazines,
+  magazinePremiumAbo: ctflMagazinePremiumAbo,
   articles: ctflArticles,
   mediaPartner: ctflMediaPartner,
   cooperationPartner: ctflCooperationPartner,
