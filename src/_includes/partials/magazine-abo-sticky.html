@@ -1,0 +1,21 @@
+<div class="magazine-abo-sticky | stack-s">
+  <a class="close">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3 2L20 20" stroke="white" stroke-width="3"/>
+      <path d="M20 2L2 20" stroke="white" stroke-width="3"/>
+    </svg>
+  </a>
+  <p class="weight-bold">10xD Magazin</p>
+  <a href="/magazin/premium-abo/" class="button">Abonnieren</a>
+</div>
+
+<script>
+  let close = document.querySelector("a.close");
+  let sticky = document.querySelector(".magazine-abo-sticky");
+
+  close.addEventListener('click', e => {
+    sticky
+      .classList
+      .add("closed");
+  });
+</script>

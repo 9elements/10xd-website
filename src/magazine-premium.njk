@@ -1,0 +1,48 @@
+---
+title: "10xD Magazin"
+layout: "layouts/home.njk"
+permalink: /magazin/premium-abo/
+---
+
+{% set abo = ctfl
+  .magazinePremiumAbo[0]
+  .fields %}
+
+<div class="wrapper single-format stack-xl" style="padding-block-start: var(--space-3xl);">
+  <div class="single-format__header show-glitch">
+    {% ctflPicture
+        imgObj = abo.heroImage,
+        fit = "fill",
+        imgWidth = "1193",
+        imgHeight = "492",
+        alt = "",
+        widths = [300, 500, 800, 1193],
+        sizes = "(min-width: 72.5em) 800px, 100vw",
+        classes = "single-format__image"
+    %}
+  </div>
+
+  <div class="details format-details stack-l-xl">
+    <h1 class="details__headline">{{ abo.headline }}</h1>
+    <div class="details__body stack-m">
+      {{ abo.content | renderRichTextAsHtml | safe  }}
+      <a href="mailto:redaktion@10xD.de?subject=10xD%20Magazin%20Premium%20Abo&amp;body=Hallo,%20%0D%0A%0D%0Aich%20möchte%20das%2010xD%20Premium%20Abo%20kaufen." class="button">Abonnieren</a>
+    </div>
+    <div class="details__sidebar stack-l">
+      <div class="stack-m" style="border-top: 1px solid var(--color-persianRose); border-bottom: 1px solid var(--color-persianRose); padding-block: var(--space-m)">
+        {% for fact in abo.keyFacts %}
+          <dl class="info">
+            <dt class="weight-bold color-persianRose uppercase text-step--1">{{ fact.fields.headline }}</dt>
+            <dd>
+              <span>
+                {{ fact.fields.content | renderRichTextAsHtml | safe }}
+              </span>
+            </dd>
+          </dl>
+        {% endfor %}
+      </div>
+      <a href="mailto:redaktion@10xD.de?subject=10xD%20Magazin%20Premium%20Abo&amp;body=Hallo,%20%0D%0A%0D%0Aich%20möchte%20das%2010xD%20Premium%20Abo%20kaufen." class="button">Abonnieren</a>
+    </div>
+  </div>
+
+</div>
