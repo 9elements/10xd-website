@@ -7,7 +7,7 @@ magazine: true
 eleventyComputed:
   title: "{{ article.fields.headline }}"
 layout: "layouts/home.njk"
-permalink: "magazin/{{ article.fields.headline | slugify }}/index.html"
+permalink: "magazin/{{article.magazine | slugify }}/{{ article.fields.headline | slugify }}/index.html"
 ---
 
 <div class="article single-format | wrapper stack-xl" style="padding-block-start: var(--space-3xl);">
@@ -32,11 +32,11 @@ permalink: "magazin/{{ article.fields.headline | slugify }}/index.html"
             {% set url = "/magazin#" + ctfl.magazines.fields.focus | slugify %}
 
             {% if paginationButtons.previousButton %}
-                <a href="/magazin/{{ paginationButtons.previousButton | slugify }}" class="button">Vorheriger Artikel</a>
+                <a href="/magazin/{{article.magazine | slugify }}/{{ paginationButtons.previousButton | slugify }}" class="button">Vorheriger Artikel</a>
             {% endif %}
 
             {% if paginationButtons.nextButton %}
-                <a href="/magazin/{{ paginationButtons.nextButton | slugify }}" class="button">Nächster Artikel</a>
+                <a href="/magazin/{{article.magazine | slugify }}/{{ paginationButtons.nextButton | slugify }}" class="button">Nächster Artikel</a>
             {% endif %}
 
         </div>

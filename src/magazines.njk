@@ -9,7 +9,6 @@ permalink: /magazin/
 <div class="grid-background stack-2xl | magazine">
   <div class="wrapper stack-xl" style="padding-block-start: var(--space-2xl);">
     <h1 class="color-brightTurquoise text-step-4 sr-only">10xD Magazin</h1>
-
     <div class="stack-xl-2xl">
       {% for magazine in ctfl.magazines %}
         <article id="{{ magazine.fields.focus | slugify }}" class="format | sidebar-left"
@@ -90,7 +89,7 @@ permalink: /magazin/
                 <p class="premium-badge">Premium</p>
               {% endif %}
               <div class="divider"></div>
-              {% set url = "/magazin/" + article.fields.headline | slugify %}
+              {% set url = "/magazin/" + magazine.fields.focus | slugify + "/" + article.fields.headline | slugify %}
               <a href="{{ url }}" class="article__link">
                 <span class="sr-only">Zum Artikel: {{ article.fields.headline }}</span></a>
             </article>
