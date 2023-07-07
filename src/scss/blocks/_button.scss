@@ -72,4 +72,9 @@
       border: 1px solid var(--color-persianRose);
     }
   }
+
+  &[aria-disabled] {
+    opacity: 0.4;
+    pointer-events: none;
+  }
 }
