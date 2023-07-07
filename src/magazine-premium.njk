@@ -4,9 +4,7 @@ layout: "layouts/home.njk"
 permalink: /magazin/premium-abo/
 ---
 
-{% set abo = ctfl
-  .magazinePremiumAbo[0]
-  .fields %}
+{% set abo = ctfl .magazinePremiumAbo[0] .fields %}
 
 <div
   class="wrapper single-format stack-xl"
@@ -25,17 +23,17 @@ permalink: /magazin/premium-abo/
 
       <div id="subscription-checkboxes">
         <div>
-          <input type="checkbox" id="agb"/>
+          <input type="checkbox" id="agb" />
           <label class="text-step--1" for="agb">AGB Lorem Ipsum</label>
         </div>
         <div>
-          <input type="checkbox" id="privacy"/>
+          <input type="checkbox" id="privacy" />
           <label class="text-step--1" for="privacy">
             Datenschutz Lorem Ipsum
           </label>
         </div>
         <div>
-          <input type="checkbox" id="cancellation"/>
+          <input type="checkbox" id="cancellation" />
           <label class="text-step--1" for="cancellation">
             Widerrufsbelehrung Lorem Ipsum
           </label>
@@ -56,16 +54,16 @@ permalink: /magazin/premium-abo/
         "
       >
         {% for fact in abo.keyFacts %}
-          <dl class="info">
-            <dt class="weight-bold color-persianRose uppercase text-step--1">
-              {{ fact.fields.headline }}
-            </dt>
-            <dd>
-              <span>
-                {{ fact.fields.content | renderRichTextAsHtml | safe }}
-              </span>
-            </dd>
-          </dl>
+        <dl class="info">
+          <dt class="weight-bold color-persianRose uppercase text-step--1">
+            {{ fact.fields.headline }}
+          </dt>
+          <dd>
+            <span>
+              {{ fact.fields.content | renderRichTextAsHtml | safe }}
+            </span>
+          </dd>
+        </dl>
         {% endfor %}
       </div>
     </div>
@@ -74,7 +72,13 @@ permalink: /magazin/premium-abo/
 
 <script>
   const subscribeLink = document.getElementById("subscribe-link");
-  const subscriptionHref = "mailto:info@10xd.de?subject=10xD%20Magazin%20Premium%20Abo&amp;body=Hallo,%20%0D%0A%0D%0Aich%20möchte%20das%2010xD%20Premium%20Abo%20kaufen.mailto:info@10xd.de?subject=10xD%20Magazin%20Premium%20Abo&amp;body=Hallo,%20%0D%0A%0D%0Aich%20möchte%20das%2010xD%20Premium%20Abo%20kaufen.%20AGB,%20Datenschutzerklärung%20und%20Widerrufsrecht%20wurden%20gelesen%20und%20akzeptiert.";
+  const enc = encodeURIComponent;
+  const mail = {
+    to: "info@10xd.de",
+    subject: enc("10xD Magazin Premium Abo"),
+    body: enc("Hallo, \r\n\r\nich möchte das 10xD Premium Abo kaufen."),
+  };
+  const subscriptionHref = `mailto:${mail.to}?subject=${mail.subject}&body=${mail.body}`;
 
   const subscriptionCheckboxes = document
     .getElementById("subscription-checkboxes")
@@ -84,9 +88,7 @@ permalink: /magazin/premium-abo/
 
   subscriptionCheckboxes.forEach((checkbox) => {
     checkbox.addEventListener("change", (e) => {
-      checkedBoxesCount += e.currentTarget.checked
-        ? 1
-        : -1;
+      checkedBoxesCount += e.currentTarget.checked ? 1 : -1;
 
       // disable Link if checkboxes are not selected
       // https://www.scottohara.me/blog/2021/05/28/disabled-links.html
