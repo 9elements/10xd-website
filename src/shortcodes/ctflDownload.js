@@ -43,7 +43,7 @@ async function ctflDownloadShortcode(content, ctflDownload) {
     console.log("Done writing " + filename); // Success
   });
 
-  return `<a class="${classes}" href="/downloads/${filename}.${filetype}" download="${title}">${content}</a>`;
+  return `<a class="${classes}" href="/downloads/${filename}.${filetype}" download>${content}</a>`;
 }
 
 module.exports = ctflDownloadShortcode;
