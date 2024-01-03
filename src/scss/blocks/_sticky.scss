@@ -1,4 +1,4 @@
-.magazine-abo-sticky {
+.sticky {
   position: fixed;
   right: -2px;
   top: 50%;
@@ -13,7 +13,7 @@
     width: 10rem;
   }
 
-  .close svg {
+  &__close svg {
     margin-left: auto;
     cursor: pointer;
   }
