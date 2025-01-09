@@ -1,6 +1,6 @@
 <header class="site-head">
 
-  <div class="wrapper">
+  <div class="wrapper" style="--wrapper-max-width: 90rem;">
     <a href="/" class="logo">
       <span class="sr-only">Zehn X D – Startseite</span>
       <div class="logo__stage">
@@ -20,14 +20,13 @@
     </a>
     <nav aria-label="Webseite">
       <ul class="cluster uppercase">
-        <li>
-        </li>
+        <li></li>
         {% for item in navigation.items %}
-        <li>
-          <a href="{{ item.url }}" {{ helpers.getLinkActiveState(item.url, page.url) | safe }}>
-            {{ item.text }}
-          </a>
-        </li>
+          <li>
+            <a href="{{ item.url }}" {{ helpers.getLinkActiveState(item.url, page.url) | safe }}>
+              {{ item.text }}
+            </a>
+          </li>
         {% endfor %}
       </ul>
     </nav>
