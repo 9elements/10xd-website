@@ -6,46 +6,12 @@ permalink: /membership/
 
 <div class="stack-2xl">
   <div class="wrapper stack-2xl" style="padding-block-start: var(--space-3xl);">
-    <h1 class="color-brightTurquoise text-step-4 center-text">{{ ctfl.pageMembers.title }}</h1>
-
-    <div class="grid-switcher" style="
-      --gs-columns-lg: 3;
-      --gs-columns-md: 3;
-      --gs-columns-sm: 2;
-      --gs-gap: var(--space-2xl);
-      --gs-bp-md: 45rem;
-      ">
-      {% for member in ctfl.pageMembers.members %}
-        {% set logo = member.fields.logo %}
-        {% if member.fields.link %}
-          <a href="{{ member.fields.link }}" target="_blank">
-          {% else %}
-            <span>
-            {% endif %}
-            {% ctflPicture
-          imgObj = logo,
-          fit = "fill",
-          imgWidth = "1200",
-          formats = ["png", "svg"],
-          alt = member.fields.name,
-          widths = [300, 600],
-          sizes = "(min-width: 72.5em) 800px, 100vw",
-          classes = "member"
-        %}
-            {% if member.fields.link %}
-            </a>
-          {% else %}
-          </span>
-        {% endif %}
-      {% endfor %}
-    </div>
-
-    <hr class="highlight-divider">
 
     <div class="wrapper | stack-xs center-text" style="--wrapper-max-width: 53rem;">
       <h2 class="text-step-4" lang="en" aria-label="Next Level Healthcare">
         <span aria-hidden="true">Memberships</span></h2>
     </div>
+
     <div class="memberships | wrapper | grid-switcher" style="
           --gs-gap: 4rem;
           --gs-gap-vertical: 4rem;">
@@ -85,6 +51,42 @@ permalink: /membership/
     <div class="contact | center-text | stack-s">
       <a class="button" href="mailto:info@10xd.de?subject=10xD Membership beantragen">Member werden</a>
       <p>info@10xd.de</p>
+    </div>
+
+    <hr class="highlight-divider">
+
+    <h1 class="color-brightTurquoise text-step-4 center-text">{{ ctfl.pageMembers.title }}</h1>
+
+    <div class="grid-switcher" style="
+      --gs-columns-lg: 3;
+      --gs-columns-md: 3;
+      --gs-columns-sm: 2;
+      --gs-gap: var(--space-2xl);
+      --gs-bp-md: 45rem;
+      ">
+      {% for member in ctfl.pageMembers.members %}
+        {% set logo = member.fields.logo %}
+        {% if member.fields.link %}
+          <a href="{{ member.fields.link }}" target="_blank">
+          {% else %}
+            <span>
+            {% endif %}
+            {% ctflPicture
+          imgObj = logo,
+          fit = "fill",
+          imgWidth = "1200",
+          formats = ["png", "svg"],
+          alt = member.fields.name,
+          widths = [300, 600],
+          sizes = "(min-width: 72.5em) 800px, 100vw",
+          classes = "member"
+        %}
+            {% if member.fields.link %}
+            </a>
+          {% else %}
+          </span>
+        {% endif %}
+      {% endfor %}
     </div>
   </div>
 

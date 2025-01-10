@@ -2,14 +2,20 @@
 <!DOCTYPE html>
 <html lang="de" class="no-js">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     {% include "partials/meta-info.html" %}
 
     <script>
-      document.documentElement.classList.remove("no-js");
-      document.documentElement.classList.add("js-active");
+      document
+        .documentElement
+        .classList
+        .remove("no-js");
+      document
+        .documentElement
+        .classList
+        .add("js-active");
     </script>
 
     <link rel="preload" href="/fonts/IBMPlexSans-Text-subset.woff2" as="font" type="font/woff2" crossorigin>
@@ -19,31 +25,42 @@
 
     <script>
       /* Font loading: Critical FOFT with preload, see: https://www.zachleat.com/web/comprehensive-webfonts/#critical-foft-with-preload */
-      (function() {
-        if( "fonts" in document ) {
+      (function () {
+        if ("fonts" in document) {
 
           {% if env.nodeenv === 'production' %}
             // Optimization for Repeat Views
-            if( sessionStorage.fontsLoadedCriticalFoftPreload ) {
+            if (sessionStorage.fontsLoadedCriticalFoftPreload) {
               document.documentElement.className += " fonts-loaded-2";
               return;
             }
           {% endif %}
 
-          document.fonts.load("1em 'IBM Plex Sans Subset'").then(function () {
-            document.documentElement.className += " fonts-loaded-1";
+          document
+            .fonts
+            .load("1em 'IBM Plex Sans Subset'")
+            .then(function () {
+              document.documentElement.className += " fonts-loaded-1";
 
-            Promise.all([
-              document.fonts.load("300 1em 'IBM Plex Sans'"),
-              document.fonts.load("400 1em 'IBM Plex Sans'"),
-              document.fonts.load("700 1em 'IBM Plex Sans'"),
-            ]).then(function () {
-              document.documentElement.className += " fonts-loaded-2";
+              Promise
+                .all([
+                  document
+                    .fonts
+                    .load("300 1em 'IBM Plex Sans'"),
+                  document
+                    .fonts
+                    .load("400 1em 'IBM Plex Sans'"),
+                  document
+                    .fonts
+                    .load("700 1em 'IBM Plex Sans'")
+                ])
+                .then(function () {
+                  document.documentElement.className += " fonts-loaded-2";
 
-              // Optimization for Repeat Views
-              sessionStorage.fontsLoadedCriticalFoftPreload = true;
+                  // Optimization for Repeat Views
+                  sessionStorage.fontsLoadedCriticalFoftPreload = true;
+                });
             });
-          });
         }
       })();
     </script>
@@ -58,21 +75,25 @@
     {# Add facility for pages to declare an array of stylesheet paths #}
     {% if pageStylesheets %}
       {% for item in pageStylesheets %}
-        <link rel="stylesheet" media="print" href="{{ item }}?{{ assetHash }}" onload="this.media='all'" />
+        <link rel="stylesheet" media="print" href="{{ item }}?{{ assetHash }}" onload="this.media='all'"/>
       {% endfor %}
     {% endif %}
   </head>
 
   <body data-background="{{'keyvisual' if keyvisual == "true" }}" {{ "class=chrome-hidden" if hideChrome == "true"}}>
-    {% if not (hideChrome == "true") %}
+    {% if not(hideChrome == "true") %}
       {% include "partials/site-head.html" %}
+
+      <a href="/{{ ctfl.pageEnglisch.title | slug }}/" class="language-sticky">
+        {% icon icon = "flag" %}
+      </a>
     {% endif %}
 
     <main tabindex="-1" id="main-content">
       {% block content %}{% endblock %}
     </main>
 
-    {% if not (hideChrome == "true") %}
+    {% if not(hideChrome == "true") %}
       {% include "partials/site-foot.html" %}
     {% endif %}
 
@@ -84,7 +105,7 @@
 
       gsap.fromTo("html", {
         "--grid-offset": "0"
-      },{
+      }, {
         scrollTrigger: {
           toggleAction: "restart pause reverse pause",
           trigger: ".grid-background",
@@ -93,7 +114,6 @@
         "--grid-offset": "-2",
         duration: 4
       });
-
     </script>
   </body>
 </html>

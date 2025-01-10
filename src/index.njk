@@ -29,24 +29,25 @@ keyvisual: "true"
   <div class="section-intro stack-2xl">
     <div class="wrapper | stack-s" style="--wrapper-max-width: 53rem;">
       <h1 class="color-brightTurquoise text-step-4" lang="en" aria-label="10 times digital health">
-        <span aria-hidden="true">10{% include "svg/x.svg" %}digital health</span></h1>
+        {{ ctfl.pageHome.title }}</h1>
       {{ ctfl.pageHome.intro | renderRichTextAsHtml | safe }}
     </div>
 
     <hr class="highlight-divider">
   </div>
-
+  <p></p>
   <div class="section-ten-x">
     <div class="wrapper" style="--wrapper-max-width: 88rem;">
-      {% picture
-        src = "./src/images/lights.jpg",
-        alt = "",
-        widths = [300, 500, 960],
-        sizes = "(min-width: 60em) 60rem, 100vw",
-        formats = ["avif", "webp", "jpg"]
-      %}
+
+      {% ctflPicture
+            imgObj = ctfl.pageHome.imageAndText,
+            alt = "",
+            widths = [300, 500, 960],
+            sizes = "(min-width: 60em) 60rem, 100vw",
+            formats = ["avif", "webp", "jpg"]
+          %}
       <p style="position: relative;" class="text-step-3 uppercase center-text leading-flat weight-bold">
-        Bring <abbr tabindex="0" class="abbr-popup | color-brightTurquoise" title="10 x kommt aus der Raumfahrt und bedeutet, etwas mindestens 10 x besser zu machen (statt inkrementell) und hat sich als Sinnbild für exponentielle Technologien etabliert.">10x</abbr> foreward Digital Health and Next Generation Healthcare
+        {{ ctfl.pageHome.imageAndText.fields.title }}
       </p>
     </div>
   </div>
