@@ -34,7 +34,7 @@ module.exports = async (content, outputPath) => {
       ],
       css: cssFiles,
       safelist: {
-        standard: [/^md/, /^lg/, /lyt-activated/],
+        standard: [/^md/, /^lg/, /lyt-activated/, /lite-youtube/],
         greedy: [/role$/],
       },
       keyframes: true,
