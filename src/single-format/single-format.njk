@@ -76,11 +76,18 @@ permalink: "formate/{{ format.fields.title | slugify }}/index.html"
                     </dl>
                 {% endif %}
             </div>
-            {% if format.fields.registrationLink %}
-                <a href="{{format.fields.registrationLink}}" target="_blank" class="button button--full-width">Anmelden</a>
-            {% elif format.fields.registrationEmail%}
-                <a href="mailto:{{format.fields.registrationEmail}}" class="button button--full-width">Anmelden</a>
-            {% endif %}
+
+            <div class="stack-s">
+                {% if format.fields.registrationLink %}
+                    <a href="{{format.fields.registrationLink}}" target="_blank" class="button button--full-width">Anmelden</a>
+                {% elif format.fields.registrationEmail%}
+                    <a href="mailto:{{format.fields.registrationEmail}}" class="button button--full-width">Anmelden</a>
+                {% endif %}
+
+                {% if format.fields.programPdf %}
+                    <a class="button button--full-width" href="{{ format.fields.programPdf.fields.file.url}}" target="_blank">Programm</a>
+                {% endif %}
+            </div>
         </div>
     </div>
 

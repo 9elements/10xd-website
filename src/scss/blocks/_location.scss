@@ -2,10 +2,6 @@
   &__image {
     position: relative;
 
-    img {
-      filter: brightness(105%) contrast(110%) grayscale(1);
-    }
-
     &:after {
       content: "";
       position: absolute;
@@ -23,4 +19,3 @@
     }
   }
 }
-
