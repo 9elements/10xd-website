@@ -1,13 +1,10 @@
 ---
 title: "Event"
 layout: "layouts/home.njk"
-permalink:
-  serverless: /event/
+permalink: '/event'
 keyvisual: "true"
 hideChrome: "true"
 ---
-
-
 
 <div class="keyvisual">
   <div class="center-logo">
@@ -30,6 +27,23 @@ hideChrome: "true"
     </svg>
   </div>
 </div>
-{% if eleventy.serverless.query.eventText %}
-  <h1 class="text-step-4 center-text">{{ eleventy.serverless.query.eventText}}</h1>
-{% endif %}
+<h1 class="text-step-4 center-text" id="headline">10xDoc-Präsentationsfolie</h1>
+
+<script>
+  // Funktion zum Auslesen von URL-Parametern
+  function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    let value = urlParams.get(param);
+    return value
+      ? value.replace(/\+/g, ' ')
+      : null;
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const headline = document.getElementById("headline");
+    const text = getQueryParam("eventText"); // Holt 'eventText' aus der URL
+    if (text) {
+      headline.textContent = text;
+    }
+  });
+</script>
