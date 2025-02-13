@@ -1,28 +1,32 @@
 {
   "items": [
     {
+      "text": "Home",
+      "url": "/"
+    },
+    {
       "text": "Leistungen",
       "url": "/leistungen/"
-    },
-    {
-      "text": "Formate",
-      "url": "/formate/"
-    },
-    {
-      "text": "Standorte",
-      "url": "/standorte/"
-    },
-    {
-      "text": "Members",
-      "url": "/members/"
     },
     {
       "text": "Magazin",
       "url": "/magazin/"
     },
     {
-      "text": "Medien",
-      "url": "/medien/"
+      "text": "Membership",
+      "url": "/membership/"
+    },
+    {
+      "text": "Events",
+      "url": "/events/"
+    },
+    {
+      "text": "Media",
+      "url": "/media/"
+    },
+    {
+      "text": "Presse",
+      "url": "/presse/"
     },
     {
       "text": "Kontakt",

@@ -69,17 +69,23 @@ body[data-background="keyvisual"]:before {
 
 @keyframes rainbow {
   0%,
-  20%,
-  100% {
+  25% {
     background-color: #6a115b;
   }
-  33.333%,
-  53.333% {
+  25%,
+  50% {
+    background-color: #4207b4;
+  }
+  50%,
+  75% {
+    background-color: #079a91;
+  }
+  75%,
+  100% {
     background-color: #32065b;
   }
-  66.666%,
-  86.666% {
-    background-color: #079a91;
+  100% {
+    background-color: #6a115b; /* Wiederhole die Startfarbe */
   }
 }
 

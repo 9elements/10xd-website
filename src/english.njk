@@ -1,0 +1,29 @@
+---
+title: 10xD
+layout: "layouts/home.njk"
+permalink: /{{ ctfl.pageEnglisch.title | slug }}/
+---
+
+<div class="stack-2xl" style="position: relative;">
+  <div class="wrapper stack-2xl" style="padding-block-start: var(--space-3xl);">
+    <div class="wrapper stack-m" style="--wrapper-max-width: 64ch;">
+      <h2 class="color-brightTurquoise text-step-4">{{ ctfl.pageEnglisch.headline }}</h2>
+      <p class="letterspace">
+        {{ ctfl.pageEnglisch.text | renderRichTextAsHtml | safe }}
+      </p>
+    </div>
+
+    <hr class="highlight-divider">
+
+    <div style="margin-inline:auto; width: fit-content;">
+      {% ctflPicture
+        imgObj = ctfl.pageEnglisch.image,
+        alt = "",
+        widths = [300, 500, 800, 1024],
+        sizes = "(min-width: 72.5em) 800px, 100vw",
+        imgWidth="2048"
+      %}
+    </div>
+  </div>
+
+</div>

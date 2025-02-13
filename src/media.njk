@@ -1,10 +1,11 @@
 ---
-title: "Medien"
+title: "Media"
 layout: "layouts/home.njk"
-permalink: /medien/
+permalink: /media/
 ---
 
 <div class="stack-3xl">
+
   <div class="wrapper stack-xl" style="padding-block-start: var(--space-2xl);">
     <h1 class="color-brightTurquoise text-step-4 sr-only">Medien</h1>
     <ul class="board-grid board-grid--media | stack-xl-2xl">
@@ -76,8 +77,9 @@ permalink: /medien/
                 --gs-gap-vertical: 2rem;
                 ">
       {% for id in ctfl.pageMedia.videoIds %}
-        {% set videoId = id %}
-        {% include "partials/youtube.html" %}
+        <div class="youtube">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ id }}?si=T8hs0XaJdn8jDJ_8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
       {% endfor %}
     </div>
   </section>
