@@ -9,7 +9,7 @@ const renderRichTextAsHtml = require("./src/filters/render-rich-text-as-html.js"
 const renderRichTextAsString = require("./src/filters/render-rich-text-as-string.js");
 
 // Plugins
-const svgSprite = require('eleventy-plugin-svg-sprite');
+const svgSprite = require("eleventy-plugin-svg-sprite");
 
 // Transforms
 const htmlMinTransform = require("./src/transforms/html-min-transform.js");
@@ -50,23 +50,23 @@ module.exports = (config) => {
     require("./src/shortcodes/picture.js")
   );
   config.addNunjucksShortcode(
-    'ctflPicture',
-    require('./src/shortcodes/ctflPicture.js')
+    "ctflPicture",
+    require("./src/shortcodes/ctflPicture.js")
   );
   config.addNunjucksAsyncShortcode(
     "board",
     require("./src/shortcodes/board.js")
   );
   config.addPairedNunjucksAsyncShortcode(
-    'ctflDownload',
-    require('./src/shortcodes/ctflDownload.js')
+    "ctflDownload",
+    require("./src/shortcodes/ctflDownload.js")
   );
 
   // Plugins
   config.addPlugin(svgSprite, {
-    path: './src/icons',
+    path: "./src/icons",
     // relative path to SVG directory
-    outputFilepath: './dist/icons/icons.svg',
+    outputFilepath: "./dist/icons/icons.svg",
   });
 
   // Only minify HTML if we are in production because it slows builds _right_ down
