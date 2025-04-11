@@ -114,43 +114,26 @@ export const ctflPictureShortcode = (ctflImage) => {
     urlPath: "/assets/images/ctfl",
     outputDir: "dist/assets/images/ctfl",
     filenameFormat: function (id, src, width, format, options) {
-      // Log files saved to dist
-      // console.log(
-      //   `${imgId}-${imgWidth}x${imgHeight}-${width}w-${fit}-${focus}.${format}`
-      // );
       return `${imgId}-${imgWidth}x${imgHeight}-${width}w-${fit}-${focus}.${format}`;
     },
   };
 
-  let stats;
-  let imageAttributes;
+  eleventyImage(imgUrl, options);
 
-  if (!process.env.ELEVENTY_SERVERLESS) {
-    // generate images, while this is async we don’t wait
-    eleventyImage(imgUrl, options);
+  const stats = eleventyImage.statsByDimensionsSync(
+    imgUrl,
+    imgWidth,
+    imgHeight,
+    options
+  );
 
-    stats = eleventyImage.statsByDimensionsSync(
-      imgUrl,
-      imgWidth,
-      imgHeight,
-      options
-    );
+  const imageAttributes = {
+    alt: alt,
+    loading: "lazy",
+    decoding: "async",
+    sizes: sizes,
+    class: classes,
+  };
 
-    imageAttributes = {
-      alt: alt,
-      loading: "lazy",
-      decoding: "async",
-      sizes: sizes,
-      class: classes,
-    };
-  }
-
-  let generatedPicture;
-
-  if (process.env.ELEVENTY_SERVERLESS) {
-    generatedPicture = `<picture><img src="${imgUrl}" class="${classes}" alt=""></picture>`;
-  } else {
-    generatedPicture = eleventyImage.generateHTML(stats, imageAttributes);
-  }
-  return generatedPicture;
+  return eleventyImage.generateHTML(stats, imageAttributes);
 };

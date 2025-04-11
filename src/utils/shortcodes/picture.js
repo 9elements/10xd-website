@@ -32,24 +32,12 @@ export const pictureShortcode = async (picture) => {
   cacheOptions.directory = ".cache";
   cacheOptions.removeUrlQueryParams = false;
 
-  let metadata;
-  if (process.env.ELEVENTY_SERVERLESS) {
-    metadata = eleventyImage.statsSync(src, {
-      widths: widths,
-      formats: formats,
-      outputDir: "./dist/assets/images/ctfl/",
-      urlPath: "/assets/images/ctfl/",
-      //cacheOptions: cacheOptions,
-    });
-  } else {
-    metadata = await eleventyImage(src, {
-      widths: widths,
-      formats: formats,
-      outputDir: "./dist/assets/images/ctfl/",
-      urlPath: "/assets/images/ctfl/",
-      //cacheOptions: cacheOptions,
-    });
-  }
+  const metadata = await eleventyImage(src, {
+    widths: widths,
+    formats: formats,
+    outputDir: "./dist/assets/images/ctfl/",
+    urlPath: "/assets/images/ctfl/",
+  });
 
   let imageAttributes = {
     class: imgClass,
