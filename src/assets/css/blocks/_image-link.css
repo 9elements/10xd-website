@@ -1,0 +1,80 @@
+.image-link {
+  aspect-ratio: 16/9;
+  max-height: 25rem;
+  font-weight: var(--weight-light);
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  background-color: var(--color-violet);
+  background-size: cover;
+  background-position: center center;
+  text-decoration: none;
+  padding: var(--space-s);
+  transition: outline-offset 0.2s ease-out;
+  outline-offset: -2px;
+  width: 100%;
+  margin-inline: auto;
+  position: relative;
+
+  > span {
+    position: relative;
+    z-index: 3;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  > .image-link__overlay {
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-purple);
+    z-index: 1;
+    mix-blend-mode: color;
+    opacity: 0.3;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(0deg, var(--color-purple), transparent);
+    background-size: 100% 50%;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    z-index: 1;
+  }
+
+  &:focus::before {
+    outline: 4px solid var(--color-bright-turquoise);
+    outline-offset: -8px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background-image: linear-gradient(var(--color-violet), var(--color-violet)),
+      linear-gradient(
+        var(--color-bright-turquoise),
+        var(--color-bright-turquoise)
+      );
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+    background-size: 0 100%;
+    background-repeat: no-repeat, no-repeat;
+    opacity: 0;
+    border: 1px solid transparent;
+    transition: opacity 0.3s ease-out, background-size 0.1s 0.4s ease-out;
+  }
+  &:hover::after {
+    transition: background-size 0.3s ease-out;
+    background-size: 100% 100%, 180% 100%;
+    opacity: 1;
+  }
+
+  @media (--md) {
+    aspect-ratio: 13/9;
+  }
+}

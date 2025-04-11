@@ -1,0 +1,42 @@
+@layer fonts, reset, layout, utils, blocks;
+
+@import "./_media.css";
+@import "./_fonts.css" layer(fonts);
+@import "./_reset.css" layer(reset);
+
+@import-glob "./blocks/**/_*.css" layer(blocks);
+@import-glob "./layout/**/_*.css" layer(layout);
+@import-glob "./utilities/**/_*.css" layer(utils);
+
+@import "tailwindcss/base" layer(reset);
+@import "tailwindcss/components" layer(layout);
+@import "tailwindcss/utilities" layer(utils);
+
+html {
+  font-size: clamp(100%, 35.7% + 0.71vw, 125%);
+}
+
+body {
+  font-family: "IBM Plex Sans", sans-serif;
+  background: var(--color-violet);
+  color: var(--color-white);
+  font-size: var(--text-step-0);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: var(--leading-flat);
+  text-transform: uppercase;
+}
+
+::selection {
+  color: var(--color-violet);
+
+  background-color: var(--color-bright-turquoise);
+}
+
+address {
+  font-style: normal;
+}

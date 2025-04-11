@@ -1,0 +1,120 @@
+.magazine {
+  .format {
+    align-items: stretch;
+    align-content: stretch;
+
+    .adjust {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .button {
+        width: fit-content;
+      }
+    }
+  }
+}
+
+.magazine__articles {
+  width: calc(100% - 24rem);
+  margin-left: auto;
+
+  @media (max-width: 83em) {
+    width: 100%;
+  }
+}
+
+.magazine__article {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 1;
+
+  .divider {
+    height: 2px;
+    width: 40%;
+    background-color: var(--color-persian-rose);
+  }
+
+  h2 {
+    text-transform: none;
+    hyphens: auto;
+  }
+
+  .article__link {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+
+    &::before {
+      content: "";
+      background-image: linear-gradient(
+          var(--color-violet),
+          var(--color-violet)
+        ),
+        linear-gradient(var(--color-persian-rose), var(--color-persian-rose));
+      background-clip: padding-box, border-box;
+      background-origin: padding-box, border-box;
+      background-size: 0 100%;
+      background-repeat: no-repeat, no-repeat;
+      border: 2px solid transparent;
+      position: absolute;
+      top: calc(var(--space-xs) * -1);
+      left: calc(var(--space-xs) * -1);
+      right: calc(var(--space-xs) * -1);
+      bottom: 0;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.2s ease-out, background-size 0.1s 0.3s ease-out;
+    }
+
+    @media (any-pointer: fine) and (any-hover: hover) {
+      &:hover::before {
+        transition: background-size 0.5s ease-out;
+        background-size: 100% 100%, 180% 100%;
+        opacity: 1;
+      }
+    }
+
+    &:focus-visible {
+      outline: 1px solid var(--color-persian-rose);
+      outline-offset: var(--space-xs);
+    }
+  }
+}
+
+.magazine__article--premium {
+  pointer-events: none;
+
+  .content {
+    pointer-events: none;
+    opacity: 0.3;
+  }
+
+  .premium-content {
+    pointer-events: all;
+    inset: 0;
+    position: absolute;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    button {
+      background: transparent;
+      margin-top: clamp(5rem, 14vw, 7rem);
+      cursor: pointer;
+    }
+  }
+
+  .premium-badge {
+    position: absolute;
+    left: 1rem;
+    bottom: -0.8rem;
+    background-color: var(--color-violet);
+    color: var(--color-persian-rose);
+    padding-inline: 0.5rem;
+  }
+}

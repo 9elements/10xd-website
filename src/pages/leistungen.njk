@@ -1,0 +1,35 @@
+---
+title: "Leistungen"
+layout: "layouts/home.njk"
+permalink: /leistungen/
+---
+
+<div class="grid-background">
+  <div class="wrapper stack-xl" style="padding-block-start: var(--space-2xl);">
+    <h1 class="text-bright-turquoise text-step-4 sr-only">Leistungen</h1>
+    <div class="grid-switcher" style="
+      --gs-columns-lg: 2;
+      --gs-gap: var(--space-2xl);
+      --gs-bp-md: 45rem;
+    ">
+      {% for service in ctfl.pageServices.services %}
+        <article aria-label="{{ service.fields.title }}" class="service stack-xs" id="{{ service.fields.title | slug }}" style="scroll-margin-top: var(--space-l);">
+          {% ctflPicture
+            imgObj = service.fields.image,
+            alt = "",
+            imgWidth="800",
+            imgHeight="400",
+            fit="fill",
+            widths=[300, 556, 800],
+            sizes = "(min-width: 50em) 34.75rem, 100vw"
+          %}
+          <h2 class="text-step-1 weight-light text-persian-rose my-stack-space-m">{{ service.fields.title }}</h2>
+          <p class="letterspace">{{ service.fields.description | markdown | safe }}</p>
+          {% if service.fields.link %}
+            <a href="/{{ service.fields.link }}/" class="format__link"></a>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</div>

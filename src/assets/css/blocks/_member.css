@@ -1,0 +1,74 @@
+.member {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+  max-height: 6rem;
+}
+
+.memberships {
+  & .icon {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 4rem;
+    margin-inline: auto;
+    box-shadow: 0px 4px 50px rgba(0, 255, 209, 0.7);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      width: 10rem;
+      height: 0.8rem;
+      background: linear-gradient(
+        90deg,
+        rgba(217, 217, 217, 0.3) 0%,
+        rgba(217, 217, 217, 0.6) 40.1%,
+        rgba(217, 217, 217, 0) 100%
+      );
+      filter: blur(6px);
+      transform: rotate(45deg);
+      position: absolute;
+      top: 30%;
+      right: -40%;
+    }
+  }
+
+  & .icon--white {
+    background-color: #fff;
+
+    &::before {
+      background: linear-gradient(
+        90deg,
+        rgba(217, 217, 217, 0.7) 0%,
+        rgba(217, 217, 217, 1) 40.1%,
+        rgba(217, 217, 217, 3) 100%
+      );
+    }
+  }
+
+  & .icon--black {
+    background-color: var(--color-black);
+
+    &::before {
+      opacity: 0.6;
+    }
+  }
+
+  & .icon--platin {
+    background-color: #a69b9d;
+
+    &::before {
+      background: linear-gradient(
+        90deg,
+        rgba(217, 217, 217, 0.7) 0%,
+        rgba(217, 217, 217, 1) 40.1%,
+        rgba(217, 217, 217, 3) 100%
+      );
+    }
+  }
+
+  & .icon--individual {
+    background-color: var(--color-persian-rose);
+  }
+}
