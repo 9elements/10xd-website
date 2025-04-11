@@ -4,10 +4,11 @@
   "description": "Boilerplate for basic 11ty page",
   "main": ".eleventy.js",
   "scripts": {
-    "start": "node src/utils/build/contentful/index.js && eleventy --serve --incremental",
-    "start-production": "NODE_ENV=production eleventy --serve --incremental",
-    "production": "NODE_ENV=production eleventy",
-    "serve": "npx serve dist -p 8080"
+    "start": "npm run get-data && eleventy --serve --incremental",
+    "start-production": "npm run get-data && NODE_ENV=production eleventy --serve --incremental",
+    "production": "npm run get-data && NODE_ENV=production eleventy",
+    "serve": "npx serve dist -p 8080",
+    "get-data": "node src/utils/build/contentful/index.js"
   },
   "keywords": [],
   "author": "",

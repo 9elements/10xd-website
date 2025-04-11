@@ -1,4 +1,5 @@
 import fs from "fs";
+import path from "path";
 
 import ctflBoards from "./data/boards.js";
 import ctflFormats from "./data/formats.js";
@@ -40,7 +41,7 @@ const ctflData = {
 };
 
 // directory path
-const dir = "src/_data/ctfl";
+const dir = path.resolve(process.cwd(), "src/_data/ctfl");
 
 // create new directory
 try {
