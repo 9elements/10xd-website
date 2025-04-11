@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   /**
    * Returns back some attributes based on wether the
    * link is active or a parent of an active item
@@ -20,13 +20,6 @@ module.exports = {
 
     return response;
   },
-
-  sameDay(dayOne, dayTwo) {
-    dateDayOne = new Date(dayOne);
-    dateDayTwo = new Date(dayTwo);
-    return dateDayOne.getDate() === dateDayTwo.getDate();
-  },
-
 
   /**
    * Filters out the passed item from the passed collection
@@ -87,13 +80,18 @@ module.exports = {
       return x.fields.title != title;
     });
   },
+
   getFutureFormats(collection) {
     const futureFormats = collection.filter((entry) => {
       return !entry.fields.isOver;
     });
-  
-    return futureFormats;
-  
-  }
-  };
 
+    return futureFormats;
+  },
+
+  isSameDay(dayOne, dayTwo) {
+    const dateDayOne = new Date(dayOne);
+    const dateDayTwo = new Date(dayTwo);
+    return dateDayOne.getDate() === dateDayTwo.getDate();
+  },
+};

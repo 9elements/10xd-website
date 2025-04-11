@@ -1,0 +1,112 @@
+---
+title: "10xD"
+layout: "layouts/home.njk"
+permalink: /
+keyvisual: "true"
+---
+
+{% include "partials/newsletter-abo-sticky.njk" %}
+
+<div class="keyvisual">
+  <div class="center" aria-hidden="true">
+    {% picture
+      alt = "",
+      src = "./src/assets/images/bubble.webp",
+      widths = [300, 400, 643],
+      sizes = "(min-width: 40em) 40.1875rem, 100vw",
+      formats = ["webp", "png"],
+      class = "bubble",
+      loading = "eager"
+    %}
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-1 -1 804 804" aria-hidden="true">
+      <path pathLength="100" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m601 1 200 100-200 100M601 183.3V1l-92.3 46.3M601 401V201l200 100-200 100ZM601 401V201L401 301M601 401l200 100-200 100M401 501l200 100M601 801V601l200 100-200 100ZM401 701l200 100V601M401 501V301M201 401l200 100V301M401 701V501L201 601M201 92.4V1l93.6 46.9M220.4 191 201 201M201 1 1 101l200 100" />
+      <path pathLength="100" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M201 401V201l200 100M101 250 1 301l200 100V201M48.9 477.6 1 501l200 100M401 701 201 801V601M88.4 657 1 701l200 100V601M1 101v200M1 501v200M801 101v200M801 501v200" />
+    </svg>
+  </div>
+</div>
+
+<div class="stack-3xl">
+  <div class="section-intro stack-2xl">
+    <div class="wrapper | stack-s" style="--wrapper-max-width: 53rem;">
+      <h1 class="text-bright-turquoise text-step-4" lang="en" aria-label="10 times digital health">
+        {{ ctfl.pageHome.title }}</h1>
+      {{ ctfl.pageHome.intro | renderRichTextAsHtml | safe }}
+    </div>
+
+    <hr class="highlight-divider">
+  </div>
+  <p></p>
+  <div class="section-ten-x">
+    <div class="wrapper" style="--wrapper-max-width: 88rem;">
+      {% ctflPicture
+        imgObj = ctfl.pageHome.imageAndText,
+        alt = "",
+        widths = [300, 500, 960],
+        sizes = "(min-width: 60em) 60rem, 100vw",
+        formats = ["avif", "webp", "jpg"]
+      %}
+      <p style="position: relative;" class="uppercase text-step-3 text-center leading-flat weight-bold">
+        {{ ctfl.pageHome.imageAndText.fields.title }}
+      </p>
+    </div>
+  </div>
+
+  <div class="section-services grid-background">
+    <div class="wrapper">
+      <h2 class="sr-only" lang="en">10xd Boards</h2>
+
+      <ul class="board-grid">
+        {% for board in ctfl.pageHome.boards %}
+          <li>{% board board %}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-partner">
+    <div class="wrapper">
+      <h2 class="sr-only">Partner</h2>
+      <div class="grid-switcher" style="
+        --gs-columns-lg: 2;
+        --gs-gap: var(--space-2xl);
+        --gs-bp-md: 50rem;
+      ">
+        <details-utils close-esc animate>
+          <details class="partner-list">
+            <summary class="uppercase text-step-2 weight-light">Kooperations-Partner</summary>
+            <ul>
+              {% for partner in ctfl.cooperationPartner %}
+                <li>{{ partner.fields.companyName }}</li>
+              {% endfor %}
+            </ul>
+          </details>
+        </details-utils>
+        <details-utils close-esc animate>
+          <details class="partner-list">
+            <summary class="uppercase text-step-2 weight-light">Medienpartner</summary>
+            <ul>
+              {% for partner in ctfl.mediaPartner %}
+                <li>{{ partner.fields.companyName }}</li>
+              {% endfor %}
+            </ul>
+          </details>
+        </details-utils>
+      </div>
+    </div>
+  </div>
+
+  <a href="mailto:info@10xd.de" class="join-link | text-bright-turquoise uppercase text-step-2 leading-flat weight-bold"  style="padding-block-start: var(--space-2xl);">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-2 -2 425 425" aria-hidden="true">
+      <path stroke-width="2" stroke="currentColor" d="M421 52.6 315.7 0 210.6 52.6 105.2 0 0 52.6V158l105.3 52.6L0 263.1v105.3L105.3 421l105.2-52.6L315.8 421 421 368.4V263l-105.3-52.6L421 157.9V52.6Z" />
+    </svg>
+    <span>Join<br>10XD</span>
+  </a>
+
+  <div class="wrapper">
+    <figure>
+      <blockquote class="text-step-2 text-center weight-light">
+        <span aria-hidden="true">PLATTFORM UND ÖKOSYSTEM FÜR DIGITALE GESUNDHEIT</span>
+      </blockquote>
+    </figure>
+  </div>
+</div>

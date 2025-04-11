@@ -1,0 +1,30 @@
+---
+title: "Event"
+layout: "layouts/home.njk"
+permalink: /event/
+keyvisual: "true"
+hideChrome: "true"
+---
+
+<div class="keyvisual">
+  <div class="center-logo">
+    {% include "svg/10xd.svg" %}
+  </div>
+  <div class="center" aria-hidden="true">
+    <picture>
+      <source type="image/webp"
+        srcset="/assets/images/bubble.webp">
+      <source type="image/png"
+        src="images/bubble.png">
+      <img class="bubble" alt="" loading="eager" decoding="async"
+        src="/assets/images/bubble.png" width="643" height="643"></picture>
+
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 802 802">
+      <path pathLength="100" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m601 1 200 100-200 100M601 183.3V1l-92.3 46.3M601 401V201l200 100-200 100ZM601 401V201L401 301M601 401l200 100-200 100M401 501l200 100M601 801V601l200 100-200 100ZM401 701l200 100V601M401 501V301M201 401l200 100V301M401 701V501L201 601M201 92.4V1l93.6 46.9M220.4 191 201 201M201 1 1 101l200 100" />
+      <path pathLength="100" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M201 401V201l200 100M101 250 1 301l200 100V201M48.9 477.6 1 501l200 100M401 701 201 801V601M88.4 657 1 701l200 100V601M1 101v200M1 501v200M801 101v200M801 501v200" />
+    </svg>
+  </div>
+</div>
+<h1 class="text-center text-step-4" id="headline">10xDoc-Präsentationsfolie</h1>
+
+{% script src = "event.js" %}

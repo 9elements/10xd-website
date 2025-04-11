@@ -1,0 +1,91 @@
+---
+title: "Media"
+layout: "layouts/home.njk"
+permalink: /media/
+---
+
+<div class="stack-3xl">
+
+  <div class="wrapper stack-xl" style="padding-block-start: var(--space-2xl);">
+    <h1 class="sr-only text-bright-turquoise text-step-4">Medien</h1>
+    <ul class="board-grid board-grid--media">
+      <li>
+        <a class="image-link | text-step-2 uppercase leading-tight weight-light" href="{{ ctfl.pageMedia.linkPodcast }}" style="background-image: url('../assets/images/podcast.jpg');">
+          <span class="image-link__overlay"></span></span>
+        <span aria-hidden="true" class="weight-bold">10xD</span>
+        <span>Podcast</span>
+      </a>
+    </li>
+
+    <li>
+      <a class="image-link | text-step-2 uppercase leading-tight weight-light" href="{{ ctfl.pageMedia.linkVideocast }}" style="background-image: url('../assets/images/videocast.jpg');">
+        <span class="image-link__overlay"></span></span>
+      <span aria-hidden="true" class="weight-bold">10xD</span>
+      <span>Videocast</span>
+    </a>
+  </li>
+
+  <li>
+    <a class="image-link | text-step-2 uppercase leading-tight weight-light" href="{{ ctfl.pageMedia.linkNewsletterAbo }}" style="background-image: url('../assets/images/newsletter.jpg');">
+      <span class="image-link__overlay"></span></span>
+    <span aria-hidden="true" class="weight-bold">10xD</span>
+    <span>Newsletter</span>
+  </a>
+</li>
+</ul>
+</div>
+
+<div class="section">
+<div class="wrapper" style="padding-block-start: var(--space-2xl);">
+
+<div class="media-tabs stack-l-xl">
+  <ul>
+    <li>
+      <a class="button" href="#section1" id="fotos">Fotos</a>
+    </li>
+    <li>
+      <a class="button" href="#section2" id="videos">Videos</a>
+    </li>
+  </ul>
+  <section id="section1" class="media-tabs__photos">
+    <div class="grid">
+      <div class="grid-sizer"></div>
+      {% for photo in ctfl.pageMedia.photos %}
+        <div class="grid-item">
+          {% ctflPicture
+                  imgObj = photo,
+                  fit = "fill",
+                  imgWidth = "1720",
+                  alt = "",
+                  widths = [430, 860],
+                  sizes = "(min-width: 72.5em) 433px, 100vw",
+                  classes = "person__image"
+                %}
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section id="section2 media-tabs__videos">
+    <div class="grid-switcher" style="
+                --gs-columns-sm: 1;
+                --gs-bp-md: 35rem;
+                --gs-columns-md: 2;
+                --gs-bp-lg: 65rem;
+                --gs-columns-lg: 3;
+                --gs-gap: 2rem;
+                --gs-gap-vertical: 2rem;
+                ">
+      {% for id in ctfl.pageMedia.videoIds %}
+        <div class="youtube">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ id }}?si=T8hs0XaJdn8jDJ_8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+</div>
+</div>
+</div>
+
+{% script src = "media.js" %}

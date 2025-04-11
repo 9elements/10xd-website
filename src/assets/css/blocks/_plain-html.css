@@ -1,0 +1,32 @@
+.plain-html {
+  h1 {
+    font-size: var(--text-step-3);
+    color: var(--color-bright-turquoise);
+  }
+
+  h2 {
+    font-size: var(--text-step-1);
+  }
+  > * + * {
+    margin-top: 0.75em;
+  }
+
+  h2 {
+    margin-top: 1.5em;
+  }
+
+  a {
+    text-decoration-color: var(--color-bright-turquoise);
+    transition: outline-offset 0.2s ease-out;
+
+    &:hover {
+      color: var(--color-bright-turquoise);
+    }
+
+    &:focus-visible {
+      outline: 1px solid var(--color-bright-turquoise);
+      color: var(--color-bright-turquoise);
+      outline-offset: 4px;
+    }
+  }
+}

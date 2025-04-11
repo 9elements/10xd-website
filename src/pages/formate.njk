@@ -1,0 +1,91 @@
+---
+title: "Events"
+layout: "layouts/home.njk"
+permalink: /events/
+---
+
+<div class="grid-background stack-2xl">
+  <div class="wrapper stack-xl" style="padding-block-start: var(--space-2xl);">
+    <h1 class="sr-only text-bright-turquoise text-step-4">{{ ctfl.pageFormats.title }}</h1>
+
+    <div class="stack-xl-2xl">
+      {% set futureFormats = helpers.getFutureFormats(ctfl.formats) %}
+      {# {% for format in futureFormats | reverse %} #}
+      {% for format in ctfl.formats %}
+        {% set url = "/formate/" + format.fields.title | slugify %}
+        <article aria-label="{{ format.fields.title }}" class="format | sidebar-left"
+          style="
+            --sidebar-width: clamp(40rem, 60vw, 50rem);
+            --sidebar-gap: var(--space-l);
+            --sidebar-gap-vertical: var(--space-s);
+            --sidebar-threshold: 20rem;
+            flex-direction: row-reverse;"
+        >
+          <div>
+            {% ctflPicture
+              imgObj = format.fields.image,
+              fit = "fill",
+              imgWidth = "1024",
+              imgHeight = "340",
+              alt = "",
+              widths = [300, 500, 800, 1024],
+              sizes = "(min-width: 72.5em) 800px, 100vw",
+              classes = "format__image"
+            %}
+          </div>
+          <div class="stack-2xs">
+            <h2 class="uppercase text-step-1" style="hyphens: auto;">{{ format.fields.title }}</h2>
+            <p class="letterspace">
+              {{ format.fields.location }}, {{ format.fields.startDate | formatDate("dd. MMMM yyyy") }}<br>
+              Tickets: {{ format.fields.ticketCount}}<br>{{ format.fields.ticketStatus }}
+            </p>
+
+            {% if format.fields.singlePage %}
+              <a href="{{ url }}" class="format__link">
+                <span class="sr-only">Zum Format: {{ format.fields.title }}</span></a>
+            {% elif not format.fields.singlePage and format.fields.link %}
+              <a href="{{ format.fields.link }}" class="format__link" target="_blank">
+                <span class="sr-only">Zum Format: {{ format.fields.title }}</span></a>
+            {% endif %}
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+
+    <hr class="highlight-divider">
+
+  </div>
+
+  <div class="text-center stack-l">
+    <h2 class="text-step-4">Impressionen</h2>
+    <div class="slider">
+      <div class="slider__row">
+        {% for image in ctfl.pageFormats.impressions %}
+          {% ctflPicture
+          imgObj = image,
+          imgHeight = 800,
+          fit = "fill",
+          widths = [none],
+          sizes = [none]
+ %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="wrapper stack-2xl" style="--wrapper-max-width: 80rem;">
+
+    <hr class="highlight-divider">
+
+    <div class="stack-m text-center">
+      <h2 class="text-step-4" >Live Mode</h2>
+      <form class="event-form" action="/event" target="_blank">
+        <div class="event-form__inputgroup">
+          <label for="eventText">Slide Text:</label>
+          <input type="text" id="eventText" name="eventText" value="Innovative Formate im Gesundheitswesen">
+        </div>
+        <input type="submit" value="Slide anzeigen" class="uppercase weight-bold">
+      </form>
+    </div>
+  </div>
+</div>

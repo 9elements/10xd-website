@@ -1,0 +1,80 @@
+.button {
+  display: inline-block;
+  color: var(--color-bright-turquoise);
+  border: 1px solid currentColor;
+  text-decoration: none;
+  padding: var(--space-2xs) var(--space-xs);
+  text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+
+  &::before {
+    content: "";
+    background-image: linear-gradient(
+        var(--color-bright-turquoise),
+        var(--color-bright-turquoise)
+      ),
+      linear-gradient(var(--color-persian-rose), var(--color-persian-rose));
+    background-size: 0 100%;
+    background-repeat: no-repeat, no-repeat;
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.2s ease-out, background-size 0s 0.2s ease-out;
+  }
+
+  @media (any-pointer: fine) and (any-hover: hover) {
+    &:hover {
+      color: var(--color-violet);
+    }
+    &:hover::before {
+      transition: background-size 0.3s ease-out;
+      background-size: 100% 100%, 180% 100%;
+      opacity: 1;
+    }
+  }
+
+  &:focus-visible {
+    outline: 1px solid var(--color-bright-turquoise);
+    outline-offset: var(--space-3xs);
+  }
+
+  &[role="tab"] {
+    color: var(--color-persian-rose);
+
+    &::before {
+      content: "";
+      background-image: linear-gradient(
+          var(--color-persian-rose),
+          var(--color-persian-rose)
+        ),
+        linear-gradient(
+          var(--color-bright-turquoise),
+          var(--color-bright-turquoise)
+        );
+    }
+
+    @media (any-pointer: fine) and (any-hover: hover) {
+      &:hover {
+        color: var(--color-black);
+      }
+    }
+
+    &[aria-selected] {
+      background-color: var(--color-persian-rose);
+      color: var(--color-black);
+      border: 1px solid var(--color-persian-rose);
+    }
+  }
+
+  &[aria-disabled] {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+}
+
+.button--full-width {
+  width: 100%;
+  text-align: center;
+}

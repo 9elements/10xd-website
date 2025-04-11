@@ -1,0 +1,93 @@
+---
+title: "Membership"
+layout: "layouts/home.njk"
+permalink: /membership/
+---
+
+<div class="stack-2xl">
+  <div class="wrapper stack-2xl" style="padding-block-start: var(--space-3xl);">
+
+    <div class="wrapper | stack-xs text-center" style="--wrapper-max-width: 53rem;">
+      <h2 class="text-step-4" lang="en" aria-label="Next Level Healthcare">
+        <span aria-hidden="true">Memberships</span></h2>
+    </div>
+
+    <div class="memberships | wrapper | grid-switcher" style="
+          --gs-gap: 4rem;
+          --gs-gap-vertical: 4rem;">
+      <div class="stack-s | text-center">
+        <div class="icon icon--white"></div>
+        <div>
+          <p class="uppercase text-step-1">White</p>
+          <p class="text-step-0">Startups, Scaleups Verbände</p>
+        </div>
+      </div>
+
+      <div class="stack-s | text-center">
+        <div class="icon icon--black"></div>
+        <div>
+          <p class="uppercase text-step-1">Black</p>
+          <p class="text-step-0">etablierte Leistungserbringer</p>
+        </div>
+      </div>
+
+      <div class="stack-s | text-center">
+        <div class="icon icon--platin"></div>
+        <div>
+          <p class="uppercase text-step-1">Platin</p>
+          <p class="text-step-0">Pharma, Medtech, Consulting</p>
+        </div>
+      </div>
+
+      <div class="stack-s | text-center">
+        <div class="icon icon--individual"></div>
+        <div>
+          <p class="uppercase text-step-1">Individual</p>
+          <p class="text-step-0">> Platin</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact | text-center | stack-s">
+      <a class="button" href="mailto:info@10xd.de?subject=10xD Membership beantragen">Member werden</a>
+      <p>info@10xd.de</p>
+    </div>
+
+    <hr class="highlight-divider">
+
+    <h1 class="text-bright-turquoise text-step-4 text-center">{{ ctfl.pageMembers.title }}</h1>
+
+    <div class="grid-switcher" style="
+      --gs-columns-lg: 3;
+      --gs-columns-md: 3;
+      --gs-columns-sm: 2;
+      --gs-gap: var(--space-2xl);
+      --gs-bp-md: 45rem;
+      ">
+      {% for member in ctfl.pageMembers.members %}
+        {% set logo = member.fields.logo %}
+        {% if member.fields.link %}
+          <a href="{{ member.fields.link }}" target="_blank">
+          {% else %}
+            <span>
+            {% endif %}
+            {% ctflPicture
+          imgObj = logo,
+          fit = "fill",
+          imgWidth = "1200",
+          formats = ["png", "svg"],
+          alt = member.fields.name,
+          widths = [300, 600],
+          sizes = "(min-width: 72.5em) 800px, 100vw",
+          classes = "member"
+        %}
+            {% if member.fields.link %}
+            </a>
+          {% else %}
+          </span>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+</div>

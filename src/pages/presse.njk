@@ -1,0 +1,68 @@
+---
+title: "Presse"
+layout: "layouts/home.njk"
+permalink: /presse/
+---
+
+<div class="stack-2xl" style="position: relative;">
+  <div class="wrapper stack-2xl" style="padding-block-start: var(--space-2xl);">
+    <h1 class="sr-only text-bright-turquoise text-step-4">Presse</h1>
+    <h2 class="sr-only">Downloads</h2>
+    <div class="auto-grid" style="
+      --auto-grid-min-size: 23rem;
+      --auto-grid-gap: var(--space-xl);
+      --auto-grid-gap-vertical: var(--space-l);"
+      >
+      <div class="download-item stack-s">
+        {% picture
+          src = "./src/assets/images/logo-download.png",
+          alt = "",
+          widths = [300, 500, 800],
+          sizes = "(min-width: 60em) 60rem, 100vw",
+          formats = ["avif", "webp", "jpg"]
+        %}
+        <h3 class="font-step-2 weight-light text-persian-rose">Logo</h3>
+        <p class="letterspace my-stack-space-3xs">Innovative Events und Happenings von Closed-Shop-Events bis hin zu Kongressen im Gesundheitswesen.</p>
+        <a href="/downloads/10xD_Logodaten.zip" class="button">Download <span class="sr-only">Logodaten</span></a>
+      </div>
+
+      {% if ctfl.pagePress.pressRelease.length > 0 %}
+        <div class="download-item stack-s">
+          <h3 class="font-step-2 weight-light text-persian-rose">Downloads</h3>
+          <ul class="press-list | text-step-0" role="list">
+            {% for download in ctfl.pagePress.pressRelease %}
+              <li>
+                <span class="press-list__date">{{ download.fields.date | readableDate({month: "numeric", day: "numeric", year: "numeric"}) }}</span>
+                {% set downloadTitle = download.fields.date | readableDate({month: "numeric", day: "numeric", year: "numeric"}) + "-10xD-Pressemitteilung" %}
+                {% ctflDownload downloadObj = download.fields.file,
+                title = downloadTitle | slugify %}
+                {{ download.fields.title }}
+                {% endctflDownload %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    </div>
+
+    <hr class="highlight-divider">
+
+    <div class="text-center wrapper stack-m" style="--wrapper-max-width: 64ch;">
+      <h2 class="text-bright-turquoise text-step-4">{{ ctfl.pagePress.textTitle }}</h2>
+      <p class="letterspace">
+        {{ ctfl.pagePress.text }}
+      </p>
+      <a href="/downloads/10xD.vcf" class="button">Kontakt speichern</a>
+    </div>
+
+    <hr class="highlight-divider">
+
+    <a href="mailto:info@10xd.de" class="join-link | text-bright-turquoise uppercase text-step-2 leading-flat weight-bold">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-2 -2 425 425" aria-hidden="true">
+        <path stroke-width="2" stroke="currentColor" d="M421 52.6 315.7 0 210.6 52.6 105.2 0 0 52.6V158l105.3 52.6L0 263.1v105.3L105.3 421l105.2-52.6L315.8 421 421 368.4V263l-105.3-52.6L421 157.9V52.6Z" />
+      </svg>
+      <span>Join<br>10XD</span>
+    </a>
+  </div>
+
+</div>

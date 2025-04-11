@@ -1,0 +1,37 @@
+.join-link {
+  width: 8.4em;
+  min-height: 8.4em;
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+  margin-inline: auto;
+
+  > * {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  > svg {
+    width: 100%;
+  }
+
+  &:hover {
+    svg {
+      fill: var(--color-bright-turquoise);
+    }
+    color: var(--color-violet);
+  }
+
+  &:focus-visible {
+    outline: none;
+    svg path {
+      stroke-width: 3px;
+      stroke-dasharray: 12px;
+    }
+
+    span {
+      outline: 1px solid var(--color-bright-turquoise);
+      outline-offset: 1.25rem;
+    }
+  }
+}
