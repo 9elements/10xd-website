@@ -9,9 +9,6 @@ import { renderRichTextAsString } from "./src/utils/filters/render-rich-text-as-
 import { toISODate } from "./src/utils/filters/to-iso-date.js";
 import { formatDate } from "./src/utils/filters/format-date.js";
 
-// Plugins
-import fs from "node:fs";
-
 // Transforms
 import { purgeCSS } from "./src/utils/transforms/css-purge-inline.js";
 
@@ -26,6 +23,7 @@ import { ctflDownloadShortcode } from "./src/utils/shortcodes/contentful-downloa
 // Other
 import buildSystem from "@cagov/11ty-build-system";
 import { globPlugin } from "esbuild-plugin-glob";
+import fs from "node:fs";
 import path from "path";
 
 // Get the current directory
