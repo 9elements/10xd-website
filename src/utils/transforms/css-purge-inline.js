@@ -15,7 +15,7 @@ const insertCss = (html, css) => {
 };
 
 export const purgeCSS = async (content, outputPath) => {
-  if (outputPath && outputPath.endsWith(".njk")) {
+  if (outputPath && outputPath.endsWith(".html")) {
     //array of css files to combine
     const cssFiles = ["./dist/assets/css/global.css"];
 
