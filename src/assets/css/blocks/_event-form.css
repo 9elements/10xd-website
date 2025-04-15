@@ -9,7 +9,7 @@
     padding: var(--space-2xs) var(--space-xs);
     border: none;
     color: var(--color-violet);
-    background: rgba(get-color("violet"), 0.2);
+    background-color: color-mix(in srgb, var(--color-violet) 20%, transparent);
     cursor: pointer;
     flex-basis: max-content;
     flex-grow: 1;

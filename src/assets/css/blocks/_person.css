@@ -48,13 +48,13 @@
   position: absolute;
   right: var(--space-2xs);
   top: var(--space-2xs);
-  background: rgba(get-color("violet"), 0.4);
+  background: color-mix(in srgb, var(--color-violet) 40%, transparent);
   transition: background 0.2s ease-out;
   z-index: 3;
   margin: 0;
 
   &:hover {
-    background: rgba(get-color("violet"), 0.9);
+    background: color-mix(in srgb, var(--color-violet) 90%, transparent);
   }
 }
 
