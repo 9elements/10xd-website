@@ -6,6 +6,7 @@ pagination:
 magazine: true
 eleventyComputed:
   title: "{{ article.fields.headline }}"
+  heroImageUrl: "{{ article.fields.author.fields.portrait | getSocialImagePath }}"
 layout: "layouts/home.njk"
 permalink: "magazin/{{article.magazine | slugify }}/{{ article.fields.headline | slugify }}/index.html"
 ---
@@ -16,10 +17,10 @@ permalink: "magazin/{{article.magazine | slugify }}/{{ article.fields.headline |
         imgObj = article.fields.author.fields.portrait,
         fit = "fill",
         focus = "face",
-        imgWidth = "1193",
+        imgWidth = "1200",
         imgHeight = "492",
         alt = "",
-        widths = [300, 500, 800, 1193],
+        widths = [300, 500, 800, 1200],
         sizes = "(min-width: 72.5em) 1500px, 100vw",
         classes = "single-format__image"
         %}
@@ -31,12 +32,12 @@ permalink: "magazin/{{article.magazine | slugify }}/{{ article.fields.headline |
       {{ article.fields.text | renderRichTextAsHtml | safe  }}
       {% set url = "/magazin#" + ctfl.magazines.fields.focus | slugify %}
 
-      {% if paginationButtons.previousButton %}
-        <a href="/magazin/{{article.magazine | slugify }}/{{ paginationButtons.previousButton | slugify }}" class="button">Vorheriger Artikel</a>
+      {% if article.previousArticleHeadline %}
+        <a href="/magazin/{{ article.magazine | slugify }}/{{ article.previousArticleHeadline | slugify }}" class="button">Vorheriger Artikel</a>
       {% endif %}
 
-      {% if paginationButtons.nextButton %}
-        <a href="/magazin/{{article.magazine | slugify }}/{{ paginationButtons.nextButton | slugify }}" class="button">Nächster Artikel</a>
+      {% if article.nextArticleHeadline %}
+        <a href="/magazin/{{ article.magazine | slugify }}/{{ article.nextArticleHeadline | slugify }}" class="button">Nächster Artikel</a>
       {% endif %}
 
     </div>

@@ -8,7 +8,7 @@ permalink: /kontakt/
 
   <div class="grid-background">
     <div class="wrapper stack-xl" style="padding-block-start: var(--space-2xl);">
-      <h1 class="text-bright-turquoise text-step-4 sr-only">{{ ctfl.pageLocations.title }}</h1>
+      <h1 class="sr-only text-bright-turquoise text-step-4">{{ ctfl.pageLocations.title }}</h1>
 
       {% for location in ctfl.pageLocations.locations %}
         <article class="location | sidebar-left"
@@ -30,7 +30,7 @@ permalink: /kontakt/
           %}
           </div>
           <div class="stack-2xs">
-            <h2 class="text-step-1 uppercase my-stack-space-s">{{ location.fields.title }}</h2>
+            <h2 class="uppercase text-step-1 my-stack-space-s">{{ location.fields.title }}</h2>
             <p class="letterspace">{{ location.fields.address | markdown | safe }}</p>
           </div>
         </article>
@@ -49,7 +49,7 @@ permalink: /kontakt/
         Schadowplatz 12<br>
         40212 Düsseldorf<br>
         Mail: <a href="mailto:info@10xd.de">info@10xd.de</a><br>
-        Web: <a href="www.10xd.de">www.10xd.de</a><br><br>
+        Web: <a href="https://10xd.de">www.10xd.de</a><br><br>
         Geschäftsführer: Adam Gründer<br>
         Amtsgericht Düsseldorf HRB 98989
         </p>

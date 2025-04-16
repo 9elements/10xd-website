@@ -1,0 +1,29 @@
+
+html {
+  font-size: clamp(100%, 35.7% + 0.71vw, 125%);
+}
+
+body {
+  font-family: "IBM Plex Sans", sans-serif;
+  background: var(--color-violet);
+  color: var(--color-white);
+  font-size: var(--text-step-0);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: var(--leading-flat);
+  text-transform: uppercase;
+}
+
+::selection {
+  color: var(--color-violet);
+
+  background-color: var(--color-bright-turquoise);
+}
+
+address {
+  font-style: normal;
+}
