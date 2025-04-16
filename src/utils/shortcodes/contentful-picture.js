@@ -104,8 +104,6 @@ export const ctflPictureShortcode = (ctflImage) => {
     "&h=" +
     imgHeight;
 
-  //console.log(imgUrl);
-
   let options;
 
   options = {

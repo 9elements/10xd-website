@@ -2,23 +2,24 @@
 import { svgToSymbols } from "./src/utils/build/svg-to-symbols.js";
 
 // Filters
+import { formatDate } from "./src/utils/filters/format-date.js";
 import { markdownFilter } from "./src/utils/filters/markdown.js";
 import { readableDateFilter } from "./src/utils/filters/readable-date.js";
 import { renderRichTextAsHtml } from "./src/utils/filters/render-rich-text-as-html.js";
 import { renderRichTextAsString } from "./src/utils/filters/render-rich-text-as-string.js";
 import { toISODate } from "./src/utils/filters/to-iso-date.js";
-import { formatDate } from "./src/utils/filters/format-date.js";
+import { getSocialImageFilter } from "./src/utils/filters/get-social-image.js";
 
 // Transforms
 import { purgeCSS } from "./src/utils/transforms/css-purge-inline.js";
 
 // Shortcodes
 import { boardShortcode } from "./src/utils/shortcodes/board.js";
+import { ctflDownloadShortcode } from "./src/utils/shortcodes/contentful-download.js";
 import { ctflPictureShortcode } from "./src/utils/shortcodes/contentful-picture.js";
 import { iconShortcode } from "./src/utils/shortcodes/icon.js";
 import { pictureShortcode } from "./src/utils/shortcodes/picture.js";
 import { scriptShortcode } from "./src/utils/shortcodes/script.js";
-import { ctflDownloadShortcode } from "./src/utils/shortcodes/contentful-download.js";
 
 // Other
 import buildSystem from "@cagov/11ty-build-system";
@@ -65,6 +66,7 @@ export default function EleventyConfig(config) {
   config.addFilter("limit", (arr, limit) => arr.slice(0, limit));
   config.addFilter("renderRichTextAsHtml", renderRichTextAsHtml);
   config.addFilter("renderRichTextAsString", renderRichTextAsString);
+  config.addFilter("getSocialImagePath", getSocialImageFilter);
 
   // Add Shortcodes
   config.addShortcode("icon", iconShortcode);

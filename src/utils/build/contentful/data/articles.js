@@ -35,6 +35,27 @@ export default async () => {
       order: "-fields.publicationDate",
     });
 
+    const findPreviousArticleInMagazine = (
+      magazineArticles,
+      currentArticle
+    ) => {
+      const articleIndexInMagazine = magazineArticles.findIndex(
+        (magazineArticle) => magazineArticle.sys.id === currentArticle.sys.id
+      );
+
+      if (articleIndexInMagazine === -1) return null;
+      return magazineArticles?.[articleIndexInMagazine - 1]?.fields?.headline;
+    };
+
+    const findNextArticleInMagazine = (magazineArticles, currentArticle) => {
+      const articleIndexInMagazine = magazineArticles.findIndex(
+        (magazineArticle) => magazineArticle.sys.id === currentArticle.sys.id
+      );
+
+      if (articleIndexInMagazine === -1) return null;
+      return magazineArticles?.[articleIndexInMagazine + 1]?.fields?.headline;
+    };
+
     // Map articles to their corresponding magazine focus
     const items = articles.map((item) => {
       magazines.forEach((magazine) => {
@@ -45,7 +66,26 @@ export default async () => {
           item.magazine = magazine.fields.focus;
         }
       });
+
       return item;
+    });
+
+    magazines.forEach((magazine) => {
+      magazine.fields.articles.forEach((article) => {
+        const matchingItem = items.find(
+          (item) => item.sys.id === article.sys.id
+        );
+
+        matchingItem.previousArticleHeadline = findPreviousArticleInMagazine(
+          magazine.fields.articles,
+          matchingItem
+        );
+
+        matchingItem.nextArticleHeadline = findNextArticleInMagazine(
+          magazine.fields.articles,
+          matchingItem
+        );
+      });
     });
 
     return items;
