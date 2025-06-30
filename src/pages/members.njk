@@ -4,55 +4,57 @@ layout: "layouts/home.njk"
 permalink: /membership/
 ---
 
-<div class="stack-2xl">
-  <div class="wrapper stack-2xl" style="padding-block-start: var(--space-3xl);">
+<div class="wrapper stack-3xl" style="padding-block-start: var(--space-3xl);">
 
-    <div class="wrapper | stack-xs text-center" style="--wrapper-max-width: 53rem;">
-      <h2 class="text-step-4" lang="en" aria-label="Next Level Healthcare">
-        <span aria-hidden="true">Memberships</span></h2>
-    </div>
+  <div class="wrapper | stack-m text-center" style="--wrapper-max-width: 53rem;">
+    <h2 class="text-step-4" lang="en" aria-label="Next Level Healthcare">
+      <span aria-hidden="true">Memberships</span></h2>
+    <p class="text-step-0">{{ ctfl.pageMembers.intro }}</p>
+    <a href="/assets/images/10xD-memberships.pdf" class="button">Pakete ansehen</a>
+  </div>
 
-    <div class="memberships | wrapper | grid-switcher" style="
-          --gs-gap: 4rem;
-          --gs-gap-vertical: 4rem;">
-      <div class="stack-s | text-center">
-        <div class="icon icon--white"></div>
-        <div>
-          <p class="uppercase text-step-1">White</p>
-          <p class="text-step-0">Startups, Scaleups Verbände</p>
-        </div>
-      </div>
-
-      <div class="stack-s | text-center">
-        <div class="icon icon--black"></div>
-        <div>
-          <p class="uppercase text-step-1">Black</p>
-          <p class="text-step-0">etablierte Leistungserbringer</p>
-        </div>
-      </div>
-
-      <div class="stack-s | text-center">
-        <div class="icon icon--platin"></div>
-        <div>
-          <p class="uppercase text-step-1">Platin</p>
-          <p class="text-step-0">Pharma, Medtech, Consulting</p>
-        </div>
-      </div>
-
-      <div class="stack-s | text-center">
-        <div class="icon icon--individual"></div>
-        <div>
-          <p class="uppercase text-step-1">Individual</p>
-          <p class="text-step-0">> Platin</p>
-        </div>
+  <div class="memberships | wrapper | grid-switcher" style="
+        --gs-gap: 4rem;
+        --gs-gap-vertical: 4rem;">
+    <div class="stack-s | text-center">
+      <div class="icon icon--white"></div>
+      <div>
+        <p class="uppercase text-step-1">White</p>
+        <p class="text-step-0">Startups, Scaleups Verbände</p>
       </div>
     </div>
 
-    <div class="contact | text-center | stack-s">
-      <a class="button" href="mailto:info@10xd.de?subject=10xD Membership beantragen">Member werden</a>
-      <p>info@10xd.de</p>
+    <div class="stack-s | text-center">
+      <div class="icon icon--black"></div>
+      <div>
+        <p class="uppercase text-step-1">Black</p>
+        <p class="text-step-0">etablierte Leistungserbringer</p>
+      </div>
     </div>
 
+    <div class="stack-s | text-center">
+      <div class="icon icon--platin"></div>
+      <div>
+        <p class="uppercase text-step-1">Platin</p>
+        <p class="text-step-0">Pharma, Medtech, Consulting</p>
+      </div>
+    </div>
+
+    <div class="stack-s | text-center">
+      <div class="icon icon--individual"></div>
+      <div>
+        <p class="uppercase text-step-1">Individual</p>
+        <p class="text-step-0">> Platin</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact | text-center | stack-s">
+    <a class="button" href="mailto:info@10xd.de?subject=10xD Membership beantragen">Member werden</a>
+    <p>info@10xd.de</p>
+  </div>
+
+  <div class="stack-xl">
     <hr class="highlight-divider">
 
     <h1 class="text-bright-turquoise text-step-4 text-center">{{ ctfl.pageMembers.title }}</h1>
@@ -89,5 +91,4 @@ permalink: /membership/
       {% endfor %}
     </div>
   </div>
-
 </div>

@@ -6,6 +6,18 @@ permalink: /magazin/
 
 {% include "partials/magazine-abo-sticky.njk" %}
 
+<div class="wrapper | stack-m" style="padding-block-start: var(--space-l); --wrapper-max-width: 85rem;">
+  <hr class="highlight-divider">
+  <h2 class="text-bright-turquoise text-step-2 text-center">Übersicht</h2>
+  <ul class="auto-grid" role="list" style="
+      --auto-grid-max-columns: 3;
+    ">
+    {% for magazine in ctfl.magazines %}
+      <li><a class="button" href="#{{ magazine.fields.focus | slugify }}" style="display: flex; flex-direction: column; width: 100%; text-transform: unset; height: 100%;"><span class="text-step--2 weight-bold text-persian-rose" style="flex-shrink: 0;">Ausgabe {{loop.revindex}}</span> {{ magazine.fields.focus }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+
 <div class="grid-background stack-2xl | magazine">
   <div class="wrapper stack-xl" style="padding-block-start: var(--space-2xl);">
     <h1 class="sr-only text-bright-turquoise text-step-4">10xD Magazin</h1>

@@ -1,16 +1,8 @@
 {
   "items": [
     {
-      "text": "Home",
-      "url": "/"
-    },
-    {
       "text": "Leistungen",
       "url": "/leistungen/"
-    },
-    {
-      "text": "Magazin",
-      "url": "/magazin/"
     },
     {
       "text": "Membership",
@@ -21,11 +13,19 @@
       "url": "/events/"
     },
     {
-      "text": "Media",
+      "text": "Magazin",
+      "url": "/magazin/"
+    },
+    {
+      "text": "Medien",
       "url": "/media/"
     },
     {
-      "text": "Presse",
+      "text": "Podcast",
+      "url": "https://open.spotify.com/show/59OAQDc5Rj0tUg2afHb2Va"
+    },
+    {
+      "text": "Downloads",
       "url": "/presse/"
     },
     {
