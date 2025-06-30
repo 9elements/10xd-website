@@ -1,0 +1,49 @@
+---
+title: "Podcast"
+layout: "layouts/home.njk"
+permalink: /podcast/
+---
+
+<div class="wrapper stack-3xl" style="padding-block-start: var(--space-3xl);">
+
+  <div class="wrapper | stack-m text-center" style="--wrapper-max-width: 53rem;">
+    <h2 class="text-bright-turquoise text-step-4">{{ ctfl.pagePodcast.title }}</h2>
+    <p class="text-step-0">{{ ctfl.pagePodcast.intro | renderRichTextAsHtml | safe }}</p>
+  </div>
+
+  <div class="wrapper | stack-l" style="--wrapper-max-width: 60rem;">
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/59OAQDc5Rj0tUg2afHb2Va?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  </div>
+
+  <div class="stack-xl">
+    <hr class="highlight-divider">
+
+    <div class="sidebar-left" style="
+        --sidebar-width: 25rem;
+        --sidebar-gap: var(--space-xl);
+      ">
+      <div>
+        {% ctflPicture
+          imgObj = ctfl.pagePodcast.hostImage,
+          fit = "fill",
+          focus = "face",
+          imgWidth = "1200",
+          imgHeight = "800",
+          alt = "",
+          widths = [300, 500, 800, 1200],
+          sizes = "(min-width: 72.5em) 1500px, 100vw",
+          classes = "single-format__image"
+          %}
+      </div>
+
+      <div class="stack-m">
+        <div>
+          <h2 class="text-bright-turquoise weight-light text-step-1">Host</h2>
+          <h3 class="text-step-1 weight-light text-persian-rose my-stack-space-m">{{ ctfl.pagePodcast.hostHeadline }}</h3>
+        </div>
+        <p class="letterspace">{{ ctfl.pagePodcast.hostIntro | renderRichTextAsHtml | safe }}</p>
+        <a href="https://open.spotify.com/show/59OAQDc5Rj0tUg2afHb2Va?si=4a0e2c18c19f4e28" target="blank" class="button button--bg-color">Auf Spotify reinhören</a>
+      </div>
+    </div>
+  </div>
+</div>

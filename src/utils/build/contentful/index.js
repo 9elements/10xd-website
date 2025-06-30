@@ -12,6 +12,7 @@ import ctflPageHome from "./data/pageHome.js";
 import ctflPageServices from "./data/pageServices.js";
 import ctflPageLocations from "./data/pageLocations.js";
 import ctflPageMedia from "./data/pageMedia.js";
+import ctflPagePodcast from "./data/pagePodcast.js";
 import ctflPageMembers from "./data/pageMembers.js";
 import ctflTextPages from "./data/textPages.js";
 import ctflPagePress from "./data/pagePress.js";
@@ -28,6 +29,7 @@ const ctflData = {
   pageHome: ctflPageHome,
   pageLocations: ctflPageLocations,
   pageMedia: ctflPageMedia,
+  pagePodcast: ctflPagePodcast,
   pageMembers: ctflPageMembers,
   pageServices: ctflPageServices,
   textPages: ctflTextPages,

@@ -74,6 +74,10 @@
   }
 }
 
+.button--bg-color {
+    background: var(--color-violet);
+  }
+
 .button--full-width {
   width: 100%;
   text-align: center;

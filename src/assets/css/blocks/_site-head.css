@@ -14,7 +14,7 @@
       transition: 0.2s ease-out;
       text-decoration: none;
       transition-property: background-size, outline-offset;
-      font-size: clamp(1rem, 2vw, 1.8rem);
+      font-size: clamp(1rem, 2vw, 1.2rem);
 
       &:focus-visible {
         outline: 1px solid var(--color-bright-turquoise);

@@ -17,12 +17,12 @@
       "url": "/magazin/"
     },
     {
-      "text": "Medien",
-      "url": "/media/"
+      "text": "Podcast",
+      "url": "/podcast/"
     },
     {
-      "text": "Podcast",
-      "url": "https://open.spotify.com/show/59OAQDc5Rj0tUg2afHb2Va"
+      "text": "Medien",
+      "url": "/media/"
     },
     {
       "text": "Downloads",
